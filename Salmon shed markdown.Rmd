@@ -1,0 +1,95 @@
+---
+title: "Salmon Shed Temp and pH"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+    theme: sandstone
+    highlight: zenburn
+    toc: true
+    toc_depth: 4
+    toc_float: true
+  word_document: default
+editor_options:
+  chunk_output_type: inline
+
+---
+#Overview
+Simple plot showing pH and temperate output from UDA logs over time
+
+```{r}
+#libraries
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+
+```{r}
+#read in csv file
+setwd("C:/Users/Danielle.Perez/Documents/2018 crabs/Crab Data Management/Juveniles")
+d <- read.csv("2018 SS UDA Log.csv", 
+                stringsAsFactors=FALSE,  header = TRUE)
+#View(d)
+```
+
+```{r}
+#Use tidyr to gather data neatly by tank
+g <- gather(d, key="tank", value="value",T4.pH:T1.temp, na.rm = TRUE)
+#View(g)
+```
+
+
+```{r}
+#Change DateTime format so R is happy
+str(d)
+g$NewDate <- as.POSIXct(strptime(g$Date, "%m/%e/%Y"))
+```
+
+
+```{r}
+# Subset temp and pH
+pHdata<-subset(g, tank=="T1.pH" | tank=="T2.pH" | tank=="T4.pH" | tank=="T5.pH"| tank=="T6.pH")
+tempdata<-subset(g, tank=="T1.temp" | tank=="T2.temp" | tank=="T4.temp" | tank=="T5.temp"| tank=="T6.temp")
+
+#Make tank factor, temp numeric
+pHdata$value<-as.numeric(pHdata$value)
+tempdata$value<-as.numeric(tempdata$value)
+```
+
+
+```{r}
+#Pretty scatter plot of all Tanks
+p <- ggplot(pHdata, aes(NewDate, value ))  + geom_point(aes(colour = tank))
+p + ggtitle("pH of Salmon Shed Tanks") + xlab("Date") + ylab("pH") + ylim(c(7,8))
+
+p <- ggplot(tempdata, aes(NewDate, value))  + geom_point(aes(colour = tank))
+p + ggtitle("Temperature of Salmon Shed Tanks") + xlab("Date") + ylab("Temperature") + ylim(c(7, 15))
+```
+
+```{r}
+#Cool facetwrap graph
+p <- ggplot(pHdata, aes(NewDate, value, colour = tank)) + 
+   geom_point() + ggtitle("All Tanks") + xlab("Time") + ylab("pH") +  ylim(c(7, 8)) +
+   facet_wrap(~ tank)
+p
+
+p <- ggplot(tempdata, aes(NewDate, value, colour = tank)) + 
+   geom_point() + ggtitle("All Tanks") + xlab("Time") + ylab("Temperature") +  ylim(c(7, 15)) +
+   facet_wrap(~ tank)
+p
+```
+
+
+```{r}
+#Calcuate mean and standard deviation for each Tank
+pH_Avg <- tapply(pHdata$value, (pHdata$tank), mean)
+pH_Std <- tapply(pHdata$value, (pHdata$tank), sd)
+Temp_Avg <- tapply(tempdata$value, (tempdata$tank), mean)
+Temp_Std <- tapply(tempdata$value, (tempdata$tank), sd)
+Tank_Stats <- cbind(pH_Avg, pH_Std, Temp_Avg, Temp_Std)
+colnames(Tank_Stats) [1:4] <-c("Average temp", "Temp SD", "Average pH", "pH SD")
+View(Tank_Stats)
+```
+
+
