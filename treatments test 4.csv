@@ -1,0 +1,16 @@
+Unit,UnitNumber,StartDate,EndDate,TreatmentName,pH,AdditionalTreatmentA
+Tank,1,8/1/18,8/1/20,High pH,7.8,NA
+Tank,2,8/1/18,8/1/20,Low pH,7.2,NA
+Tank,3,8/1/18,8/1/20,High pH,7.8,NA
+Tank,4,8/1/18,8/1/20,Low pH,7.2,NA
+Tank,5,8/1/18,8/1/20,High pH,7.8,NA
+Tank,6,8/1/18,8/1/20,Low pH,7.2,NA
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,

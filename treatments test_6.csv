@@ -1,0 +1,7 @@
+Unit,UnitNumber,StartDate,EndDate,TreatmentName,Tempereture,pH,AdditionalTreatmentA
+Tank,1,5/1/18,9/1/19,High pH,ambient,7.8,NA
+Tank,2,5/1/18,9/1/19,Low pH,ambient,7.2,NA
+Tank,3,5/1/18,9/1/19,High pH,ambient,7.8,NA
+Tank,4,5/1/18,9/1/19,Low pH,ambient,7.2,NA
+Tank,5,5/1/18,9/1/19,High pH,ambient,7.8,NA
+Tank,6,5/1/18,9/1/19,Low pH,ambient,7.2,NA

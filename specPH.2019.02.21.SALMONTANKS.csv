@@ -1,4 +1,4 @@
-dye batch 5_10_A,,,,,,,,,,,,,Sample,,,Sample & dye,,,,,Constants,,,Dye correction,,,Difference in 730s
+﻿dye batch 5_10_A,,,,,,,,,,,,,Sample,,,Sample & dye,,,,,Constants,,,Dye correction,,,Difference in 730s
 Spec Bag,Experiment,Unit,Unit ID,ID_1,ID_2,Time Collected,Date,Temperature C,Salinity,final dye concentration per shot (mMol/L),pH sample with dye corrections,pH of sample without correction,A 434,A 578,A 730,A 434,A 578,A 730,A1/A2,pK2,E1(HI-)/E2(HI-),E1(I-2)/E2(HI-),E2(I-2)/E2(HI-),Intercept (a),Slope (b),(A1/A2)corrected,
 7,Juvenile,Tank,1,,,11:00 AM,21-Feb-19,25,29.68,0.00095,7.54979095,7.554345431,-0.04,-0.02,0.07,0.66,0.5,0.08,0.739130435,8.016789933,0.0069,2.222,0.133,11.94137039,-5.749375923,0.731823195,-0.01
 8,Juvenile,Tank,1,,,11:00 AM,21-Feb-19,25,29.68,0.00095,7.544107659,7.548747391,0.02,0.03,0.11,0.65,0.49,0.11,0.73015873,8.016789933,0.0069,2.222,0.133,11.94137039,-5.749375923,0.722802487,0
