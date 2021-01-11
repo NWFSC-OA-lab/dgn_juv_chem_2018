@@ -519,6 +519,11 @@ pHtanklog.summary <- pHtanklog %>% group_by(treatment, sensortype) %>%
             n = n()) %>%
   mutate(se = sd/sqrt(n)) %>%
   mutate(ci = se*1.96)
+
+write.csv(pHtanklog.summary, "2021.01.08_pHtanklog.summary.csv")
+kable(pHtanklog.summary, digits = 4)
+
+
 ```
 
 
@@ -537,13 +542,30 @@ pHboxplots1 <- ggplot(pHtanklog, aes(treatment, pH)) +
                           aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
                           colour = "red") +
             # facet_wrap(~TrialID) +
-            ggtitle("Standard dSlopes Values grouped by Treatment and Corrected Slope") +
+            ggtitle("Salmon Shed pH grouped by Treatment") +
             theme_bw() 
 
 pHboxplots1
 
 ```
 
+```{r}
+pHboxplots2 <- ggplot(pHtanklog, aes(sensortype, pH)) +
+            geom_jitter(color = "grey") +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+            geom_point(data = pHtanklog.summary, aes(x=treatment, y=mean), size=5, color = "purple") +
+            geom_errorbar(data = pHtanklog.summary, 
+                          aes(x=treatment, y=mean, ymin = mean-sd, ymax = mean+sd), 
+                          color = "blue") +
+            geom_errorbar(data = pHtanklog.summary,
+                          aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
+                          colour = "red") +
+            # facet_wrap(~TrialID) +
+            ggtitle("Salmon Shed pH grouped by Sensor") +
+            theme_bw() 
+
+pHboxplots2
+```
 
 
 
