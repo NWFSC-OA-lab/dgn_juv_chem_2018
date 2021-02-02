@@ -416,11 +416,11 @@ pHdtank <- subset( dtank, select = -c(experiment,
                                          time,
                                          date,
                                          salinity,
+                                         pHat25,
                                          fileName,
                                          unit_ID,
                                          alk,
                                          insituTemp,
-                                         pHinsitu,
                                          dateString))
 
 variable.names(pHdtank)
@@ -525,7 +525,7 @@ pHtanklog.summary <- pHtanklog %>% group_by(treatment, sensortype) %>%
   mutate(se = sd/sqrt(n)) %>%
   mutate(ci = se*1.96)
 
-write.csv(pHtanklog.summary, "2021.01.08_pHtanklog.summary.csv")
+write.csv(pHtanklog.summary, "2021.02.02_pHtanklog.summary.csv")
 kable(pHtanklog.summary, digits = 4)
 
 
