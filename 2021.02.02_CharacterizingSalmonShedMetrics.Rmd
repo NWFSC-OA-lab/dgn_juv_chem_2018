@@ -71,7 +71,7 @@ library(kableExtra)
 
 
 
-### 1.) Setting Working Directory
+# 1.) Setting Working Directory
 ```{r 1.) Setting Working Directory, echo=FALSE, results=FALSE, message=FALSE, warning=FALSE }
 #*********************************
 ## 1.) Setting Working Directory
@@ -82,7 +82,7 @@ setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
 ```
 
 
-### 2.) Creating the Dataframe
+# 2.) Creating the Dataframe
 ```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
 
 #*********************************
@@ -97,6 +97,9 @@ dtank <- read.csv(file = "2021.01.28_completeHistory_SalmonTanks.csv",
                   stringsAsFactors = FALSE)
 dim(dtank)
 
+dfSalinity <- read.csv(file = "2021.02.02_FishCareLog_salinity.csv", 
+                  stringsAsFactors = FALSE)
+
 
 ```
 Dataframes mentioned throughout the document
@@ -107,19 +110,20 @@ SPECCNDCT conductivity measurements recording for SEPC
 UDACNDCT conductivity measurements recording from Honeywell UDA probe
 
 
-
-### 3.) Creating dateTime objects 
+# 3.) Creating dateTime objects 
 ```{r 3.) Creating dateTime objects, echo=FALSE, message=FALSE, warning=FALSE }
 #*********************************
 ## 3.) Creating dateTime objects  
 #*********************************
 dtank$ObservationDate <- as.POSIXct(dtank$date, tz = "UTC", "%Y-%m-%d")
 
+dfSalinity $ObservationDate <- as.POSIXct(dfSalinity$Date, tz = "UTC", "%m/%d/%y")
+
 ```
 First Observation recorded as of August 10th 2018
 
 
-### 4.) Creating Treatments
+# 4.) Creating Treatments
 ```{r 4.) Creating Treatments, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
 ## 4.) Creating Treatments 
@@ -137,7 +141,8 @@ dtank$treatment[dtank$unit_number == "1" | dtank$unit_number== "3" | dtank$unit_
 ```
 
 
-### 5.) Timeseries Plots
+
+# 5.) Salinity Dataframes
 #### 5.1) Salinity Plots
 ```{r 5.1) Salinity Plots, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
@@ -147,7 +152,6 @@ dtank$treatment[dtank$unit_number == "1" | dtank$unit_number== "3" | dtank$unit_
 
 
 dtank$salinity <- as.numeric(dtank$salinity)
-
 
 ggplot(dtank, aes(ObservationDate, salinity)) + 
   geom_point(aes(colour=, point=)) + 
@@ -165,13 +169,13 @@ ggplot(dtank, aes(ObservationDate, salinity)) +
 ## 5.1a) Salinity Data for Timeseries Plot
 #*********************************
 
-UDAconductivity <- read.csv(file = "2018 SS UDA Log.csv", stringsAsFactors = FALSE)
+UDAconductivity <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
 dim(UDAconductivity)
 
 UDAconductivity$ObservationDate <- ""
 # UDAconductivity$Date <- as.numeric(UDAconductivity$Date)
 # UDAconductivity$ObservationDate <- as.Date(UDAconductivity$Date)
-UDAconductivity$ObservationDate<- as.POSIXct(UDAconductivity$Date, tz = "UTC", "%m/%d/%Y")
+UDAconductivity$ObservationDate<- as.POSIXct(UDAconductivity$Date, tz = "UTC", "%m/%d/%y")
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 variable.names(UDAconductivity)
@@ -222,23 +226,102 @@ dTankCNDCT <- merge(UDACNDCT, SPECCNDCT, all = TRUE)
 Determine if salinity units are both PSU
 
 
+```{r, 5.2 Salinity Values}
+
+names(dfSalinity)
+# [1] "Date"              "Species"           "Tank"              "Water.Temperature"
+# [5] "salinity"          "location"          "sensortype"        "ObservationDate"  
+
+dfSalinity$Salinity <- as.numeric(dfSalinity$Salinity)
+na.omit(dfSalinity, cols=salinity)
+
+chronoSalinity1 <- subset(dfSalinity, select = -c(Species, 
+                                         Tank,
+                                         Water.Temperature))
+
+# chronoSalinity1 <- chronoSalinity1  %>% filter(location %in% c("salmonShed"))
+# chronoSalinity1 <- subset( chronoSalinity1, select = -c(location))
+#104 of 200 observations remaining if removing another other location
+
+
+chronoSalinity1$Salinity 
+
+names(chronoSalinity1)[names(chronoSalinity1) == "Salinity"] <- "salinity"
+
+
+dTankCNDCT
+names(dTankCNDCT)
+# [1] "salinity"        "ObservationDate" "sensortype"      "treatName"       "treatpH"        
+# [6] "treatTemp"       "treatOther"      "dic"             "tankTemp"  
+
+chronoSalinity2 <- dTankCNDCT
+
+chronoSalinity2 <- subset(chronoSalinity2, select = -c(sensortype, 
+                                         treatName,
+                                         treatpH,
+                                         treatTemp,
+                                         treatOther,
+                                         dic,
+                                         tankTemp))
+
+chronoSalinity2$sensortype <- ""
+chronoSalinity2$sensortype <- "HoneywellUDA"
+
+chronoSalinity2$location <- ""
+chronoSalinity2$location <- "salmonShed"
+
+chronoSalinity <- merge(chronoSalinity1, chronoSalinity2, all = TRUE)
+
+
+```
+
+
+
+```{r}
+ggplot(chronoSalinity, aes(ObservationDate, salinity)) + 
+  geom_point(aes(colour=, point=)) + 
+  ggtitle("Salinity Values from All UDA observations in Salmon Shed") 
+```
+
+
+
+
 
 #### 5.1b) Different Salinity Probes' Data
 ```{r 5.1b) Different Salinity Probes Data, echo=FALSE, message=FALSE, warning=FALSE}
 
-PSUplot <- ggplot(dTankCNDCT, aes(x=ObservationDate, y=salinity)) + 
+
+dTankCNDCT <- merge(UDACNDCT, SPECCNDCT, all = TRUE)
+dTankCNDCT$location <- ""
+dTankCNDCT$location <- "salmonShed"
+dTANKConductivity <- merge(dTankCNDCT, chronoSalinity, all = TRUE)
+
+PSUplot <- ggplot(dTANKConductivity, aes(x=ObservationDate, y=salinity)) + 
   geom_point(aes(colour=sensortype, point=)) + 
   ggtitle("Salmon Shed Salinity Values") 
 PSUplot
 
 ```
 
+```{r}
 
-#### 5.2) pH plots per tank timeseries
-```{r 5.2) pH plots per tank timeseries, echo=FALSE, message=FALSE, warning=FALSE}
+PSUplot <- ggplot(dTANKConductivity, aes(x=ObservationDate, y=salinity)) + 
+  geom_point(aes(colour=location, point=)) + 
+  ggtitle("Salinity Values by Location") 
+PSUplot
+
+```
+
+
+
+
+
+# 6.) Water Chemistry
+#### 6.1) pH plots per tank timeseries
+```{r 6.1) pH plots per tank timeseries, echo=FALSE, message=FALSE, warning=FALSE}
 
 #*********************************
-## 5.2) pH plots -Timeseries Plots - Bringing Together UDA plots for the different tanks
+## 6.1) pH plots -Timeseries Plots - Bringing Together UDA plots for the different tanks
 #*********************************
 
 UDAtank01 <- read.csv(file = "Tank01UDALog.csv", stringsAsFactors = FALSE)
@@ -260,10 +343,10 @@ pHdtankUDA <- rbind(UDAtank06,
 
 
 
-#### 5.2a) pH plots -Timeseries Plots - UDA
-```{r 5.2a) pH plots -Timeseries Plots - UDA, echo=FALSE, message=FALSE, warning=FALSE}
+#### 6.1a) pH plots -Timeseries Plots - UDA
+```{r 6.1a) pH plots -Timeseries Plots - UDA, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
-## 5.2a) pH plots -Timeseries Plots - UDA sensor type, update dates
+## 6.1a) pH plots -Timeseries Plots - UDA sensor type, update dates
 #*********************************
 
 variable.names(pHdtankUDA)
@@ -296,10 +379,10 @@ variable.names(pHdtankUDA)
 ```
 
 
-#### 5.2a) pH plots -Timeseries Plots - UDA sensor log filtered
-```{r 5.2a) pH plots -Timeseries Plots - UDA sensor log filtered, echo=FALSE, message=FALSE, warning=FALSE}
+#### 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered
+```{r 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
-## 5.2a) pH plots -Timeseries Plots - UDA sensor log filtered
+## 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered
 #*********************************
 variable.names(pHdtankUDA)
 # [1] "experiment"      "unit"            "unit_number"     "date"            "pH"              "temp"           
@@ -353,9 +436,9 @@ ggplot(pHdtankUDA.filtered, aes(x=ObservationDate, y=pH)) +
 ```
 
 
-#### 5.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems) (Filtered 5-10 pH)
+#### 6.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems) (Filtered 5-10 pH)
 Tank 5 has early problem start problems (Data from Honeywell UDA sensor & display)
-```{r 5.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems), echo=FALSE, message=FALSE, warning=FALSE}
+```{r 6.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems), echo=FALSE, message=FALSE, warning=FALSE}
 # 
 pHdtankUDA.filtered$unit_number <- as.character(pHdtankUDA.filtered$unit_number)
 
@@ -366,8 +449,8 @@ ggplot(pHdtankUDA.filtered, aes(x=ObservationDate, y=pH)) +
 
 
 
-#### 5.3b) UDA tank data per tank (Filtered to show 6-8 pH)
-```{r 5.3b) UDA tank data per tank (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
+#### 6.3b) UDA tank data per tank (Filtered to show 6-8 pH)
+```{r 6.3b) UDA tank data per tank (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
 pHdtankUDA.filtered8.6 <- filter(pHdtankUDA,(pH>= 6 & pH<=8))
 
 pHdtankUDA.filtered8.6$unit_number <- as.character(pHdtankUDA.filtered8.6$unit_number)
@@ -382,8 +465,8 @@ Tank 01's probe experienced exceptional drift
 
 
 
-#### 5.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH)
-```{r 5.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
+#### 6.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH)
+```{r 6.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
 
 pHdtankUDA.filtered8.6 <- filter(pHdtankUDA,(pH>= 6 & pH<=8))
 
@@ -397,10 +480,10 @@ ggplot(pHdtankUDA.filtered8.6, aes(x=ObservationDate, y=pH)) +
 
 
 
-#### 5.4a) pH plots -Timeseries Plots - SPEC data 
-```{r 5.4a) pH plots -Timeseries Plots - SPEC data, echo=FALSE, message=FALSE, warning=FALSE}
+#### 6.4a) pH plots -Timeseries Plots - SPEC data 
+```{r 6.4a) pH plots -Timeseries Plots - SPEC data, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
-## 5.2a) pH plots -Timeseries Plots - SPEC data 
+## 6.2a) pH plots -Timeseries Plots - SPEC data 
 #*********************************
 variable.names(dtank)
 
@@ -472,8 +555,8 @@ variable.names(pHtanklog)
 
 
 
-#### 5.4b Water Chemistry Plots between different probe types
-```{r 5.4b) Different Salinity Probes Data}
+#### 6.4b) Water Chemistry Plots between different probe types
+```{r 6.4b) Different Salinity Probes Data}
 pHplot1 <- ggplot(pHtanklog, aes(x=ObservationDate, y=pH)) + 
   geom_point(aes(colour=sensortype, point=)) + 
   ylim(5,10) +
@@ -483,8 +566,8 @@ pHplot1
 ```
 
 
-#### 5.5c Water Chemistry Plots between different treatment timeseries
-```{r 5.5c Different Salinity Probes Data}
+#### 6.5c Water Chemistry Plots between different treatment timeseries
+```{r 6.5c Different Salinity Probes Data}
 pHplot2 <- ggplot(pHtanklog, aes(x=ObservationDate, y=pH)) + 
   geom_point(aes(colour=treatment, point=)) + 
   ylim(6.5,8.5) +
