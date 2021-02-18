@@ -139,7 +139,7 @@ dSalmonPPT$ObservationDate <- as.POSIXct(dSalmonPPT$Date, tz = "UTC", "%m/%d/%y"
 
 dShedUDA$ObservationDate <- as.POSIXct(dShedUDA$Date, tx= "UTC", "%m/%d/%y")
 
-dHOBOsalinity$ObservationDate <- dHOBOsalinity$
+# dHOBOsalinity$ObservationDate <- dHOBOsalinity$date.T
 
 ```
 First Observation recorded as of August 10th 2018

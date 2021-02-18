@@ -41,6 +41,8 @@ R.version
 ##Libraries
 #********************************* 
 library(here)
+library(reshape)
+library(reshape2)
 library(data.table)
 library(stringr)
 library(tidyverse)
@@ -88,14 +90,130 @@ library(kableExtra)
 # Working Directory Style 2 --- Relative Paths with the package here
 # read_csv(here::here("dHOBOlogger_CNDCT1", "19-26NOV18_20449374_ConductivityLogger_FactoryCAL.csv"))
 # 
-read_csv(here::here("dHOBOloggerCNDCT", "2021.02.17_dHOBOloggerCNDCT.csv")
+# read_csv(here::here("dHOBOloggerCNDCT", "2021.02.17_dHOBOloggerCNDCT.csv")
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 # # Working Directory Style 3 --- Everything one folder
-# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_Conductivity")
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
 
 
 ```
+
+
+
+# 2.) Creating the Dataframe
+```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
+
+#*********************************
+## 2.) Creating the initial Dataframe, dtank
+#*********************************
+
+
+#set working directory to the correct folder
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+
+
+
+dHOBOlogCNDCT <- read.csv(file = "2021.02.17_dHOBOloggerCNDCT.csv", 
+                  stringsAsFactors = FALSE)
+
+# dtank <- read.csv(file = "SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv", 
+#                   stringsAsFactors = FALSE)
+# dim(dtank)
+# 
+# dfSalinity <- read.csv(file = "2021.02.02_FishCareLog_salinity.csv", 
+#                   stringsAsFactors = FALSE)
+
+
+```
+
+
+
+
+
+# 3.) dataframe Cleaning 
+```{r 3.) Creating dateTime objects, echo=FALSE, message=FALSE, warning=FALSE }
+#*********************************
+## 3.) dataframe Cleaning   
+#*********************************
+
+dHOBOlogCNDCT$probeSerialNum <- ""
+dHOBOlogCNDCT$probeSerialNum <- "20449374"
+
+# dataframe2 <- dataframe2 %>% rename(df.comments = comments)
+# the existing format 4/2/19 10:21
+# dHOBOlogCNDCT <- dHOBOlogCNDCT %>% rename(dHOBOlogCNDCT$Date.Time..GMT.07.00 = dateTime)
+names(dHOBOlogCNDCT)
+
+#  [2] "dateTime"  
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(Date.Time..GMT.07.00= "dateTime"))
+
+#  [3] "Low.Range..μS.cm..LGR.S.N..20449374..SEN.S.N..20449374." 
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(Low.Range..μS.cm..LGR.S.N..20449374..SEN.S.N..20449374.= "lowRangeμS.cm"))
+
+#  [4] "High.Range..μS.cm..LGR.S.N..20449374..SEN.S.N..20449374."       
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(High.Range..μS.cm..LGR.S.N..20449374..SEN.S.N..20449374.= "highRangeμS.cm"))                      
+#  [5] "Temp...C..LGR.S.N..20449374..SEN.S.N..20449374."  
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(Temp...C..LGR.S.N..20449374..SEN.S.N..20449374.= "temperature")) 
+
+#  [6] "Specific.Conductance..μS.cm..LGR.S.N..20449374."         
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(Specific.Conductance..μS.cm..LGR.S.N..20449374.= "specificCNDCTμS.cm")) 
+
+#  [7] "Salinity..ppt..LGR.S.N..20449374."                       
+dHOBOlogCNDCT <- rename(dHOBOlogCNDCT, c(Salinity..ppt..LGR.S.N..20449374.= "salinityPPT")) 
+
+
+dHOBOlogCNDCT <- subset( dHOBOlogCNDCT, select = -c(Coupler.Detached..LGR.S.N..20449374.,
+                                         Coupler.Attached..LGR.S.N..20449374.,
+                                         Stopped..LGR.S.N..20449374.,         
+                                         End.Of.File..LGR.S.N..20449374.,
+                                         End.Of.File..LGR.S.N..20449374..1,
+                                         End.Of.File..LGR.S.N..20449374..2,
+                                         Temp...F..LGR.S.N..20449374..SEN.S.N..20449374.))
+
+
+dHOBOlogCNDCT$location <- ""
+dHOBOlogCNDCT$location <- "salmonShed"
+
+names(dHOBOlogCNDCT)
+
+```
+
+
+
+# 4.) Timeseries plots
+```{r Salinity Values (factory calibration) from HOBOlogger in Salmon Shed}
+
+dHOBOlogCNDCT.2 <- dHOBOlogCNDCT %>% arrange(dateTime) %>% filter(row_number() %% 17 == 0)
+
+ggplot(dHOBOlogCNDCT.2, aes(dateTime, salinityPPT)) + 
+  geom_point(aes(colour=location, point=)) + 
+  ggtitle("Salinity Values (factory calibration) from HOBOlogger in Salmon Shed") +
+  ylim(24,30)
+
+
+```
+
+
+```{r}
+
+ggplot(dHOBOlogCNDCT, aes(dateTime, temperature)) + 
+  geom_point(aes(colour=location, point=)) + 
+  ggtitle("Temperature Values from Conductivty HOBOlogger in Salmon Shed") 
+
+```
+
+
+
+```{r}
+write.csv(dHOBOlogCNDCT, "2021.02.18_dHOBOlogCNDCT.csv")
+
+```
+
+
+
+
+
 
 
 
