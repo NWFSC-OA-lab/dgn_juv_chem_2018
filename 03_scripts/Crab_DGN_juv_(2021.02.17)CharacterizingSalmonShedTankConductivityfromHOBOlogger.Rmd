@@ -1,0 +1,111 @@
+
+---
+title: "Characterizing Salmon Shed Tank Conductivity from HOBOlogger"
+output:
+ html_document:
+    df_print: paged
+    code_folding: hide
+    toc: TRUE
+    toc_depth: 4
+    toc_float: true
+    theme: cerulean
+    highlight: haddock
+    smart: false
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+Hello World
+
+Author: OA Lab, NWFSC
+Title: Characterizing Salmon Shed Tank Conductivity from HOBOlogger
+Date: 2018-2019 (R document February 2021)
+
+
+
+# Version Check
+```{r 0.1 Version Check , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+## Version Check
+#********************************* 
+R.version
+
+```
+
+
+
+# Libraries
+```{r 0.0 Libraries , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+##Libraries
+#********************************* 
+library(here)
+library(data.table)
+library(stringr)
+library(tidyverse)
+library(plyr)
+library(nlme)
+library(tidyr)
+library(dbplyr)
+library(dplyr)
+library(purrr)
+library(wql)
+library(lubridate)
+library(tibbletime)
+library(arsenal)
+library(compareDF)
+#for graphing
+library(ggplot2)
+library(ggfortify)
+library(stringr)
+library(nlme)
+library(RColorBrewer)
+library(patchwork)
+#statistical analysis
+library(gdata)
+library(rsq)
+library(doBy)
+#Rnotebooks 
+library(gridExtra)
+library(kableExtra)
+
+```
+
+
+```{r 1.0 Setting Working Directory, ECHO= FALSE, message=FALSE, warning=FALSE}
+#*********************************
+## 1.) Set working directory
+#*********************************
+
+# Working Directory Style 1 --- Just this Chunk
+# knitr::opts_chunk$set(echo = TRUE)
+# knitr::opts_knit$set(root.dir =
+#                        "/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data")
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+# Working Directory Style 2 --- Relative Paths with the package here
+# read_csv(here::here("dHOBOlogger_CNDCT1", "19-26NOV18_20449374_ConductivityLogger_FactoryCAL.csv"))
+# 
+read_csv(here::here("dHOBOloggerCNDCT", "2021.02.17_dHOBOloggerCNDCT.csv")
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+# # Working Directory Style 3 --- Everything one folder
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_Conductivity")
+
+
+```
+
+
+
+
+```{r}
+#**************E*N*D*************# 
+#*********************************
+## END OF SCRIPT | END OF DOCUMENT 
+#*********************************
+```
+
+
+## END OF SCRIPT | END OF DOCUMENT
