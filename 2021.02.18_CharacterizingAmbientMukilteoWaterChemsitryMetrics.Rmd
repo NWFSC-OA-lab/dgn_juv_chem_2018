@@ -20,7 +20,7 @@ Hello World
 
 Author: OA Lab, NWFSC
 Title: Salmon Shed Tanks
-Date: 2018-2019 (R document January 2021)
+Date: 2018-2019 (R document January-February 2021)
 
 
 2021.02.11 
@@ -87,7 +87,9 @@ library(kableExtra)
 #*********************************
 
 #set working directory to the correct folder
-setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+
+
 ```
 
 
@@ -100,24 +102,45 @@ setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
 
 
 #set working directory to the correct folder
-setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+here()
 
 # former "dtank"
+
+library(here)
+## Example
+# d <- read_csv(here("output", "crab_combine_wide_stage.csv"))
+
+dOrion <- read_csv(here("01_rawData","SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv"))
+
+
+  file = "SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv", 
+                  stringsAsFactors = FALSE)
 dOrion <- read.csv(file = "SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv", 
                   stringsAsFactors = FALSE)
 
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
 
 # former "dUDAsalmon" and/or dfSalinity
 dSalmonPPT <- read.csv(file = "2021.02.18_FishCareLog_salinity.csv", 
                   stringsAsFactors = FALSE)
 
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
 # former UDAconductivity
-dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
+# Raw file from UDA
+# dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
+# dim(dShedUDA)
+# Transformed File
+dShedUDA <- read.csv(file = "2021.02.18_pH_Salinity_UDA.csv", stringsAsFactors = FALSE)
 dim(dShedUDA)
 
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
-dHOBOsalinity <- read.csv(file = "2021.02.17_dHOBOloggerCNDCT.csv", stringsAsFactors = FALSE)
+dHOBOsalinity <- read.csv(file = "2021.02.18b_dHOBOlogCNDCT.csv", stringsAsFactors = FALSE)
 dim(dHOBOsalinity)
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 ```
 Dataframes mentioned throughout the document
@@ -133,13 +156,19 @@ dHOBOsalinity= Includes salinity readings from the conductivity logger
 #*********************************
 ## 3.) Creating dateTime objects  
 #*********************************
+dOrion$ObservationDate <- ""
 dOrion$ObservationDate <- as.POSIXct(dOrion$date, tz = "UTC", "%Y-%m-%d")
 
+dSalmonPPT$ObservationDate <- ""
 dSalmonPPT$ObservationDate <- as.POSIXct(dSalmonPPT$Date, tz = "UTC", "%m/%d/%y")
 
-dShedUDA$ObservationDate <- as.POSIXct(dShedUDA$Date, tx= "UTC", "%m/%d/%y")
+dShedUDA$ObservationDate <- ""
+dShedUDA$ObservationDate <- as.POSIXct(dShedUDA$date, tz = "UTC", "%m/%d/%y")
 
-# dHOBOsalinity$ObservationDate <- dHOBOsalinity$date.T
+dHOBOsalinity$ObservationDate <- ""
+dHOBOsalinity$ObservationDate <- as.POSIXct(dHOBOsalinity$dateTime, tz = "UTC", "%m/%d/%y %H:%M")
+
+
 
 ```
 First Observation recorded as of August 10th 2018
@@ -154,18 +183,95 @@ First Observation recorded as of August 10th 2018
 # 3 replicates of the high CO2 conditions
 # 3 replicates of ambient conditions
 
-dtank$unit_number <- as.character(dtank$unit_number)
-dtank$treatment <- ""
-dtank$treatment[dtank$unit_number == "2" | dtank$unit_number== "4" | dtank$unit_number== "6"] <- "highCO2_juvenileDGN"
-dtank$treatment[dtank$unit_number == "1" | dtank$unit_number== "3" | dtank$unit_number== "5"] <- "ambient_juvenileDGN"
-dtank$treatment[dtank$unit_number == "7"] <- "ambient"
-dtank$treatment[dtank$unit_number == "8"] <- "ambient_chumhouse"
+# Review of 4 important datasets
+names(dOrion)
+names(dSalmonPPT)
+names(dShedUDA)
+names(dHOBOsalinity)
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dOrion$unit_number <- as.character(dOrion$unit_number)
+dOrion$treatment <- ""
+dOrion$treatment[dOrion$unit_number == "2" | dOrion$unit_number== "4" | dOrion$unit_number== "6"] <- "highCO2_juvenileDGN"
+dOrion$treatment[dOrion$unit_number == "1" | dOrion$unit_number== "3" | dOrion$unit_number== "5"] <- "ambient_juvenileDGN"
+dOrion$treatment[dOrion$unit_number == "7"] <- "ambient"
+dOrion$treatment[dOrion$unit_number == "8"] <- "ambient_chumhouse"
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+#Treatment is being created for the Salinity Timeseries 
+## - however no water chemistry data was collected
+# all values are treated as chumhouse or salmon shed ambient
+dSalmonPPT$location[dSalmonPPT$location == "salmonShed" ] <- "ambient"
+dSalmonPPT$location[dSalmonPPT$location == "chumHouse" ] <- "ambient_chumhouse"
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+# dShedUDA file uses same unit_number identifers as SPEC file
+dShedUDA$unit_number <- as.character(dShedUDA$unit_number)
+dShedUDA$treatment <- ""
+dShedUDA$treatment[dShedUDA$unit_number == "2" | dShedUDA$unit_number== "4" | dShedUDA$unit_number== "6"] <- "highCO2_juvenileDGN"
+dShedUDA$treatment[dShedUDA$unit_number == "1" | dShedUDA$unit_number== "3" | dShedUDA$unit_number== "5"] <- "ambient_juvenileDGN"
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dHOBOsalinity$treatment <- ""
+dHOBOsalinity$treatment <- "ambient"
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 ```
 
 
 
 # 5.) Salinity Dataframes
+
+```{r}
+
+names(dOrion)
+names(dSalmonPPT)
+names(dShedUDA)
+names(dHOBOsalinity)
+
+# dOrion <- dOrion %>% rename(salinity = salinity) 
+# dSalmonPPT$salinity <- ""
+# dSalmonPPT$salinity <- dSalmonPPT$Salinity
+# 
+# dSalmonPPT <- subset( dSalmonPPT, select = -c(Salinity))
+
+dSalmonPPT$salinity <- rename(dSalmonPPT, Salinity = salinity)
+dSalmonPPT <- dSalmonPPT %>% rename(Salinity = salinity) 
+# dShedUDA <- dShedUDA %>% rename(Salinity = salinity) 
+
+# dHOBOsalinity <- dHOBOsalinity %>% rename(salinityPPT = salinity) 
+
+
+```
+
+
+
+#### 5.0) Salinity Dataframes - Exploring the HOBOlogger history
+```{r}
+
+# dHOBOsalinity <- group_by(dHOBOsalinity$dateTime)
+
+HOBOSalinityProbe_plot <- ggplot(dHOBOsalinity, aes(ObservationDate, salinityPPT)) + 
+  geom_point() +
+  ylim(24,30) +
+  ggtitle("Salinity Values from HOBOlogger Salinity Probe") 
+
+HOBOSalinityProbe_plot
+
+
+
+
+```
+
+
+
+
+
 #### 5.1) Salinity Plots
 ```{r 5.1) Salinity Plots, echo=FALSE, message=FALSE, warning=FALSE}
 #*********************************
@@ -173,17 +279,15 @@ dtank$treatment[dtank$unit_number == "8"] <- "ambient_chumhouse"
 #*********************************
 # dtank$salinity <- as.numeric(dtank$salinity)
 
+dOrion$salinity <- as.numeric(dOrion$salinity)
 
-dtank$salinity <- as.numeric(dtank$salinity)
-
-SalinityProbe_SalmonShed_plot <- ggplot(dtank, aes(ObservationDate, salinity)) + 
+SalinityProbe_SalmonShed_plot <- ggplot(dOrion, aes(ObservationDate, salinity)) + 
   geom_point(aes(colour=treatment, point=)) + 
   ggtitle("Salinity Values from Handheld Orion Salinity Probe") 
 
-SalinityProbe_SalmonShed_plot
+SalinityProbe_SalmonShed_plot 
 
 ```
-
 
 
 #### 5.1a) Merging salinity data for plots
@@ -192,17 +296,14 @@ SalinityProbe_SalmonShed_plot
 ## 5.1a) Salinity Data for Timeseries Plot
 #*********************************
 
-UDAconductivity <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
-dim(UDAconductivity)
+variable.names(dOrion)
+variable.names(dSalmonPPT)
+variable.names(dShedUDA)
+variable.names(dHOBOSalinity)
 
-UDAconductivity$ObservationDate <- ""
-# UDAconductivity$Date <- as.numeric(UDAconductivity$Date)
-# UDAconductivity$ObservationDate <- as.Date(UDAconductivity$Date)
-UDAconductivity$ObservationDate<- as.POSIXct(UDAconductivity$Date, tz = "UTC", "%m/%d/%y")
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
-variable.names(UDAconductivity)
-UDACNDCT <- subset( UDAconductivity, select = -c(Date,
+
+dOrion_log <- subset( dOrion, select = -c(id_1,
                                          T4.pH,
                                          T4.temp,         
                                          T3.pH,
@@ -222,7 +323,7 @@ UDACNDCT$sensortype <- "EXO_Wallprobe"
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 
-SPECCNDCT <- subset( dtank, select = -c(unit,
+dOrion_log <- subset( dOrion_log, select = -c(unit,
                                          unit_number,
                                          pHinsitu,
                                          dateString,
@@ -313,6 +414,25 @@ chronoSalinity <- merge(chronoSalinity1, chronoSalinity2, all = TRUE)
 
 
 
+# Probe Types
+```{r}
+dOrion$sensortypeSalinity
+dSalmonPPT$ 
+dHOBOsalinity$
+
+# Toroidal Conductivity Monitor Model Q46CT
+UDACNDCT$sensortype <- "EXO_Wallprobe"
+
+
+SPECCNDCT$sensortype <- ""
+# ThermoScientific Orion Star A322
+SPECCNDCT$sensortype <- "Orion"
+```
+
+
+
+
+
 ```{r}
 ggplot(chronoSalinity, aes(ObservationDate, salinity)) + 
   geom_point(aes(colour=location, point=)) + 
@@ -352,6 +472,11 @@ PSUplot
 ```
 
 
+Temperature
+```{r}
+ufos <- ufos %>% rename(spotter.comments = comments) 
+
+```
 
 
 
