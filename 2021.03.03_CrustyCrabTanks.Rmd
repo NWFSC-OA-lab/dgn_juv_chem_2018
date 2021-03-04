@@ -131,7 +131,7 @@ dim(dFishCareUDA)
 # dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
 # dim(dShedUDA)
 # Transformed File
-dShedUDA <- read.csv(here("01_rawData", "2021.02.18_pH_Salinity_UDA.csv"))
+dShedUDA <- read.csv(here("01_rawData", "2021.02.18_pH_UDA.csv"))
 dim(dShedUDA)
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
@@ -155,7 +155,7 @@ dHOBOppt = Includes salinity readings from the conductivity logger
 ## 3.) Creating dateTime objects  
 #*********************************
 dOrion$ObservationDate <- ""
-dOrion$ObservationDate <- as.POSIXct(dOrion$date, tz = "UTC", "%Y-%m-%d")
+dOrion$ObservationDate <- as.POSIXct(dOrion$date, tz = "UTC", "%m-%d-%y")
 
 dFishCareUDA$ObservationDate <- ""
 dFishCareUDA$ObservationDate <- as.POSIXct(dFishCareUDA$Date, tz = "UTC", "%m/%d/%y")
@@ -196,13 +196,25 @@ dOrion$treatment[dOrion$unit_number == "1" | dOrion$unit_number== "3" | dOrion$u
 dOrion$treatment[dOrion$unit_number == "7"] <- "ambient"
 dOrion$treatment[dOrion$unit_number == "8"] <- "ambient_chumhouse"
 
+dOrion$location <- ""
+dOrion$location[dOrion$treatment == "highCO2_juvenileDGN" | dOrion$treatment == "ambient_juvenileDGN" | dOrion$treatment == "ambient"] <- "salmonShed"
+
+dOrion$location[dOrion$unit_number == "8"] <- "ambient_chumhouse"
+
+dOrion$sensortype <- ""
+dOrion$sensortype <- "OrionStarA112"
+
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 #Treatment is being created for the Salinity Timeseries 
 ## - however no water chemistry data was collected
 # all values are treated as chumhouse or salmon shed ambient
-dFishCareUDA$location[dFishCareUDA$location == "salmonShed" ] <- "ambient"
-dFishCareUDA$location[dFishCareUDA$location == "chumHouse" ] <- "ambient_chumhouse"
+dFishCareUDA$treatment[dFishCareUDA$location == "salmonShed" ] <- "ambient"
+dFishCareUDA$treatment[dFishCareUDA$location == "chumHouse" ] <- "ambient_chumhouse"
+
+dFishCareUDA$sensortype <- ""
+dFishCareUDA$sensortype[dFishCareUDA$location == "salmonShed" ] <- "wallUDA_salmonShed"
+dFishCareUDA$sensortype[dFishCareUDA$location == "chumHouse" ] <- "wallUDA_chumhouse"
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
@@ -212,13 +224,17 @@ dShedUDA$treatment <- ""
 dShedUDA$treatment[dShedUDA$unit_number == "2" | dShedUDA$unit_number== "4" | dShedUDA$unit_number== "6"] <- "highCO2_juvenileDGN"
 dShedUDA$treatment[dShedUDA$unit_number == "1" | dShedUDA$unit_number== "3" | dShedUDA$unit_number== "5"] <- "ambient_juvenileDGN"
 
+dShedUDA$sensortype <- ""
+dShedUDA$sensortype <- "wallUDA_salmonShed"
+
+dShedUDA$location <- ""
+dShedUDA$location <- "salmonShed"
+
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 dHOBOppt$treatment <- ""
 dHOBOppt$treatment <- "ambient"
 
-dHOBOppt$location <- ""
-dHOBOppt$location <- "salmonShed"
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
@@ -226,29 +242,86 @@ dHOBOppt$location <- "salmonShed"
 
 
 
-# 5.) Salinity Dataframes
+# 5.) Salinity and Waterchemistry Dataframes
 
 ```{r}
 
 names(dOrion)
-names(dFishCareUDA)
+
+dOrion_Salinity <- select(dOrion,
+                          salinity,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
+
+
+
+dOrion_pH <- select(dOrion,
+                          pH,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
+
+names(dFishCareUDA) 
+
+dFishCareUDA_Salinity <- select(dFishCareUDA,
+                          salinity,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
+
 names(dShedUDA)
+
+dShedUDA_pH <- select(dShedUDA,
+                          pH,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
+
 names(dHOBOppt)
 
-# dOrion <- dOrion %>% rename(salinity = salinity) 
-# dSalmonPPT$salinity <- ""
-# dSalmonPPT$salinity <- dSalmonPPT$Salinity
-# 
-# dSalmonPPT <- subset( dSalmonPPT, select = -c(Salinity))
 
-dFishCareUDA$salinity <- rename(dFishCareUDA, Salinity = salinity)
-dFishCareUDA <- dFishCareUDA %>% rename(Salinity = salinity) 
-# dShedUDA <- dShedUDA %>% rename(Salinity = salinity) 
+dHOBOppt_Salinity <- select(dHOBOppt,
+                          salinity,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
 
-# dHOBOsalinity <- dHOBOsalinity %>% rename(salinityPPT = salinity) 
+# dOrion_Salinity
+# dFishCareUDA_Salinity
+# dHOBOppt_Salinity 
+
+
+Master.temp_Salinity <- merge(dOrion_Salinity, 
+                         dFishCareUDA_Salinity, 
+                         by = "ObservationDate")
+
+Master_Salinity <- merge(Master.temp_Salinity,
+                         dHOBOppt_Salinity,
+                         by = "ObservationDate")
+
+```
+
+
+#### 5.1a) dOrion Dataframes - Exploring the Salinity history (1 dataframe at a time)
+```{r dOrion Dataframe Salinty Plot}
+
+# dOrion_Salinity <- group_by(dOrion_Salinity$ObservationDate)
+
+ ggplot(dOrion_Salinity, aes(ObservationDate, salinity)) + 
+  geom_point() +
+  ylim(24,33) +
+  ggtitle("Salinity Values from Orion Star A112 Salinity Probe") 
 
 
 ```
+
+
 
 
 

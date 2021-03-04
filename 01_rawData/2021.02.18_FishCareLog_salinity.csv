@@ -1,4 +1,4 @@
-﻿Date,Species,Tank,Water Temperature,Salinity,location,sensortype
+﻿Date,Species,Tank,Water Temperature,salinity,location,sensortype
 6/21/19,Chum,N/A,11.9,29.78,salmonShed,wallUDA
 6/21/19,Chinook,1,12.3,29.77,chumHouse,wallUDA
 6/21/19,Chinook,2,12,30.01,chumHouse,wallUDA
