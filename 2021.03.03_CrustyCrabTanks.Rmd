@@ -23,11 +23,6 @@ Title: Salmon Shed Tanks
 Date: 2018-2019 (R document January-February 2021)
 
 
-2021.02.11 
-[_] graph for salinity for orion against wall mounted conductivty probe
-[_] graph temperature for chum house against salmon shed
-[_] need to get model number for that wall mounted conductivty display and related probe
-[_] include HOBOlogger conductivity material
 
 
 # Version Check
@@ -98,7 +93,7 @@ library(kableExtra)
 ```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
 
 #*********************************
-## 2.) Creating the initial Dataframe, dtank
+## 2.) Creating the initial Dataframes
 #*********************************
 
 
@@ -113,17 +108,38 @@ here()
 
 dOrion <- read_csv(here("01_rawData","SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv"))
 
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
 
-#   file = "SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv", 
-#                   stringsAsFactors = FALSE)
-# dOrion <- read.csv(file = "SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv", 
-#                   stringsAsFactors = FALSE)
+# write_meta_template(dOrion, here("01_rawData",
+#                                  "masterfile_salmonshed_chumhouse.csv"),
+#                             embedded = TRUE)
+# 
+# meta_dOrion <- read_meta(here("01_rawData",
+#                              "masterfile_salmonshed_chumhouse_withMeta.csv"))
+# 
+# #Just the data
+# meta_dOrion2 <- read_meta(here("01_rawData",
+#                              "masterfile_salmonshed_chumhouse_withMeta.csv"))$data
+
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
 
 # former "dUDAsalmon" and/or dfSalinity
-dFishCareUDA <- read.csv(here("01_rawData", "2021.02.18_FishCareLog_salinity.csv")) 
+dFishCareUDA <- read_csv(here("01_rawData", "2021.02.18_FishCareLog_salinity.csv")) 
 dim(dFishCareUDA)
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# meta_dFishCareUDA <- read_meta(here("01_rawData", "2021.02.18_FishCareLog_salinity.csv"))
+# 
+# write_meta_template(meta_dFishCareUDA, "META_2021.02.18_FishCareLog_salinity.csv",
+#                     embedded = TRUE)
+
+
+
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 # former UDAconductivity
@@ -131,15 +147,42 @@ dim(dFishCareUDA)
 # dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
 # dim(dShedUDA)
 # Transformed File
-dShedUDA <- read.csv(here("01_rawData", "2021.02.18_pH_UDA.csv"))
+dShedUDA <- read_csv(here("01_rawData", "2021.02.18_pH_UDA.csv"))
 dim(dShedUDA)
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# meta_dShedUDA <- read_meta(here("01_rawData", "2021.02.18_pH_UDA.csv"))
+# 
+# write_meta_template(meta_dShedUDA, "META_2021.02.18_pH_UDA.csv",
+#                     embedded = TRUE)
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
-dHOBOppt <- read.csv(here("01_rawData","2021.02.18b_dHOBOlogCNDCT.csv"))
+dHOBOppt <- read_csv(here("01_rawData","2021.02.18b_dHOBOlogCNDCT.csv"))
 dim(dHOBOppt)
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# meta_dHOBOppt<- read_meta(here("01_rawData", "2021.02.18b_dHOBOlogCNDCT.csv"))
+# 
+# write_meta_template(meta_dHOBOppt, "META_2021.02.18b_dHOBOlogCNDCT.csv.csv",
+#                     embedded = TRUE)
+
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dShedSalinity <- read_csv(here("01_rawData", "2019 SS UDA Log.csv"))
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# meta_dShedSalinity<- read_meta(here("01_rawData", "2019 SS UDA Log.csv.csv"))
+# 
+# write_meta_template(meta_dShedSalinity, "META_2019 SS UDA Log.csv.csv.csv",
+#                     embedded = TRUE)
+
+
 
 ```
 Dataframes mentioned throughout the document
@@ -155,7 +198,7 @@ dHOBOppt = Includes salinity readings from the conductivity logger
 ## 3.) Creating dateTime objects  
 #*********************************
 dOrion$ObservationDate <- ""
-dOrion$ObservationDate <- as.POSIXct(dOrion$date, tz = "UTC", "%m-%d-%y")
+dOrion$ObservationDate <- as.POSIXct(dOrion$date, tz = "UTC", "%m/%d/%y")
 
 dFishCareUDA$ObservationDate <- ""
 dFishCareUDA$ObservationDate <- as.POSIXct(dFishCareUDA$Date, tz = "UTC", "%m/%d/%y")
@@ -166,7 +209,8 @@ dShedUDA$ObservationDate <- as.POSIXct(dShedUDA$date, tz = "UTC", "%m/%d/%y")
 dHOBOppt$ObservationDate <- ""
 dHOBOppt$ObservationDate <- as.POSIXct(dHOBOppt$dateTime, tz = "UTC", "%m/%d/%y %H:%M")
 
-
+dShedSalinity$ObservationDate <- ""
+dShedSalinity$ObservationDate <- as.POSIXct(dShedSalinity$Date, tz = "UTC", "%m/%d/%y")
 
 ```
 First Observation recorded as of August 10th 2018
@@ -238,6 +282,13 @@ dHOBOppt$treatment <- "ambient"
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
+dShedSalinity$treatment<- ""
+dShedSalinity$treatment<- "ambient"
+dShedSalinity$location <- ""
+dShedSalinity$location <- "salmonShed"
+dShedSalinity$sensortype <- ""
+dShedSalinity$sensortype <- "wallUDA_salmonShed"
+
 ```
 
 
@@ -273,6 +324,15 @@ dFishCareUDA_Salinity <- select(dFishCareUDA,
                           location,
                           sensortype)
 
+
+dFishCareUDA_temp <- select(dFishCareUDA,
+                          temp,
+                          ObservationDate,
+                          location,
+                          sensortype)
+
+
+
 names(dShedUDA)
 
 dShedUDA_pH <- select(dShedUDA,
@@ -281,6 +341,13 @@ dShedUDA_pH <- select(dShedUDA,
                           treatment,
                           location,
                           sensortype)
+
+dShedUDA_temp <- select(dShedUDA,
+                          temp,
+                          ObservationDate,
+                          location,
+                          sensortype)
+
 
 names(dHOBOppt)
 
@@ -292,18 +359,36 @@ dHOBOppt_Salinity <- select(dHOBOppt,
                           location,
                           sensortype)
 
-# dOrion_Salinity
-# dFishCareUDA_Salinity
-# dHOBOppt_Salinity 
+dSalmonShed_Salinity <- select(dShedSalinity,
+                          salinity,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
 
 
-Master.temp_Salinity <- merge(dOrion_Salinity, 
-                         dFishCareUDA_Salinity, 
-                         by = "ObservationDate")
+#*********************************
+## 5.1) Creating a Master Dataframe - Salinity, pH, & temp
+#********************************
 
-Master_Salinity <- merge(Master.temp_Salinity,
-                         dHOBOppt_Salinity,
-                         by = "ObservationDate")
+Master_Salinity <- merge(merge(merge(
+  dOrion_Salinity,
+  dFishCareUDA_Salinity, all = TRUE),
+  dHOBOppt_Salinity, all = TRUE),
+  dSalmonShed_Salinity, all = TRUE)
+Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
+
+write.csv(Master_Salinity, "2021.03.04_Master_Salinity_log.csv")
+
+Master_pH <- merge(dOrion_pH, dShedUDA_pH, all = TRUE)
+Master_pH$pH <- as.numeric(Master_pH$pH )
+
+write.csv(Master_pH, "2021.03.04_Master_pH_log.csv")
+
+Master_temp <- merge(dFishCareUDA_temp, dShedUDA_temp, all = TRUE)
+Master_temp$temp <- as.numeric(Master_temp$temp)
+write.csv(Master_temp, "2021.03.04_Master_temp_log.csv")
+
 
 ```
 
@@ -313,10 +398,55 @@ Master_Salinity <- merge(Master.temp_Salinity,
 
 # dOrion_Salinity <- group_by(dOrion_Salinity$ObservationDate)
 
- ggplot(dOrion_Salinity, aes(ObservationDate, salinity)) + 
+ ggplot(dOrion_Salinity, aes(ObservationDate, salinity)) +
   geom_point() +
   ylim(24,33) +
-  ggtitle("Salinity Values from Orion Star A112 Salinity Probe") 
+  ggtitle("Salinity Values from Orion Star A112 Salinity Probe")
+
+# 
+#  ggplot(dOrion, aes(date, salinity)) + 
+#   geom_point() +
+#   ylim(24,33) +
+#   ggtitle("Salinity Values from Orion Star A112 Salinity Probe")
+
+
+```
+
+
+
+#### 5.1a) dFishcareUDA Dataframes - Exploring the Salinity history (1 dataframe at a time)
+```{r dFishcareUDA  Dataframe Salinty Plot}
+
+# dOrion_Salinity <- group_by(dOrion_Salinity$ObservationDate)
+
+ ggplot(dFishCareUDA_Salinity, aes(ObservationDate, salinity)) +
+  geom_point() +
+  # ylim(24,33) +
+  ggtitle("Salinity Values from Wall Mounted UDA Chumhouse & Salmon Shed")
+
+
+ # ggplot(dFishCareUDA, aes(Date, salinity)) + 
+ #  geom_point() +
+ #  # ylim(24,33) +
+ #  ggtitle("Salinity Values from Wall Mounted UDA Chumhouse & Salmon Shed")
+
+
+```
+
+#### 5.1b) dShedSalinity Dataframe - Exploring the Salinity history (1 dataframe at a time)
+```{r dSalmonShed_Salinity  Dataframe Salinty Plot}
+
+
+ ggplot(dSalmonShed_Salinity, aes(ObservationDate, salinity)) +
+  geom_point() +
+  # ylim(24,33) +
+  ggtitle("Salinity Values from Wall Mounted (just) Salmon Shed")
+
+
+ # ggplot(dFishCareUDA, aes(Date, salinity)) + 
+ #  geom_point() +
+ #  # ylim(24,33) +
+ #  ggtitle("Salinity Values from Wall Mounted UDA Chumhouse & Salmon Shed")
 
 
 ```
@@ -324,18 +454,16 @@ Master_Salinity <- merge(Master.temp_Salinity,
 
 
 
-
-#### 5.0) Salinity Dataframes - Exploring the HOBOlogger history
+#### 5.2) Salinity Dataframes - Exploring the HOBOlogger history
 ```{r}
 
 # dHOBOsalinity <- group_by(dHOBOsalinity$dateTime)
 
-HOBOSalinityProbe_plot <- ggplot(dHOBOppt, aes(ObservationDate, salinityPPT)) + 
+ggplot(dHOBOppt, aes(ObservationDate, salinity)) + 
   geom_point() +
   ylim(24,30) +
   ggtitle("Salinity Values from HOBOlogger Salinity Probe") 
 
-HOBOSalinityProbe_plot
 
 
 ```
@@ -358,215 +486,105 @@ HOBOProbe_Temp_plot
 
 
 
-#### 5.1) Salinity Plots
-```{r 5.1) Salinity Plots, echo=FALSE, message=FALSE, warning=FALSE}
-#*********************************
-## 5.1) Timeseries Plot
-#*********************************
-# dtank$salinity <- as.numeric(dtank$salinity)
-
-dOrion$salinity <- as.numeric(dOrion$salinity)
-
-SalinityProbe_SalmonShed_plot <- ggplot(dOrion, aes(ObservationDate, salinity)) + 
-  geom_point(aes(colour=treatment, point=)) + 
-  ggtitle("Salinity Values from Handheld Orion Salinity Probe") 
-
-SalinityProbe_SalmonShed_plot 
-
-```
 
 
-#### 5.1a) Merging salinity data for plots
-```{r 5.1a) Merging salinity data for plots, echo=FALSE, message=FALSE, warning=FALSE}
-#*********************************
-## 5.1a) Salinity Data for Timeseries Plot
-#*********************************
-
-variable.names(dOrion)
-variable.names(dSalmonPPT)
-variable.names(dShedUDA)
-variable.names(dHOBOSalinity)
+#### 5.3) dOrion Dataframes - Exploring the pH history (1 dataframe at a time)
+```{r dOrion Dataframe pH Plot}
 
 
+ ggplot(dOrion_pH, aes(ObservationDate, pH)) +
+   geom_point(aes(colour=treatment)) + 
+  ggtitle("pH Values from SPEC masterfile")
 
-dOrion_log <- subset( dOrion, select = -c(id_1,
-                                         T4.pH,
-                                         T4.temp,         
-                                         T3.pH,
-                                         T3.temp,
-                                         T5.pH,
-                                         T5.temp,
-                                         T6.pH,
-                                         T6.temp,
-                                         T2.pH,           
-                                         T2.temp,         
-                                         T1.pH,          
-                                         T1.temp))
-colnames(UDACNDCT)[1] <- "salinity"
-UDACNDCT$sensortype <- ""
-# Toroidal Conductivity Monitor Model Q46CT
-UDACNDCT$sensortype <- "EXO_Wallprobe"
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-
-dOrion_log <- subset( dOrion_log, select = -c(unit,
-                                         unit_number,
-                                         pHinsitu,
-                                         dateString,
-                                         experiment, 
-                                         id_1, 
-                                         id_2, 
-                                         id_3, 
-                                         time, 
-                                         date, 
-                                         pHat25, 
-                                         fileName, 
-                                         unit_ID, 
-                                         alk, 
-                                         treatment,
-                                         insituTemp))
-SPECCNDCT$sensortype <- ""
-# ThermoScientific Orion Star A322
-SPECCNDCT$sensortype <- "Orion"
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-dTankCNDCT <- merge(UDACNDCT, SPECCNDCT, all = TRUE)
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-```
-Determine if salinity units are both PSU
-
-
-```{r, 5.2 Salinity Values}
-
-names(dfSalinity)
-# [1] "Date"              "Species"           "Tank"              "Water.Temperature"
-# [5] "salinity"          "location"          "sensortype"        "ObservationDate"  
-
-dfSalinity$Salinity <- as.numeric(dfSalinity$Salinity)
-na.omit(dfSalinity, cols=salinity)
-
-chronoSalinity1 <- subset(dfSalinity, select = -c(Species, 
-                                         Tank,
-                                         Water.Temperature))
-
-# extract water temperature from the ChumHouse
-
-chumHouse_Temp <- subset(dfSalinity, select = c(Date, 
-                                         Tank,
-                                         Water.Temperature))
-
-
-# chronoSalinity1 <- chronoSalinity1  %>% filter(location %in% c("salmonShed"))
-# chronoSalinity1 <- subset( chronoSalinity1, select = -c(location))
-#104 of 200 observations remaining if removing another other location
-
-
-chronoSalinity1$Salinity 
-
-names(chronoSalinity1)[names(chronoSalinity1) == "Salinity"] <- "salinity"
-
-
-dTankCNDCT
-names(dTankCNDCT)
-# [1] "salinity"        "ObservationDate" "sensortype"      "treatName"       "treatpH"        
-# [6] "treatTemp"       "treatOther"      "dic"             "tankTemp"  
-
-chronoSalinity2 <- dTankCNDCT
-
-chronoSalinity2 <- subset(chronoSalinity2, select = -c(sensortype, 
-                                         treatName,
-                                         treatpH,
-                                         treatTemp,
-                                         treatOther,
-                                         dic,
-                                         tankTemp))
-
-chronoSalinity2$sensortype <- ""
-chronoSalinity2$sensortype <- "Exo_WallDisplay"
-
-chronoSalinity2$location <- ""
-chronoSalinity2$location <- "salmonShed"
-
-# # Subset for the Chum House with Tank 8
-# chronoSalinity2 <- chronoSalinity2 %>% mutate(location=case_when(
-#                           (chronoSalinity2$unit_number == "8") ~"chumHouse"))
-#                        
-
-chronoSalinity <- merge(chronoSalinity1, chronoSalinity2, all = TRUE)
+# 
+#  ggplot(dOrion, aes(date, salinity)) + 
+#   geom_point() +
+#   ylim(24,33) +
+#   ggtitle("Salinity Values from Orion Star A112 Salinity Probe")
 
 
 ```
 
 
 
-# Probe Types
-```{r}
-dOrion$sensortypeSalinity
-dSalmonPPT$ 
-dHOBOsalinity$
-
-# Toroidal Conductivity Monitor Model Q46CT
-UDACNDCT$sensortype <- "EXO_Wallprobe"
 
 
-SPECCNDCT$sensortype <- ""
-# ThermoScientific Orion Star A322
-SPECCNDCT$sensortype <- "Orion"
+#### 5.4) Master Dataframes - Exploring the Salinity history 
+```{r Master Salinity Dataframe ppt Plot}
+
+Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
+
+ ggplot(Master_Salinity, aes(ObservationDate, salinity)) +
+  geom_point(aes(colour=sensortype, point=)) +
+  # facet_wrap(location) +
+  ylim(24,33) +
+  ggtitle("all Salinity Values from all Probes, all locations") 
+
+
 ```
 
 
 
 
-
-```{r}
-ggplot(chronoSalinity, aes(ObservationDate, salinity)) + 
-  geom_point(aes(colour=location, point=)) + 
-  ggtitle("Salinity Values from All UDA observations in Salmon Shed") 
-```
+#### 5.5) Master Dataframes - Exploring the pH history 
+```{r Master pH Dataframe  Plot}
 
 
+ ggplot(Master_pH, aes(ObservationDate, pH)) +
+  geom_point(aes(colour=treatment, point=)) +
+  # facet_wrap(location) +
+  # ylim(24,33) +
+  ggtitle("all pH Values from all Probes, all locations") 
 
-#### 5.1b) Different Salinity Probes' Data
-```{r 5.1b) Different Salinity Probes Data, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-dTankCNDCT <- merge(UDACNDCT, SPECCNDCT, all = TRUE)
-dTankCNDCT$location <- ""
-dTankCNDCT$location <- "salmonShed"
-
-# # Subset for the Chum House with Tank 8
-# dTankCNDCT<- dTankCNDCT %>% mutate(location=case_when(
-#                           (dTankCNDCT$unit_number == "8") ~"chumHouse"))
-
-dTANKConductivity <- merge(dTankCNDCT, chronoSalinity, all = TRUE)
-
-PSUplot <- ggplot(dTANKConductivity, aes(x=ObservationDate, y=salinity)) + 
-  geom_point(aes(colour=sensortype, point=)) + 
-  ggtitle("Salmon Shed Salinity Values") 
-PSUplot
-
-```
-
-```{r}
-
-PSUplot <- ggplot(dTANKConductivity, aes(x=ObservationDate, y=salinity)) + 
-  geom_point(aes(colour=location, point=)) + 
-  ggtitle("Salinity Values by Location") 
-PSUplot
-
-```
-
-
-Temperature
-```{r}
-ufos <- ufos %>% rename(spotter.comments = comments) 
 
 ```
 
 
 
-# 6.) Water Chemistry
+#### 5.5) Master Dataframes - Exploring the pH history 
+```{r Master pH Dataframe  Plot}
+
+
+ ggplot(Master_pH, aes(ObservationDate, pH)) +
+  geom_point(aes(colour=treatment, point=)) +
+  # facet_wrap(location) +
+  ylim(6,8.5) +
+  ggtitle("all pH Values from all Probes, all locations") 
+
+
+```
+
+#### 5.6) Master Dataframes - Exploring the pH history 
+```{r Master pH Dataframe Sensor Plot}
+
+
+ ggplot(Master_pH, aes(ObservationDate, pH)) +
+  geom_point(aes(colour=sensortype, point=)) +
+  # facet_wrap(location) +
+  ylim(6,8.5) +
+  ggtitle("all pH Values from all Probes, colored by sensor type") 
+
+
+```
+
+
+#### 5.6) Master Dataframes - Exploring the pH history 
+```{r Master pH Dataframe Sensor Plot}
+
+
+Master_temp$temp <- as.numeric(Master_temp$temp)
+
+ ggplot(Master_temp, aes(ObservationDate, temp)) +
+  geom_point(aes(colour=location, point=)) +
+  # facet_wrap(location) +
+  # ylim(6,8.5) +
+  ggtitle("all Temperature Values from all Probes, colored by sensor type") 
+
+
+```
+
+
+# 6.) Water Chemistry - Cleaning and Transposing UDA Data
 #### 6.1) pH plots per tank timeseries
 ```{r 6.1) pH plots per tank timeseries, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -574,11 +592,11 @@ ufos <- ufos %>% rename(spotter.comments = comments)
 ## 6.1) pH plots -Timeseries Plots - Bringing Together UDA plots for the different tanks
 #*********************************
 
-UDAtank01 <- read.csv(file = "Tank01UDALog.csv", stringsAsFactors = FALSE)
-UDAtank02 <- read.csv(file = "Tank02UDALog.csv", stringsAsFactors = FALSE)
-UDAtank04 <- read.csv(file = "Tank04UDALog.csv", stringsAsFactors = FALSE)
-UDAtank05 <- read.csv(file = "Tank05UDALog.csv", stringsAsFactors = FALSE)
-UDAtank06 <- read.csv(file = "Tank06UDALog.csv", stringsAsFactors = FALSE)
+UDAtank01 <- read.csv(here("02_processedData", "Tank01UDALog.csv"))
+UDAtank02 <- read.csv(here("02_processedData", "Tank02UDALog.csv"))
+UDAtank04 <- read.csv(here("02_processedData", "Tank04UDALog.csv"))
+UDAtank05 <- read.csv(here("02_processedData", "Tank05UDALog.csv"))
+UDAtank06 <- read.csv(here("02_processedData", "Tank06UDALog.csv"))
 
 pHdtankUDA <- rbind(UDAtank06,
                     UDAtank05,  
@@ -586,280 +604,31 @@ pHdtankUDA <- rbind(UDAtank06,
                     UDAtank02,
                     UDAtank01)
 
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-
+#|- -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 ```
 
 
-
-#### 6.1a) pH plots -Timeseries Plots - UDA
-```{r 6.1a) pH plots -Timeseries Plots - UDA, echo=FALSE, message=FALSE, warning=FALSE}
-#*********************************
-## 6.1a) pH plots -Timeseries Plots - UDA sensor type, update dates
-#*********************************
-
-variable.names(pHdtankUDA)
-# > variable.names(pHdtankUDA)
-# [1] "experiment"  "unit"        "unit_number" "date"        "pH"          "temp" 
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-
-# not sure if this is the correct UDA sensor model number 
-# UDA2182UniversalDualAnalyzer
-pHdtankUDA$sensortype <- ""
-pHdtankUDA$sensortype <- "UDA2182"
-variable.names(pHdtankUDA)
-# [1] "experiment"  "unit"        "unit_number" "date"        "pH"          "temp"        "sensortype"
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-# 
-# pHdtankUDA$date<- as.POSIXct(pHdtankUDA$date, tz = "UTC", "%m/%d/%Y")
-pHdtankUDA$ObservationDate <- ""
-pHdtankUDA$ObservationDate <- as.POSIXct(pHdtankUDA$date, tz = "UTC", "%m/%d/%y")
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-
-#breaking out the temperature information for the plot now that they are in the right format
-TempdtankUDA <- pHdtankUDA
-#|- - - - - - - - - - - - - 
-variable.names(pHdtankUDA)
-
-
-
-```
-
-
-#### 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered
-```{r 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered, echo=FALSE, message=FALSE, warning=FALSE}
-#*********************************
-## 6.2a) pH plots -Timeseries Plots - UDA sensor log filtered
-#*********************************
-variable.names(pHdtankUDA)
-# [1] "experiment"      "unit"            "unit_number"     "date"            "pH"              "temp"           
-# [7] "sensortype"      "ObservationDate"
-pHdtankUDA <- subset( pHdtankUDA, select = -c(experiment,
-                                         unit,
-                                         date,
-                                         temp))
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-pHdtankUDA$unit_number <- as.character(pHdtankUDA$unit_number)
-
-pHdtankUDA$treatment <- ""
-pHdtankUDA$treatment[pHdtankUDA$unit_number == "2" | pHdtankUDA$unit_number== "4" | pHdtankUDA$unit_number== "6"] <- "highCO2"
-pHdtankUDA$treatment[pHdtankUDA$unit_number == "1" | pHdtankUDA$unit_number== "3" | pHdtankUDA$unit_number== "5"] <- "ambient"
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-# pHdtankUDA is the UDA pH logs
-variable.names(pHdtankUDA)
-pHdtankUDA$pH <- as.numeric(pHdtankUDA$pH)
-
-
-
-
-# dRESPmsrGOODtreatments <- dRESPmsr %>% filter(Treatment %in% c("CUR", "CHG", "TMP", "n/a"))
-
-
-# 
-# Cdml %>% filter(deltaTempLag1 >1)
-# pHdtankUDA.filtered <- pHdtankUDA %>% filter(pH )
-# filteredFrame = filter(Cdml (aTemperature>= 5 & aTemperature<=30) )
-# 
-# subset(pHdtankUDA.filtered$pH >= 5 & pH<=10) 
-# 
-# pHdtankUDA.filtered <- as.character(pHdtankUDA.filtered$unit_number)
-
-
-
-# pHdtankUDA.filtered <- pHdtankUDA %>% filter(pH >5)
-# pHdtankUDA.filtered <- pHdtankUDA %>% filter(pH <10)
-
-
-pHdtankUDA.filtered <- filter(pHdtankUDA,(pH>= 5 & pH<=10))
-
-
-ggplot(pHdtankUDA.filtered, aes(x=ObservationDate, y=pH)) + 
-  geom_point(aes(colour=treatment, point=)) + 
-  ggtitle("UDA tank data per tank") 
-
-
-```
-
-
-#### 6.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems) (Filtered 5-10 pH)
-Tank 5 has early problem start problems (Data from Honeywell UDA sensor & display)
-```{r 6.3a) UDA tank data per tank (Tank 5 Early Problem Start Relay Problems), echo=FALSE, message=FALSE, warning=FALSE}
-# 
-pHdtankUDA.filtered$unit_number <- as.character(pHdtankUDA.filtered$unit_number)
-
-ggplot(pHdtankUDA.filtered, aes(x=ObservationDate, y=pH)) +
-  geom_point(aes(colour=unit_number, point=)) +
-  ggtitle("UDA tank data per tank (Tank 5 Early Problem Start Relay Problems)")
-```
-
-
-
-#### 6.3b) UDA tank data per tank (Filtered to show 6-8 pH)
-```{r 6.3b) UDA tank data per tank (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
-pHdtankUDA.filtered8.6 <- filter(pHdtankUDA,(pH>= 6 & pH<=8))
-
-pHdtankUDA.filtered8.6$unit_number <- as.character(pHdtankUDA.filtered8.6$unit_number)
-
-ggplot(pHdtankUDA.filtered8.6, aes(x=ObservationDate, y=pH)) + 
-  geom_point(aes(colour=unit_number, point=)) + 
-  ggtitle("UDA tank data filtered (pH displayed between 6-8)") 
-
-```
-Appears that all Probes got "tired" after April
-Tank 01's probe experienced exceptional drift 
-
-
-
-#### 6.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH)
-```{r 6.3c) UDA tank data per tank highlighted by Treatment (Filtered to show 6-8 pH), echo=FALSE, message=FALSE, warning=FALSE}
-
-pHdtankUDA.filtered8.6 <- filter(pHdtankUDA,(pH>= 6 & pH<=8))
-
-pHdtankUDA.filtered8.6$unit_number <- as.character(pHdtankUDA.filtered8.6$unit_number)
-
-ggplot(pHdtankUDA.filtered8.6, aes(x=ObservationDate, y=pH)) + 
-  geom_point(aes(colour=unit_number, point=)) + 
-  ggtitle("UDA tank data filtered (Tank 5 Early Problem Start Relay Problems)") 
-```
-
-
-
-
-#### 6.4a) pH plots -Timeseries Plots - SPEC data 
-```{r 6.4a) pH plots -Timeseries Plots - SPEC data, echo=FALSE, message=FALSE, warning=FALSE}
-#*********************************
-## 6.2a) pH plots -Timeseries Plots - SPEC data 
-#*********************************
-variable.names(dtank)
-
-#  [1] "experiment"      "unit"            "unit_number"     "id_1"            "id_2"            "id_3"     
-#  [7] "time"            "date"            "salinity"        "pHat25"          "fileName"        "unit_ID"        
-# [13] "alk"             "insituTemp"      "pHinsitu"        "dateString"      "ObservationDate" "treatment"  
-
-pHdtank <- subset( dtank, select = -c(experiment,
-                                         unit,
-                                         id_1,
-                                         id_2,
-                                         id_3,
-                                         time,
-                                         date,
-                                         salinity,
-                                         pHat25,
-                                         fileName,
-                                         unit_ID,
-                                         alk,
-                                         insituTemp,
-                                         dateString))
-
-variable.names(pHdtank)
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-colnames(pHdtank)[2]<-c("pH")
-
-# SPECpHtempfile <- pHdtank$pHat25
-# pHdtank$pH <- ""
-# pHdtank$pH <- SPECpHtempfile 
-# pHdtank <- subset( dtank, select = -c(pHat25))
-variable.names(pHdtank)
-
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-# pHdtank$treatment <- ""
-# pHdtank$treatment[pHdtank$unit_number == "2" | pHdtank$unit_number== "4" | pHdtank$unit_number== "6"] <- "highCO2"
-# pHdtank$treatment[pHdtank$unit_number == "1" | pHdtank$unit_number== "3" | pHdtank$unit_number== "5"] <- "ambient"
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-# pHdtank$ObservationDate <- ""
-# pHdtank$ObservationDate<- as.POSIXct(pHdtank$date, tz = "UTC", "%m/%d/%Y")
-
-## Ocean Optics USB 230 2000+ Fiber Optic Spectrometer, Ocean View Spectroscopy software and 5mM solution of Sigma Aldritch m-cresol purple indicator dye
-
-pHdtank$sensortype <- ""
-pHdtank$sensortype <- "OceanOptics"
-
-#pHdtank is the SPEC record logs 
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-
-
-pHtanklog <- merge(pHdtank, pHdtankUDA, all = TRUE)
-dim(pHtanklog)
-variable.names(pHtanklog)
-
-
-#why did these other values APPEAR?!!!!
-# pHtanklog <- subset( pHtanklog, select = -c(experiment,
-#                                          unit,
-#                                          date,
-#                                          temp))
-# variable.names(pHtanklog)
-# ggplot(pHtanklog, aes(x=ObservationDate, y=pH)) + 
-#   geom_point(aes(colour=sensortype, point=))
-
-```
-
-
-
-
-#### 6.4b) Water Chemistry Plots between different probe types
-```{r 6.4b) Different Salinity Probes Data}
-pHplot1 <- ggplot(pHtanklog, aes(x=ObservationDate, y=pH)) + 
-  geom_point(aes(colour=sensortype, point=)) + 
-  ylim(5,10) +
-  ggtitle("pH Values from UDA probes and Orion insitu SPEC measurements") 
-pHplot1
-
-```
-
-
-#### 6.5c Water Chemistry Plots between different treatment timeseries
-```{r 6.5c Different Salinity Probes Data}
-pHplot2 <- ggplot(pHtanklog, aes(x=ObservationDate, y=pH)) + 
-  geom_point(aes(colour=treatment, point=)) + 
-  ylim(6.5,8.5) +
-  ggtitle("pH Values from UDA probes and Orion insitu SPEC measurements") 
-pHplot2
-
-```
 
 # Executive Summary
 
 
 UDA sensors for ambient tank 01 appears to experience significant drift April and beyond.
-Chase's UDA data could confirm if pH drift was actual, was a real world seasonal effect
+
 SPEC data confirms the High CO2 treatment target pH. 
 
-```{r}
-pHplot1
-```
-
 
 ```{r}
-pHplot2
-```
-
-
-```{r}
-PSUplot
-```
-
-
-```{r}
-pHtanklog.summary <- pHtanklog %>% group_by(treatment, sensortype) %>%
-  dplyr::summarize(sd = sd(pH, na.rm = TRUE), 
-            mean = mean(pH, na.rm = TRUE), 
-            median = median(pH, na.rm = TRUE),
-            IQR = IQR(pH, na.rm = TRUE),
-            n = n()) %>%
-  mutate(se = sd/sqrt(n)) %>%
-  mutate(ci = se*1.96)
-
-write.csv(pHtanklog.summary, "2021.02.02_pHtanklog.summary.csv")
-kable(pHtanklog.summary, digits = 4)
+# pHtanklog.summary <- pHtanklog %>% group_by(treatment, sensortype) %>%
+#   dplyr::summarize(sd = sd(pH, na.rm = TRUE), 
+#             mean = mean(pH, na.rm = TRUE), 
+#             median = median(pH, na.rm = TRUE),
+#             IQR = IQR(pH, na.rm = TRUE),
+#             n = n()) %>%
+#   mutate(se = sd/sqrt(n)) %>%
+#   mutate(ci = se*1.96)
+# 
+# write.csv(pHtanklog.summary, "2021.02.02_pHtanklog.summary.csv")
+# kable(pHtanklog.summary, digits = 4)
 
 
 ```
@@ -869,40 +638,40 @@ kable(pHtanklog.summary, digits = 4)
 
 
 ```{r}
-pHboxplots1 <- ggplot(pHtanklog, aes(treatment, pH)) +
-            geom_jitter(color = "grey") +
-            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
-            geom_point(data = pHtanklog.summary, aes(x=treatment, y=mean), size=5, color = "purple") + 
-            geom_errorbar(data = pHtanklog.summary, 
-                          aes(x=treatment, y=mean, ymin = mean-sd, ymax = mean+sd), 
-                          color = "blue") +
-            geom_errorbar(data = pHtanklog.summary,
-                          aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
-                          colour = "red") +
-            # facet_wrap(~TrialID) +
-            ggtitle("Salmon Shed pH grouped by Treatment") +
-            theme_bw() 
-
-pHboxplots1
+# pHboxplots1 <- ggplot(pHtanklog, aes(treatment, pH)) +
+#             geom_jitter(color = "grey") +
+#             geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+#             geom_point(data = pHtanklog.summary, aes(x=treatment, y=mean), size=5, color = "purple") + 
+#             geom_errorbar(data = pHtanklog.summary, 
+#                           aes(x=treatment, y=mean, ymin = mean-sd, ymax = mean+sd), 
+#                           color = "blue") +
+#             geom_errorbar(data = pHtanklog.summary,
+#                           aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
+#                           colour = "red") +
+#             # facet_wrap(~TrialID) +
+#             ggtitle("Salmon Shed pH grouped by Treatment") +
+#             theme_bw() 
+# 
+# pHboxplots1
 
 ```
 
 ```{r}
-pHboxplots2 <- ggplot(pHtanklog, aes(sensortype, pH)) +
-            geom_jitter(color = "grey") +
-            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
-            geom_point(data = pHtanklog.summary, aes(x=treatment, y=mean), size=5, color = "purple") +
-            geom_errorbar(data = pHtanklog.summary, 
-                          aes(x=treatment, y=mean, ymin = mean-sd, ymax = mean+sd), 
-                          color = "blue") +
-            geom_errorbar(data = pHtanklog.summary,
-                          aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
-                          colour = "red") +
-            # facet_wrap(~TrialID) +
-            ggtitle("Salmon Shed pH grouped by Sensor") +
-            theme_bw() 
-
-pHboxplots2
+# pHboxplots2 <- ggplot(pHtanklog, aes(sensortype, pH)) +
+#             geom_jitter(color = "grey") +
+#             geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+#             geom_point(data = pHtanklog.summary, aes(x=treatment, y=mean), size=5, color = "purple") +
+#             geom_errorbar(data = pHtanklog.summary, 
+#                           aes(x=treatment, y=mean, ymin = mean-sd, ymax = mean+sd), 
+#                           color = "blue") +
+#             geom_errorbar(data = pHtanklog.summary,
+#                           aes(x=treatment, y=mean, ymin = mean-ci, ymax = mean+ci),
+#                           colour = "red") +
+#             # facet_wrap(~TrialID) +
+#             ggtitle("Salmon Shed pH grouped by Sensor") +
+#             theme_bw() 
+# 
+# pHboxplots2
 ```
 
 
