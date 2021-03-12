@@ -1,4 +1,4 @@
-,number,dateTime,lowRangeμS.cm,highRangeμS.cm,temperature,specificCNDCTμS.cm,salinity,sensortype,location
+,number,dateTime,lowRangeμS.cm,highRangeμS.cm,temp,specificCNDCTμS.cm,salinity,sensortype,location
 1,1,4/2/19 10:21,33041.7,28293.4,8.97,40540.9,25.9059,20449374,salmonShed
 2,2,4/2/19 10:31,33041.7,28251.4,8.97,40481.3,25.8635,20449374,salmonShed
 3,3,4/2/19 10:41,33041.7,28273.8,8.98,40502.9,25.8789,20449374,salmonShed

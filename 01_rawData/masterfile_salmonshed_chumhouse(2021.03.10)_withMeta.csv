@@ -1,0 +1,476 @@
+*metacsv_format_file*,,,,,,,,,,,,,,,,,,,,,
+dataset_name,attribute_description,,,,,,,,,,,,,,,,,,,,
+source_file_name,Name of the dataset.,,,,,,,,,,,,,,,,,,,,
+project_name,"Name of the ""raw"" file used to generate this dataset.",,,,,,,,,,,,,,,,,,,,
+description,Name of the project associated with this dataset.,,,,,,,,,,,,,,,,,,,,
+keywords,Narrative description of the dataset.,,,,,,,,,,,,,,,,,,,,
+data_source,species indentifer,,,,,,,,,,,,,,,,,,,,
+r_script_source,the life stage of the biological subject,,,,,,,,,,,,,,,,,,,,
+file_creation_date,Words that might be used to search for the dataset.,,,,,,,,,,,,,,,,,,,,
+last_modified_date,Source of the data. Include enough information to track down the data source. Could be an instrument.,,,,,,,,,,,,,,,,,,,,
+version_number,"If the data set was produced by as derived data from R code, provide R script file name, R script author and link to github respository.",,,,,,,,,,,,,,,,,,,,
+version_history,Date that a file with this name was first created.,,,,,,,,,,,,,,,,,,,,
+editor_name_history,Date that this file was last modified.,,,,,,,,,,,,,,,,,,,,
+data_collection_start_date,Current version number for this file,,,,,,,,,,,,,,,,,,,,
+data_collection_end_date,Brief narrative of file edit history,,,,,,,,,,,,,,,,,,,,
+data_collection_location,Name of each person to edit the dataset with names seperated by comma. The last name on the list should be the last person to edit the file.,,,,,,,,,,,,,,,,,,,,
+species,Earliest date of collection for data in the data set.,,,,,,,,,,,,,,,,,,,,
+life_stage,Last data of collection for data in the data set.,,,,,,,,,,,,,,,,,,,,
+data_entered_by,Collection location(s) for data in the dataset,,,,,,,,,,,,,,,,,,,,
+data_contributor,Person(s) who entered the source data from hard copy,,,,,,,,,,,,,,,,,,,,
+data_owner,Person(s) who were involved in generating or recording the data,,,,,,,,,,,,,,,,,,,,
+institution,Principle Investigator and/or institution.,,,,,,,,,,,,,,,,,,,,
+data_point_of_contact,Person(s) to contract with questions about the the data,,,,,,,,,,,,,,,,,,,,
+data_POC_email,point of contact email,,,,,,,,,,,,,,,,,,,,
+archive_link,Location on google drive or githup where data are archived.,,,,,,,,,,,,,,,,,,,,
+how_to_cite,Directions on how to cite the dataset.,,,,,,,,,,,,,,,,,,,,
+acknowledgements,Acknowledgements that need to be included in any use of the data.,,,,,,,,,,,,,,,,,,,,
+related_datasets,Where they were originally sourced rather than housed,,,,,,,,,,,,,,,,,,,,
+***,a related dataset (most commonly water chemistry datasets),,,,,,,,,,,,,,,,,,,,
+variable_name,variable_long_name,units,description,data_type,format,missing_value_indicator,instrument,variable_min,variable_max,,,,,,,,,,,,
+experiment,,,,,,,,,,,,,,,,,,,,,
+unit,,,,,,,,,,,,,,,,,,,,,
+unit_number,,,,,,,,,,,,,,,,,,,,,
+id_1,,,,,,,,,,,,,,,,,,,,,
+id_2,,,,,,,,,,,,,,,,,,,,,
+id_3,,,,,,,,,,,,,,,,,,,,,
+time,,,,,,,,,,,,,,,,,,,,,
+date,,,,,,,,,,,,,,,,,,,,,
+salinity,,,,,,,,,,,,,,,,,,,,,
+pHat25,,,,,,,,,,,,,,,,,,,,,
+fileName,,,,,,,,,,,,,,,,,,,,,
+unit_ID,,,,,,,,,,,,,,,,,,,,,
+alk,,,,,,,,,,,,,,,,,,,,,
+insituTemp,,,,,,,,,,,,,,,,,,,,,
+pH,,,,,,,,,,,,,,,,,,,,,
+dateString,,,,,,,,,,,,,,,,,,,,,
+treatName,,,,,,,,,,,,,,,,,,,,,
+treatpH,,,,,,,,,,,,,,,,,,,,,
+treatTemp,,,,,,,,,,,,,,,,,,,,,
+treatOther,,,,,,,,,,,,,,,,,,,,,
+dic,,,,,,,,,,,,,,,,,,,,,
+tankTemp,,,,,,,,,,,,,,,,,,,,,
+###,,,,,,,,,,,,,,,,,,,,,
+experiment,unit,unit_number,id_1,id_2,id_3,time,date,salinity,pHat25,fileName,unit_ID,alk,insituTemp,pH,dateString,treatName,treatpH,treatTemp,treatOther,dic,tankTemp
+Juvenile,Tank,2,NA,NA,NA,0.458333333,8/10/19,28.8,7.549664967,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1923.038113,NA
+Juvenile,Tank,3,NA,NA,NA,0.458333333,8/10/19,28.8,7.549090376,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1923.200522,NA
+Juvenile,Tank,5,NA,NA,NA,0.458333333,8/10/19,28.8,7.563150294,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1919.212126,NA
+Juvenile,Tank,6,NA,NA,NA,0.458333333,8/10/19,28.8,7.569084489,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1917.519378,NA
+Juvenile,Tank,1,NA,NA,NA,0.458333333,8/10/19,28.8,7.591060622,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1911.197457,NA
+Juvenile,Tank,4,NA,NA,NA,0.458333333,8/10/19,28.8,7.601499656,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1972.442,NA,NA,8/10/19,NA,NA,NA,NA,1908.1628,NA
+Juvenile,Tank,5,NA,NA,NA,0.458333333,8/29/18,29.99,7.471826626,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2032.35255,12.5,7.636655232,8/29/18,High pH,7.8,ambient,NA,2000.876126,12.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,8/29/18,29.99,7.115592579,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2032.35255,12.5,7.252498061,8/29/18,Low pH,7.2,ambient,NA,2107.881039,12.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,8/29/18,29.99,7.116949486,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2032.35255,12.5,7.253938473,8/29/18,Low pH,7.2,ambient,NA,2107.413527,12.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,8/29/18,29.99,7.057858049,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2032.35255,12.5,7.19146484,8/29/18,Low pH,7.2,ambient,NA,2128.573691,12.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,8/29/18,29.99,7.53247438,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2032.35255,12.5,7.701984753,8/29/18,High pH,7.8,ambient,NA,1983.365955,12.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,8/29/18,29.99,7.538934604,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2032.35255,12.5,7.708919749,8/29/18,High pH,7.8,ambient,NA,1981.474408,12.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,9/11/18,30.26,7.622803815,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2045.9457,27.5,7.589194543,9/11/18,High pH,7.8,ambient,NA,1968.549492,27.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,9/11/18,30.26,7.617505076,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2045.9457,27.5,7.583971233,9/11/18,High pH,7.8,ambient,NA,1970.203704,27.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,9/11/18,30.26,7.103799402,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2045.9457,13.5,7.228375231,9/11/18,Low pH,7.2,ambient,NA,2125.52435,13.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,9/11/18,30.26,7.106833204,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2045.9457,13.5,7.231578878,9/11/18,Low pH,7.2,ambient,NA,2124.458105,13.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,9/11/18,30.26,7.6156056,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2045.9457,27.5,7.582098992,9/11/18,High pH,7.8,ambient,NA,1970.79505,27.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,9/11/18,30.26,7.616523495,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2045.9457,27.5,7.583003714,9/11/18,High pH,7.8,ambient,NA,1970.509398,27.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,9/11/18,30.26,6.875530337,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2045.9457,10,7.030251731,9/11/18,Low pH,7.2,ambient,NA,2221.7273,10
+Juvenile,Tank,4,NA,NA,NA,0.458333333,9/11/18,30.26,6.834644963,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2045.9457,10,6.988070079,9/11/18,Low pH,7.2,ambient,NA,2243.397242,10
+Juvenile,Tank,5,NA,NA,NA,0.458333333,9/11/18,30.26,7.621470174,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2045.9457,13.4,7.784050758,9/11/18,High pH,7.8,ambient,NA,1968.966485,13.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,9/11/18,30.26,7.621517867,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2045.9457,13.4,7.784101214,9/11/18,High pH,7.8,ambient,NA,1968.95158,13.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,9/11/18,30.26,7.054897808,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2045.9457,13.4,7.178058754,9/11/18,Low pH,7.2,ambient,NA,2143.326658,13.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,9/11/18,30.26,7.045262054,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2045.9457,13.4,7.167953339,9/11/18,Low pH,7.2,ambient,NA,2146.982049,13.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,9/19/18,30.31,7.480286404,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2048.46295,12.2,7.650163581,9/19/18,High pH,7.8,ambient,NA,2013.520325,12.2
+Juvenile,Tank,2,NA,NA,NA,0.458333333,9/19/18,30.31,7.069680813,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2048.46295,12.3,7.20639988,9/19/18,Low pH,7.2,ambient,NA,2140.338222,12.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,9/19/18,30.31,7.49240436,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2048.46295,12.2,7.663254375,9/19/18,High pH,7.8,ambient,NA,2010.005064,12.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,9/19/18,30.31,7.062768553,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2048.46295,12.2,7.200276188,9/19/18,Low pH,7.2,ambient,NA,2142.902591,12.2
+Juvenile,Tank,5,NA,NA,NA,0.458333333,9/19/18,30.31,7.488723045,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2048.46295,12.2,7.659279068,9/19/18,High pH,7.8,ambient,NA,2011.074417,12.2
+Juvenile,Tank,6,NA,NA,NA,0.458333333,9/19/18,30.31,6.935767731,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2048.46295,12.3,7.066328252,9/19/18,Low pH,7.2,ambient,NA,2195.24023,12.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/2/18,28.27,7.551322909,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,12.8,7.716979535,10/2/18,High pH,7.8,ambient,NA,1897.913996,12.8
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/2/18,28.27,7.559561821,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,12.8,7.725806087,10/2/18,High pH,7.8,ambient,NA,1895.622357,12.8
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/2/18,28.27,7.099535722,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,12.9,7.229990421,10/2/18,Low pH,7.2,ambient,NA,2027.076885,12.9
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/2/18,28.27,7.075625542,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,12.9,7.204796005,10/2/18,Low pH,7.2,ambient,NA,2035.323303,12.9
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/2/18,28.27,7.559561821,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,12.8,7.725806087,10/2/18,High pH,7.8,ambient,NA,1895.622357,12.8
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/2/18,28.27,7.567388332,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,12.8,7.734183213,10/2/18,High pH,7.8,ambient,NA,1893.435982,12.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/2/18,28.27,7.080993961,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,12.8,7.211606578,10/2/18,Low pH,7.2,ambient,NA,2033.447536,12.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/2/18,28.27,7.080993961,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,12.8,7.211606578,10/2/18,Low pH,7.2,ambient,NA,2033.447536,12.8
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/2/18,28.27,7.54199792,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,12.8,7.706979783,10/2/18,High pH,7.8,ambient,NA,1900.496168,12.8
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/2/18,28.27,7.562481015,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,12.8,7.72893153,10/2/18,High pH,7.8,ambient,NA,1894.80797,12.8
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/2/18,28.27,7.061051761,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,12.9,7.18947992,10/2/18,Low pH,7.2,ambient,NA,2040.489629,12.9
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/2/18,28.27,7.032259089,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,12.9,7.159309424,10/2/18,Low pH,7.2,ambient,NA,2051.033705,12.9
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/9/18,28.27,7.538405835,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,12.3,7.710195832,10/9/18,High pH,7.8,ambient,NA,1901.487751,12.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/9/18,28.27,7.517519481,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,12.3,7.687697885,10/9/18,High pH,7.8,ambient,NA,1907.222371,12.3
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/9/18,28.27,7.113611908,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,12.4,7.25074674,10/9/18,Low pH,7.2,ambient,NA,2022.347252,12.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/9/18,28.27,7.102629496,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,12.4,7.239119472,10/9/18,Low pH,7.2,ambient,NA,2026.029686,12.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/9/18,28.27,7.500834062,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,12.3,7.669691329,10/9/18,High pH,7.8,ambient,NA,1911.770303,12.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/9/18,28.27,7.524073894,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,12.3,7.69476328,10/9/18,High pH,7.8,ambient,NA,1905.428158,12.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/9/18,28.27,6.890447325,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,12.4,7.017839285,10/9/18,Low pH,7.2,ambient,NA,2110.997881,12.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/9/18,28.27,7.011074595,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,12.4,7.142888011,10/9/18,Low pH,7.2,ambient,NA,2059.099203,12.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/9/18,28.27,7.504787781,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,12.4,7.672562629,10/9/18,High pH,7.8,ambient,NA,1910.695,12.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/9/18,28.27,7.521386245,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,12.4,7.690459492,10/9/18,High pH,7.8,ambient,NA,1906.164441,12.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/9/18,28.27,7.018039117,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,12.4,7.15016548,10/9/18,Low pH,7.2,ambient,NA,2056.417471,12.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/9/18,28.27,7.032259089,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,12.4,7.165045723,10/9/18,Low pH,7.2,ambient,NA,2051.033705,12.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/24/18,30.79,7.518061986,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2072.62855,12.4,7.688364586,10/24/18,High pH,7.8,ambient,NA,2024.914256,12.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/24/18,30.79,6.926766853,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2072.62855,12.4,7.056006462,10/24/18,Low pH,7.2,ambient,NA,2224.135154,12.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/24/18,30.79,6.985412164,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2072.62855,12.4,7.116981214,10/24/18,Low pH,7.2,ambient,NA,2198.007311,12.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/24/18,30.79,7.055734561,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2072.62855,12.4,7.190723984,10/24/18,Low pH,7.2,ambient,NA,2169.7911,12.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,10/24/18,30.79,6.992105161,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2072.62855,12.4,7.123969289,10/24/18,Low pH,7.2,ambient,NA,2195.185735,12.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,10/24/18,30.79,7.507694591,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2072.62855,12.4,7.677209939,10/24/18,High pH,7.8,ambient,NA,2028.001411,12.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,10/24/18,30.79,6.963098759,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2072.62855,12.4,7.093728302,10/24/18,Low pH,7.2,ambient,NA,2207.642333,12.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,10/24/18,30.79,7.061755753,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2072.62855,12.4,7.197071757,10/24/18,Low pH,7.2,ambient,NA,2167.511006,12.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/24/18,30.79,7.524599709,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2072.62855,12.4,7.695392347,10/24/18,High pH,7.8,ambient,NA,2022.960066,12.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/24/18,30.79,7.503916712,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2072.62855,12.4,7.673142174,10/24/18,High pH,7.8,ambient,NA,2029.123001,12.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,10/24/18,30.79,7.516069045,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2072.62855,12.4,7.686221266,10/24/18,High pH,7.8,ambient,NA,2025.508797,12.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,10/24/18,30.79,7.515224668,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2072.62855,12.4,7.685313038,10/24/18,High pH,7.8,ambient,NA,2025.760534,12.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/7/18,30.59,7.527126741,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2062.55955,11.6,7.709385989,11/7/18,High pH,7.8,ambient,NA,2012.889331,11.6
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/7/18,30.59,7.514884048,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2062.55955,11.6,7.696171546,11/7/18,High pH,7.8,ambient,NA,2016.523411,11.6
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/7/18,30.59,7.021460589,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2062.55955,11.8,7.161572253,11/7/18,Low pH,7.2,ambient,NA,2173.003019,11.8
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/7/18,30.59,7.013143917,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2062.55955,11.8,7.152841085,11/7/18,Low pH,7.2,ambient,NA,2176.340353,11.8
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/7/18,30.59,7.513362613,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2062.55955,11.6,7.69452806,11/7/18,High pH,7.8,ambient,NA,2016.973629,11.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/7/18,30.59,7.515646668,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2062.55955,11.6,7.696995239,11/7/18,High pH,7.8,ambient,NA,2016.297627,11.6
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/7/18,30.59,7.020204431,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2062.55955,11.8,7.160252821,11/7/18,Low pH,7.2,ambient,NA,2173.504332,11.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/7/18,30.59,7.041992135,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2062.55955,11.8,7.183172026,11/7/18,Low pH,7.2,ambient,NA,2164.944072,11.8
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/7/18,30.59,7.525823415,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2062.55955,73.7,6.970774165,11/7/18,High pH,7.8,ambient,NA,2013.277193,73.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/7/18,30.59,7.520189983,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2062.55955,73.7,6.967162114,11/7/18,High pH,7.8,ambient,NA,2014.950925,73.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/7/18,30.59,6.961582812,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2062.55955,11.8,7.098936244,11/7/18,Low pH,7.2,ambient,NA,2198.056376,11.8
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/7/18,30.59,6.903919332,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2062.55955,11.8,7.039081513,11/7/18,Low pH,7.2,ambient,NA,2224.710918,11.8
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/14/18,29.68,7.546126448,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,11.7,7.727893678,11/14/18,High pH,7.8,ambient,NA,1964.96192,11.7
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/14/18,29.68,7.520183508,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,11.7,7.699920453,11/14/18,High pH,7.8,ambient,NA,1972.467435,11.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/14/18,29.68,7.009484857,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,11.2,7.155637725,11/14/18,Low pH,7.2,ambient,NA,2131.509081,11.2
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/14/18,29.68,7.063015075,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,11.2,7.212039166,11/14/18,Low pH,7.2,ambient,NA,2111.006295,11.2
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/14/18,29.68,7.510338547,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,11.7,7.689283531,11/14/18,High pH,7.8,ambient,NA,1975.292652,11.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/14/18,29.68,7.52728637,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,11.7,7.707587529,11/14/18,High pH,7.8,ambient,NA,1970.421688,11.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/14/18,29.68,6.866129134,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,11.3,7.005503757,11/14/18,Low pH,7.2,ambient,NA,2196.354704,11.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/14/18,29.68,6.921239213,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,11.3,7.062452678,11/14/18,Low pH,7.2,ambient,NA,2169.455358,11.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/14/18,29.68,7.513430026,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,72.3,6.980921158,11/14/18,High pH,7.8,ambient,NA,1974.406722,72.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/14/18,29.68,7.529748918,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,72.3,6.991512193,11/14/18,High pH,7.8,ambient,NA,1969.710889,72.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/14/18,29.68,6.909423274,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,11.3,7.050211662,11/14/18,Low pH,7.2,ambient,NA,2174.994879,11.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/14/18,29.68,6.925854365,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,11.3,7.06723867,11/14/18,Low pH,7.2,ambient,NA,2167.323581,11.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/21/18,30.79,7.512940613,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2072.62855,11.3,7.698462387,11/21/18,High pH,7.8,ambient,NA,2026.441016,11.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/21/18,30.79,7.515224668,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2072.62855,11.3,7.70093282,11/21/18,High pH,7.8,ambient,NA,2025.760534,11.3
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/21/18,30.79,7.021038589,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2072.62855,11.4,7.165877617,11/21/18,Low pH,7.2,ambient,NA,2183.330108,11.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/21/18,30.79,7.06470652,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2072.62855,11.4,7.211963092,11/21/18,Low pH,7.2,ambient,NA,2166.400737,11.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/21/18,30.79,7.518756694,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2072.62855,11.3,7.704751772,11/21/18,High pH,7.8,ambient,NA,2024.706882,11.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/21/18,30.79,7.50815584,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2072.62855,11.3,7.693285091,11/21/18,High pH,7.8,ambient,NA,2027.864354,11.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/21/18,30.79,7.100792966,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2072.62855,11.4,7.250278227,11/21/18,Low pH,7.2,ambient,NA,2153.181496,11.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/21/18,30.79,7.131813455,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2072.62855,11.4,7.283382008,11/21/18,Low pH,7.2,ambient,NA,2142.303105,11.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/21/18,30.79,7.499470581,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2072.62855,84,6.852286376,11/21/18,High pH,7.8,ambient,NA,2030.440814,84
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/21/18,30.79,7.535247148,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2072.62855,84,6.872419938,11/21/18,High pH,7.8,ambient,NA,2019.764179,84
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/21/18,30.79,7.177139381,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2072.62855,11.4,7.332021434,11/21/18,Low pH,7.2,ambient,NA,2127.099097,11.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/21/18,30.79,7.197934257,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2072.62855,11.4,7.354437208,11/21/18,Low pH,7.2,ambient,NA,2120.360579,11.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/28/18,30.53,7.524765768,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2059.53885,11.2,7.712519018,11/28/18,High pH,7.8,ambient,NA,2010.79552,11.2
+Juvenile,Tank,1,NA,NA,NA,0.458333333,11/28/18,30.53,7.508243191,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2059.53885,11.2,7.694640399,11/28/18,High pH,7.8,ambient,NA,2015.680159,11.2
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/28/18,30.53,7.056283161,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2059.53885,11.3,7.204117988,11/28/18,Low pH,7.2,ambient,NA,2156.447282,11.3
+Juvenile,Tank,2,NA,NA,NA,0.458333333,11/28/18,30.53,7.042118735,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2059.53885,11.3,7.189154769,11/28/18,Low pH,7.2,ambient,NA,2161.85724,11.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/28/18,30.53,7.521639228,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2059.53885,11.2,7.709138522,11/28/18,High pH,7.8,ambient,NA,2011.722611,11.2
+Juvenile,Tank,3,NA,NA,NA,0.458333333,11/28/18,30.53,7.519305294,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2059.53885,11.2,7.706614195,11/28/18,High pH,7.8,ambient,NA,2012.413803,11.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/28/18,30.53,6.942247722,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2059.53885,11.3,7.084528739,11/28/18,Low pH,7.2,ambient,NA,2203.609202,11.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,11/28/18,30.53,6.982426241,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2059.53885,11.3,7.126441865,11/28/18,Low pH,7.2,ambient,NA,2185.989971,11.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/28/18,30.53,7.519798018,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2059.53885,0,7.875160911,11/28/18,High pH,7.8,ambient,NA,2012.267945,0
+Juvenile,Tank,5,NA,NA,NA,0.458333333,11/28/18,30.53,7.510952967,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2059.53885,0,7.865209795,11/28/18,High pH,7.8,ambient,NA,2014.881461,0
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/28/18,30.53,7.117313922,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2059.53885,11.3,7.268962243,11/28/18,Low pH,7.2,ambient,NA,2134.32231,11.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,11/28/18,30.53,7.116034052,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2059.53885,11.3,7.267596198,11/28/18,Low pH,7.2,ambient,NA,2134.768301,11.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/4/18,30.53,7.520082791,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2059.53885,10.9,7.711746361,12/4/18,High pH,7.8,ambient,NA,2012.18363,10.9
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/4/18,30.53,7.512750881,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2059.53885,10.9,7.703801204,12/4/18,High pH,7.8,ambient,NA,2014.351031,10.9
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/4/18,30.53,7.024614638,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2059.53885,10.7,7.177777608,12/4/18,Low pH,7.2,ambient,NA,2168.702481,10.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/4/18,30.53,7.014923071,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2059.53885,10.7,7.167566454,12/4/18,Low pH,7.2,ambient,NA,2172.572128,10.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/4/18,30.53,7.50319058,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2059.53885,10.9,7.693431119,12/4/18,High pH,7.8,ambient,NA,2017.167043,10.9
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/4/18,30.53,7.500019181,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2059.53885,10.9,7.689988632,12/4/18,High pH,7.8,ambient,NA,2018.098814,10.9
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/4/18,30.53,7.584864218,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2059.53885,10.9,7.781623871,12/4/18,Low pH,7.2,ambient,NA,1992.666918,10.9
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/4/18,30.53,7.183727679,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2059.53885,10.9,7.3451641,12/4/18,Low pH,7.2,ambient,NA,2112.067935,10.9
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/4/18,30.53,7.516326304,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2059.53885,0,7.871256923,12/4/18,High pH,7.8,ambient,NA,2013.294969,0
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/4/18,30.53,7.520165667,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2059.53885,0,7.875574195,12/4/18,High pH,7.8,ambient,NA,2012.15909,0
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/4/18,30.53,7.078583561,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2059.53885,10.7,7.234923768,12/4/18,Low pH,7.2,ambient,NA,2148.149808,10.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/4/18,30.53,6.998784988,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2059.53885,10.7,7.150596626,12/4/18,Low pH,7.2,ambient,NA,2179.147872,10.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/12/18,30.28,7.095294622,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2046.9526,10.2,7.258648458,12/12/18,Low pH,7.2,ambient,NA,2129.540577,10.2
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/12/18,30.28,7.071384442,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2046.9526,10.2,7.233166155,12/12/18,Low pH,7.2,ambient,NA,2138.197672,10.2
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/12/18,30.28,7.517145145,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2046.9526,10.1,7.719878576,12/12/18,High pH,7.8,ambient,NA,2001.379242,10.1
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/12/18,30.28,7.515538148,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2046.9526,57.4,7.136665934,12/12/18,High pH,7.8,ambient,NA,2001.850229,57.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/12/18,30.28,7.531037635,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2046.9526,10.1,7.734979107,12/12/18,High pH,7.8,ambient,NA,1997.293224,10.1
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/12/18,30.28,7.035709871,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2046.9526,10.2,7.195330512,12/12/18,Low pH,7.2,ambient,NA,2151.671431,10.2
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/12/18,30.28,7.53775682,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2046.9526,57.4,7.153757563,12/12/18,High pH,7.8,ambient,NA,1995.307186,57.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/12/18,30.28,7.057709266,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2046.9526,10.2,7.218636616,12/12/18,Low pH,7.2,ambient,NA,2143.280128,10.2
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/12/18,30.28,7.058729625,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2046.9526,10.2,7.219719602,12/12/18,Low pH,7.2,ambient,NA,2142.897463,10.2
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/12/18,30.28,7.520844083,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2046.9526,10.1,7.723901753,12/12/18,High pH,7.8,ambient,NA,2000.29387,10.1
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/12/18,30.28,7.109370808,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2046.9526,10.2,7.273696877,12/12/18,Low pH,7.2,ambient,NA,2124.571911,10.2
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/12/18,30.28,7.527780841,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2046.9526,10.1,7.731441516,12/12/18,High pH,7.8,ambient,NA,1998.25349,10.1
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/20/18,30.44,7.496925932,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2055.0078,10.3,7.695109673,12/20/18,High pH,7.8,ambient,NA,2014.786527,10.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,12/20/18,30.44,7.494291216,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2055.0078,10.3,7.692239271,12/20/18,High pH,7.8,ambient,NA,2015.556556,10.3
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/20/18,30.44,7.024804538,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2055.0078,10.4,7.181497313,12/20/18,Low pH,7.2,ambient,NA,2164.058128,10.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,12/20/18,30.44,6.995625001,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2055.0078,10.4,7.150775093,12/20/18,Low pH,7.2,ambient,NA,2175.86565,10.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/20/18,30.44,7.506992179,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2055.0078,10.3,7.706068531,12/20/18,High pH,7.8,ambient,NA,2011.837538,10.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,12/20/18,30.44,7.497182586,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2055.0078,10.3,7.695389241,12/20/18,High pH,7.8,ambient,NA,2014.711477,10.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/20/18,30.44,6.968713812,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2055.0078,10.4,7.1225614,12/20/18,Low pH,7.2,ambient,NA,2187.259848,10.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,12/20/18,30.44,7.019101009,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2055.0078,10.4,7.175481304,12/20/18,Low pH,7.2,ambient,NA,2166.323702,10.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/20/18,30.44,7.50338048,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2055.0078,10.3,7.702138024,12/20/18,High pH,7.8,ambient,NA,2012.896933,10.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,12/20/18,30.44,7.481248712,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2055.0078,10.3,7.678018069,12/20/18,High pH,7.8,ambient,NA,2019.358237,10.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/20/18,30.44,6.91768621,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2055.0078,10.4,7.069360829,12/20/18,Low pH,7.2,ambient,NA,2210.352445,10.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,12/20/18,30.44,6.929093374,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2055.0078,10.4,7.081221591,12/20/18,Low pH,7.2,ambient,NA,2205.00943,10.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/6/19,28.27,6.913169464,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,8.8,7.08274088,2/6/19,Low pH,7.2,ambient,NA,2100.347906,8.8
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/6/19,28.27,6.998385619,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,8.9,7.170641312,2/6/19,Low pH,7.2,ambient,NA,2064.063919,8.9
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/6/19,28.27,7.508992474,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,8.7,7.729667955,2/6/19,High pH,7.8,ambient,NA,1909.549885,8.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/6/19,28.27,7.004203243,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1945.75915,8.8,7.177970136,2/6/19,Low pH,7.2,ambient,NA,2061.774893,8.8
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/6/19,28.27,7.068285879,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1945.75915,8.9,7.244619923,2/6/19,Low pH,7.2,ambient,NA,2037.911425,8.9
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/6/19,28.27,7.512597064,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,8.7,7.733626275,2/6/19,High pH,7.8,ambient,NA,1908.566867,8.7
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/6/19,28.27,7.521386245,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,8.7,7.743270679,2/6/19,High pH,7.8,ambient,NA,1906.164441,8.7
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/6/19,28.27,7.527463287,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1945.75915,8.7,7.749932809,2/6/19,High pH,7.8,ambient,NA,1904.498476,8.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/6/19,28.27,7.530718615,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1945.75915,8.7,7.753499397,2/6/19,High pH,7.8,ambient,NA,1903.604318,8.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/6/19,28.27,7.519779248,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1945.75915,8.7,7.741508101,2/6/19,High pH,7.8,ambient,NA,1906.604303,8.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/6/19,28.27,6.997422361,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,8.8,7.170830723,2/6/19,Low pH,7.2,ambient,NA,2064.44505,8.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/6/19,28.27,7.004203243,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1945.75915,8.8,7.177970136,2/6/19,Low pH,7.2,ambient,NA,2061.774893,8.8
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/12/19,29.88,7.520142913,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.8146,8.7,7.743113123,2/12/19,High pH,7.8,ambient,NA,1981.822809,8.7
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/12/19,29.88,7.514481144,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.8146,8.7,7.736911629,2/12/19,High pH,7.8,ambient,NA,1983.460227,8.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/12/19,29.88,7.062593075,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2026.8146,8.9,7.239403274,2/12/19,Low pH,7.2,ambient,NA,2121.259894,8.9
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/12/19,29.88,7.076955638,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2026.8146,8.9,7.254733024,2/12/19,Low pH,7.2,ambient,NA,2116.005163,8.9
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/12/19,29.88,7.522049171,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2026.8146,8.7,7.745200051,2/12/19,High pH,7.8,ambient,NA,1981.270603,8.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/12/19,29.88,7.541842921,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2026.8146,8.7,7.766837436,2/12/19,High pH,7.8,ambient,NA,1975.507534,8.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/12/19,29.88,7.015979387,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.8146,8.8,7.191124917,2/12/19,Low pH,7.2,ambient,NA,2139.100389,8.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/12/19,29.88,7.015979387,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.8146,8.8,7.191124917,2/12/19,Low pH,7.2,ambient,NA,2139.100389,8.8
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/12/19,29.88,7.533460903,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.8146,8.7,7.75768202,2/12/19,High pH,7.8,ambient,NA,1977.954753,8.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/12/19,29.88,7.532049383,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.8146,8.7,7.75613919,2/12/19,High pH,7.8,ambient,NA,1978.36586,8.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/12/19,29.88,6.865707134,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2026.8146,8.6,7.036374543,2/12/19,Low pH,7.2,ambient,NA,2206.988633,8.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/12/19,29.88,6.936675031,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2026.8146,8.6,7.110166242,2/12/19,Low pH,7.2,ambient,NA,2172.690141,8.6
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/21/19,29.68,7.54979095,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,7.5,7.79307497,2/21/19,High pH,7.8,ambient,NA,1963.893852,7.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/21/19,29.68,7.544107659,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,7.5,7.786842616,2/21/19,High pH,7.8,ambient,NA,1965.549436,7.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/21/19,29.68,7.113239561,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,8.6,7.297249762,2/21/19,Low pH,7.2,ambient,NA,2093.160594,8.6
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/21/19,29.68,7.089047287,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,8.6,7.271265609,2/21/19,Low pH,7.2,ambient,NA,2101.604149,8.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/21/19,29.68,7.532606916,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,7.5,7.774214198,2/21/19,High pH,7.8,ambient,NA,1968.884916,7.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/21/19,29.68,7.536262096,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,7.5,7.778230151,2/21/19,High pH,7.8,ambient,NA,1967.8269,7.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/21/19,29.68,6.937097031,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,8.5,7.11173259,2/21/19,Low pH,7.2,ambient,NA,2162.203481,8.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/21/19,29.68,7.016401387,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,8.5,7.195123881,2/21/19,Low pH,7.2,ambient,NA,2128.76383,8.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/21/19,29.68,7.53513829,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,7.5,7.776995656,2/21/19,High pH,7.8,ambient,NA,1968.152394,7.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/21/19,29.68,7.53513829,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,7.5,7.776995656,2/21/19,High pH,7.8,ambient,NA,1968.152394,7.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/21/19,29.68,6.882081492,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,8.7,7.052094712,2/21/19,Low pH,7.2,ambient,NA,2188.282806,8.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/21/19,29.68,7.003965679,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,8.7,7.179551491,2/21/19,Low pH,7.2,ambient,NA,2133.721539,8.7
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/27/19,29.68,7.508311135,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,8.4,7.734349838,2/27/19,High pH,7.8,ambient,NA,1975.873061,8.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,2/27/19,29.68,7.522471171,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2016.7456,8.4,7.749887953,2/27/19,High pH,7.8,ambient,NA,1971.809254,8.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/27/19,29.68,7.137631296,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,8.4,7.326079152,2/27/19,Low pH,7.2,ambient,NA,2084.907894,8.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,2/27/19,29.68,7.13368003,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2016.7456,8.4,7.321806036,2/27/19,Low pH,7.2,ambient,NA,2086.228058,8.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/27/19,29.68,7.531428619,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,8.4,7.759701821,2/27/19,High pH,7.8,ambient,NA,1969.225585,8.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,2/27/19,29.68,7.508311135,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2016.7456,8.4,7.734349838,2/27/19,High pH,7.8,ambient,NA,1975.873061,8.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/27/19,29.68,6.99622308,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,8.5,7.173803515,2/27/19,Low pH,7.2,ambient,NA,2136.858673,8.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,2/27/19,29.68,6.987754264,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2016.7456,8.5,7.164876813,2/27/19,Low pH,7.2,ambient,NA,2140.335736,8.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/27/19,29.68,7.511393524,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,8.4,7.737734668,2/27/19,High pH,7.8,ambient,NA,1974.990449,8.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,2/27/19,29.68,7.5166604,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2016.7456,8.4,7.743515187,2/27/19,High pH,7.8,ambient,NA,1973.479795,8.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/27/19,29.68,6.973940057,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,8.5,7.150342235,2/27/19,Low pH,7.2,ambient,NA,2146.11319,8.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,2/27/19,29.68,6.937097031,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2016.7456,8.5,7.11173259,2/27/19,Low pH,7.2,ambient,NA,2162.203481,8.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/8/19,29.5,7.549272259,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,7.9,7.786456204,3/8/19,High pH,7.8,ambient,NA,1955.685999,7.9
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/8/19,29.5,7.545750207,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,7.9,7.782599777,3/8/19,High pH,7.8,ambient,NA,1956.705769,7.9
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/8/19,29.5,6.819627992,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.1,6.994627835,3/8/19,Low pH,7.2,ambient,NA,2211.892316,8.1
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/8/19,29.5,7.529426641,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,7.9,7.764700049,3/8/19,High pH,7.8,ambient,NA,1961.408361,7.9
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/8/19,29.5,6.968558113,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.1,7.149449453,3/8/19,Low pH,7.2,ambient,NA,2139.17989,8.1
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/8/19,29.5,7.023760489,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.3,7.205273874,3/8/19,Low pH,7.2,ambient,NA,2116.732827,8.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/8/19,29.5,7.54063499,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,7.9,7.776995286,3/8/19,High pH,7.8,ambient,NA,1958.183496,7.9
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/8/19,29.5,6.891248644,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.1,7.068692064,3/8/19,Low pH,7.2,ambient,NA,2174.416874,8.1
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/8/19,29.5,6.805655588,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.1,6.980250351,3/8/19,Low pH,7.2,ambient,NA,2219.831827,8.1
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/8/19,29.5,7.55432885,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,7.9,7.791989228,3/8/19,High pH,7.8,ambient,NA,1954.218544,7.9
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/8/19,29.5,7.546506248,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,7.9,7.783427768,3/8/19,High pH,7.8,ambient,NA,1956.487026,7.9
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/8/19,29.5,6.965820659,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.3,7.144154778,3/8/19,Low pH,7.2,ambient,NA,2140.347436,8.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/20/19,29.5,7.518273794,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,8.5,7.743694641,3/20/19,High pH,7.8,ambient,NA,1964.600691,8.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/20/19,29.5,7.517946568,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,8.5,7.743335785,3/20/19,High pH,7.8,ambient,NA,1964.694121,8.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/20/19,29.5,7.029663789,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.7,7.206652,3/20/19,Low pH,7.2,ambient,NA,2114.447992,8.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/20/19,29.5,6.998884881,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.7,7.174111863,3/20/19,Low pH,7.2,ambient,NA,2126.598159,8.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/20/19,29.5,7.505985257,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,8.5,7.730207867,3/20/19,High pH,7.8,ambient,NA,1968.100848,8.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/20/19,29.5,7.508975579,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,8.5,7.733491719,3/20/19,High pH,7.8,ambient,NA,1967.250668,8.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/20/19,29.5,7.000093355,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.6,7.176596126,3/20/19,Low pH,7.2,ambient,NA,2126.109737,8.6
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/20/19,29.5,7.002326937,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.6,7.178952936,3/20/19,Low pH,7.2,ambient,NA,2125.209522,8.6
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/20/19,29.5,7.535649058,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,8.5,7.76272656,3/20/19,High pH,7.8,ambient,NA,1959.62021,8.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/20/19,29.5,7.505808151,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,8.5,7.730013338,3/20/19,High pH,7.8,ambient,NA,1968.151171,8.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/20/19,29.5,6.91966961,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.6,7.092290055,3/20/19,Low pH,7.2,ambient,NA,2160.892038,8.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/20/19,29.5,6.937476831,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.6,7.110868005,3/20/19,Low pH,7.2,ambient,NA,2152.766382,8.6
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/27/19,29.5,7.571387004,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,8.4,7.803202797,3/27/19,High pH,7.8,ambient,NA,1949.237014,8.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,3/27/19,29.5,7.567924749,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,8.4,7.799432616,3/27/19,High pH,7.8,ambient,NA,1950.252152,8.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/27/19,29.5,7.159032064,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.5,7.347884256,3/27/19,Low pH,7.2,ambient,NA,2068.904258,8.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,3/27/19,29.5,7.158062028,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,8.5,7.346831697,3/27/19,Low pH,7.2,ambient,NA,2069.218566,8.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/27/19,29.5,7.619242974,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,8.4,7.855100477,3/27/19,High pH,7.8,ambient,NA,1934.965454,8.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,3/27/19,29.5,7.602480062,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,8.4,7.836968001,3/27/19,High pH,7.8,ambient,NA,1940.018672,8.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/27/19,29.5,6.79404349,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.4,6.964780654,3/27/19,Low pH,7.2,ambient,NA,2226.600268,8.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,3/27/19,29.5,6.908559803,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,8.4,7.083106801,3/27/19,Low pH,7.2,ambient,NA,2166.095258,8.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/27/19,29.5,7.597520465,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,8.4,7.831593573,3/27/19,High pH,7.8,ambient,NA,1941.502047,8.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,3/27/19,29.5,7.597520465,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,8.4,7.831593573,3/27/19,High pH,7.8,ambient,NA,1941.502047,8.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/27/19,29.5,6.894666714,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.5,7.067471688,3/27/19,Low pH,7.2,ambient,NA,2172.752627,8.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,3/27/19,29.5,6.812598653,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,8.5,6.982670606,3/27/19,Low pH,7.2,ambient,NA,2215.859092,8.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/2/19,29.6,7.538604614,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,8.5,7.76603142,4/2/19,High pH,7.8,ambient,NA,1963.424272,8.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/2/19,29.6,7.530656965,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,8.5,7.757336263,4/2/19,High pH,7.8,ambient,NA,1965.718557,8.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/2/19,29.6,7.083040238,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,8.6,7.264786287,4/2/19,Low pH,7.2,ambient,NA,2099.716309,8.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/2/19,29.6,6.991481879,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,8.6,7.167560493,4/2/19,Low pH,7.2,ambient,NA,2134.715834,8.6
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/2/19,29.6,7.114028529,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,8.6,7.298050623,4/2/19,Low pH,7.2,ambient,NA,2088.881165,8.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/2/19,29.6,7.543418445,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,8.5,7.771293208,4/2/19,High pH,7.8,ambient,NA,1962.03024,8.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/2/19,29.6,7.529215641,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,8.5,7.755758335,4/2/19,High pH,7.8,ambient,NA,1966.133698,8.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/2/19,29.6,7.003350839,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,8.6,7.180078029,4/2/19,Low pH,7.2,ambient,NA,2129.893175,8.6
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/2/19,29.6,7.008268295,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,8.6,7.185271458,4/2/19,Low pH,7.2,ambient,NA,2127.922098,8.6
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/2/19,29.6,7.527912315,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,8.5,7.754331213,4/2/19,High pH,7.8,ambient,NA,1966.508852,8.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/2/19,29.6,7.525820815,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,8.5,7.752040517,4/2/19,High pH,7.8,ambient,NA,1967.110408,8.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/2/19,29.6,6.930411569,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,8.6,7.103526198,4/2/19,Low pH,7.2,ambient,NA,2161.113015,8.6
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/10/19,29.3,7.52403512,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1997.6145,8.7,7.746949849,4/10/19,High pH,7.8,ambient,NA,1953.610905,8.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/10/19,29.3,6.952970815,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1997.6145,8.7,7.125798897,4/10/19,Low pH,7.2,ambient,NA,2135.631064,8.7
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/10/19,29.3,6.950649264,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1997.6145,8.7,7.12336961,4/10/19,Low pH,7.2,ambient,NA,2136.644049,8.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/10/19,29.3,7.554335769,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1997.6145,8.7,7.780061321,4/10/19,High pH,7.8,ambient,NA,1944.935471,8.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/10/19,29.3,7.55475085,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1997.6145,8.7,7.780513909,4/10/19,High pH,7.8,ambient,NA,1944.815691,8.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/10/19,29.3,6.916065451,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1997.6145,8.8,7.086090636,4/10/19,Low pH,7.2,ambient,NA,2152.237247,8.8
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/10/19,29.3,6.959012065,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1997.6145,8.8,7.130927099,4/10/19,Low pH,7.2,ambient,NA,2133.014094,8.8
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/10/19,29.3,7.58547948,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1997.6145,8.7,7.813940127,4/10/19,High pH,7.8,ambient,NA,1935.867151,8.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/10/19,29.3,7.565215032,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1997.6145,8.7,7.791914367,4/10/19,High pH,7.8,ambient,NA,1941.786805,8.7
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/10/19,29.3,6.973140527,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1997.6145,8.8,7.145740278,4/10/19,Low pH,7.2,ambient,NA,2126.999038,8.8
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/10/19,29.3,7.031690524,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1997.6145,8.8,7.207487843,4/10/19,Low pH,7.2,ambient,NA,2103.52105,8.8
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/19/19,29.4,7.609619216,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2002.649,9.4,7.829717715,4/19/19,High pH,7.8,ambient,NA,1933.293503,9.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/19/19,29.4,7.612692892,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2002.649,9.4,7.833030165,4/19/19,High pH,7.8,ambient,NA,1932.3702,9.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/19/19,29.4,6.869751748,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2002.649,9.5,7.029855553,4/19/19,Low pH,7.2,ambient,NA,2179.925965,9.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/19/19,29.4,6.817016742,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2002.649,9.5,6.97551742,4/19/19,Low pH,7.2,ambient,NA,2208.106566,9.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/19/19,29.4,7.606295878,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2002.649,9.4,7.826134412,4/19/19,High pH,7.8,ambient,NA,1934.289472,9.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/19/19,29.4,7.611185464,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2002.649,9.4,7.831405835,4/19/19,High pH,7.8,ambient,NA,1932.823277,9.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/19/19,29.4,6.970908212,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2002.649,9.5,7.135085062,4/19/19,Low pH,7.2,ambient,NA,2133.060927,9.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/19/19,29.4,6.988345064,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2002.649,9.5,7.153377484,4/19/19,Low pH,7.2,ambient,NA,2125.791975,9.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/19/19,29.4,7.603065229,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2002.649,9.4,7.822649261,4/19/19,High pH,7.8,ambient,NA,1935.255378,9.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/19/19,29.4,7.596672202,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2002.649,9.4,7.81574744,4/19/19,High pH,7.8,ambient,NA,1937.160283,9.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/19/19,29.4,6.937687831,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2002.649,9.5,7.100366135,4/19/19,Low pH,7.2,ambient,NA,2147.523901,9.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/19/19,29.4,6.984810541,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2002.649,9.5,7.14966557,4/19/19,Low pH,7.2,ambient,NA,2127.248338,9.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/23/19,29.2,7.606717878,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1992.58,9.4,7.826469368,4/23/19,High pH,7.8,ambient,NA,1924.992206,9.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,4/23/19,29.2,7.603113062,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1992.58,9.4,7.822579689,4/23/19,High pH,7.8,ambient,NA,1926.062209,9.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/23/19,29.2,6.944588225,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1992.58,9.6,7.106314428,4/23/19,Low pH,7.2,ambient,NA,2134.165776,9.6
+Juvenile,Tank,2,NA,NA,NA,0.458333333,4/23/19,29.2,6.957788845,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1992.58,9.6,7.120097931,4/23/19,Low pH,7.2,ambient,NA,2128.409999,9.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/23/19,29.2,7.610041216,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1992.58,9.4,7.830053386,4/23/19,High pH,7.8,ambient,NA,1924.003298,9.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,4/23/19,29.2,7.625040415,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1992.58,9.4,7.846205849,4/23/19,High pH,7.8,ambient,NA,1919.509709,9.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/23/19,29.2,6.923455197,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1992.58,9.5,7.085476443,4/23/19,Low pH,7.2,ambient,NA,2143.664149,9.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,4/23/19,29.2,6.959223065,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1992.58,9.5,7.122779842,4/23/19,Low pH,7.2,ambient,NA,2127.79257,9.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/23/19,29.2,7.603113062,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1992.58,9.4,7.822579689,4/23/19,High pH,7.8,ambient,NA,1926.062209,9.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,4/23/19,29.2,7.39743801,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1992.58,9.4,7.597655917,4/23/19,High pH,7.8,ambient,NA,1984.202201,9.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/23/19,29.2,7.065110653,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1992.58,9.6,7.23320472,4/23/19,Low pH,7.2,ambient,NA,2086.005595,9.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,4/23/19,29.2,7.076533458,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1992.58,9.6,7.245360523,4/23/19,Low pH,7.2,ambient,NA,2081.891463,9.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/1/19,29.87,7.588164189,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2026.31115,9.3,7.808321885,5/1/19,High pH,7.8,ambient,NA,1961.313477,9.3
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/1/19,29.87,7.594096231,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2026.31115,9.3,7.814733373,5/1/19,High pH,7.8,ambient,NA,1959.526124,9.3
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/1/19,29.87,6.987353364,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2026.31115,9.4,7.153718334,5/1/19,Low pH,7.2,ambient,NA,2150.20556,9.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/1/19,29.87,7.022979789,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2026.31115,9.4,7.19127503,5/1/19,Low pH,7.2,ambient,NA,2135.831582,9.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/1/19,29.87,7.600364436,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.31115,9.3,7.821501751,5/1/19,High pH,7.8,ambient,NA,1957.629473,9.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/1/19,29.87,7.595874875,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.31115,9.3,7.81665462,5/1/19,High pH,7.8,ambient,NA,1958.988784,9.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/1/19,29.87,7.605304178,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.31115,9.3,7.826830972,5/1/19,High pH,7.8,ambient,NA,1956.128821,9.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/1/19,29.87,7.603718941,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2026.31115,9.3,7.825121197,5/1/19,High pH,7.8,ambient,NA,1956.610985,9.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/1/19,29.87,6.907779103,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.31115,9.2,7.072922036,5/1/19,Low pH,7.2,ambient,NA,2185.60238,9.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/1/19,29.87,6.969916512,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.31115,9.2,7.137796211,5/1/19,Low pH,7.2,ambient,NA,2157.551619,9.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/1/19,29.87,6.781692237,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.31115,9.2,6.942846119,5/1/19,Low pH,7.2,ambient,NA,2253.536133,9.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/1/19,29.87,7.190357645,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2026.31115,9.2,7.373293289,5/1/19,Low pH,7.2,ambient,NA,2077.255266,9.2
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/1/19,29.87,7.588334121,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.31115,9.3,7.808505634,5/1/19,High pH,7.8,ambient,NA,1961.262376,9.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/1/19,29.87,7.597588962,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.31115,9.3,7.818505627,5/1/19,High pH,7.8,ambient,NA,1958.470315,9.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/1/19,29.87,7.362763498,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.31115,9.3,7.561307292,5/1/19,High pH,7.8,ambient,NA,2026.108337,9.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/1/19,29.87,7.616837001,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2026.31115,9.3,7.839256931,5/1/19,High pH,7.8,ambient,NA,1952.603987,9.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/1/19,29.87,7.005397928,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2026.31115,9.3,7.173913185,5/1/19,Low pH,7.2,ambient,NA,2142.822612,9.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/1/19,29.87,7.043511335,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2026.31115,9.3,7.21422985,5/1/19,Low pH,7.2,ambient,NA,2127.90569,9.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/8/19,29.5,7.613933759,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,10.4,7.819610977,5/8/19,High pH,7.8,ambient,NA,1936.572713,10.4
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/8/19,29.5,7.604499641,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,10.4,7.809481988,5/8/19,High pH,7.8,ambient,NA,1939.413138,10.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/8/19,29.5,7.015443817,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,12.4,7.14790961,5/8/19,Low pH,7.2,ambient,NA,2119.987743,12.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/8/19,29.5,7.021084409,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,12.4,7.15381444,5/8/19,Low pH,7.2,ambient,NA,2117.775532,12.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/8/19,29.5,7.630901596,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,10.4,7.8377928,5/8/19,High pH,7.8,ambient,NA,1931.412978,10.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/8/19,29.5,7.622287558,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,10.4,7.828568222,5/8/19,High pH,7.8,ambient,NA,1934.04084,10.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/8/19,29.5,6.856162353,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,10.5,7.00430437,5/8/19,Low pH,7.2,ambient,NA,2192.132559,10.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/8/19,29.5,6.965820659,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,10.5,7.118029112,5/8/19,Low pH,7.2,ambient,NA,2140.347436,10.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/8/19,29.5,7.614814315,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,10.4,7.820555666,5/8/19,High pH,7.8,ambient,NA,1936.306586,10.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/8/19,29.5,6.963882712,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,10.8,7.112510499,5/8/19,Low pH,7.2,ambient,NA,2141.17729,10.8
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/8/19,29.5,7.017096371,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,10.8,7.168251388,5/8/19,Low pH,7.2,ambient,NA,2119.33758,10.8
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/22/19,29.5,7.617985176,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,10.1,7.828399615,5/22/19,High pH,7.8,ambient,NA,1935.34681,10.1
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/22/19,29.5,7.604499641,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,10.1,7.813907955,5/22/19,High pH,7.8,ambient,NA,1939.413138,10.1
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/22/19,29.5,6.973152687,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,10.4,7.126862468,5/22/19,Low pH,7.2,ambient,NA,2137.232439,10.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/22/19,29.5,7.021084409,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,10.4,7.177172531,5/22/19,Low pH,7.2,ambient,NA,2117.775532,10.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/22/19,29.5,7.61533309,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,10.1,7.825551996,5/22/19,High pH,7.8,ambient,NA,1936.149717,10.1
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/22/19,29.5,7.606084878,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,10.1,7.815612993,5/22/19,High pH,7.8,ambient,NA,1938.937218,10.1
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/22/19,29.5,6.922822197,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,10.2,7.076730155,5/22/19,Low pH,7.2,ambient,NA,2159.434515,10.2
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/22/19,29.5,6.901568451,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,10.2,7.054675312,5/22/19,Low pH,7.2,ambient,NA,2169.424129,10.2
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/22/19,29.5,7.656175796,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,10.1,7.869278573,5/22/19,High pH,7.8,ambient,NA,1923.596056,10.1
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/22/19,29.5,7.683713846,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,10.1,7.898607962,5/22/19,High pH,7.8,ambient,NA,1914.882677,10.1
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/22/19,29.5,6.841259783,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,10.3,6.991252263,5/22/19,Low pH,7.2,ambient,NA,2200.023483,10.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/22/19,29.5,7.226637847,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,10.3,7.398534367,5/22/19,Low pH,7.2,ambient,NA,2047.756219,10.3
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/29/19,29.5,7.159919433,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,11,7.317668824,5/29/19,Low pH,7.2,ambient,NA,2068.617034,11
+Juvenile,Tank,6,NA,NA,NA,0.458333333,5/29/19,29.5,7.031268524,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2007.6835,11,7.180811832,5/29/19,Low pH,7.2,ambient,NA,2113.830493,11
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/29/19,29.5,7.613933759,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,11,7.810762865,5/29/19,High pH,7.8,ambient,NA,1936.572713,11
+Juvenile,Tank,3,NA,NA,NA,0.458333333,5/29/19,29.5,7.593029996,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2007.6835,11,7.788355354,5/29/19,High pH,7.8,ambient,NA,1942.840698,11
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/29/19,29.5,7.591110744,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,11,7.786294714,5/29/19,High pH,7.8,ambient,NA,1943.41159,11
+Juvenile,Tank,5,NA,NA,NA,0.458333333,5/29/19,29.5,7.592557127,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2007.6835,11,7.787847701,5/29/19,High pH,7.8,ambient,NA,1942.981424,11
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/29/19,29.5,7.628881506,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,11,7.826744852,5/29/19,High pH,7.8,ambient,NA,1932.030837,11
+Juvenile,Tank,1,NA,NA,NA,0.458333333,5/29/19,29.5,7.620607396,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2007.6835,11,7.817902505,5/29/19,High pH,7.8,ambient,NA,1934.551357,11
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/29/19,29.5,6.981526474,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,11.1,7.127452174,5/29/19,Low pH,7.2,ambient,NA,2133.721743,11.1
+Juvenile,Tank,2,NA,NA,NA,0.458333333,5/29/19,29.5,6.988134064,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2007.6835,11.1,7.134362334,5/29/19,Low pH,7.2,ambient,NA,2130.986012,11.1
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/29/19,29.5,7.078398661,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,11,7.230631452,5/29/19,Low pH,7.2,ambient,NA,2096.340981,11
+Juvenile,Tank,4,NA,NA,NA,0.458333333,5/29/19,29.5,7.064477653,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2007.6835,11,7.215878187,5/29/19,Low pH,7.2,ambient,NA,2101.382056,11
+Juvenile,Tank,1,NA,NA,NA,0.458333333,6/5/19,29.2,7.674715373,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1992.58,10.5,7.882885272,6/5/19,High pH,7.8,ambient,NA,1904.234987,10.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,6/5/19,29.2,7.666261624,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,1992.58,10.5,7.87389136,6/5/19,High pH,7.8,ambient,NA,1906.880396,10.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,6/5/19,29.2,7.108092986,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1992.58,10.7,7.265671603,6/5/19,Low pH,7.2,ambient,NA,2070.858869,10.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,6/5/19,29.2,7.635936486,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1992.58,10.5,7.841535389,6/5/19,High pH,7.8,ambient,NA,1916.212764,10.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,6/5/19,29.2,7.092314115,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,1992.58,10.7,7.248861958,6/5/19,Low pH,7.2,ambient,NA,2076.315562,10.7
+Juvenile,Tank,3,NA,NA,NA,0.458333333,6/5/19,29.2,7.645164501,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,1992.58,10.5,7.851396879,6/5/19,High pH,7.8,ambient,NA,1913.397954,10.5
+Juvenile,Tank,4,NA,NA,NA,0.458333333,6/5/19,29.2,7.255366412,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1992.58,10.7,7.424488654,6/5/19,Low pH,7.2,ambient,NA,2024.437982,10.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,6/5/19,29.2,7.212756195,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,1992.58,10.7,7.378209536,6/5/19,Low pH,7.2,ambient,NA,2037.175234,10.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,6/5/19,29.2,7.603247056,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1992.58,10.5,7.80649293,6/5/19,High pH,7.8,ambient,NA,1926.022485,10.5
+Juvenile,Tank,5,NA,NA,NA,0.458333333,6/5/19,29.2,7.648234882,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,1992.58,10.5,7.854675024,6/5/19,High pH,7.8,ambient,NA,1912.456655,10.5
+Juvenile,Tank,6,NA,NA,NA,0.458333333,6/5/19,29.2,7.079031661,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1992.58,10.6,7.235943598,6/5/19,Low pH,7.2,ambient,NA,2081.000563,10.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,6/5/19,29.2,7.038371549,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,1992.58,10.6,7.192897785,6/5/19,Low pH,7.2,ambient,NA,2095.909475,10.6
+Juvenile,Tank,1,NA,NA,NA,0.520833333,6/13/19,29.6,7.632055373,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.1,7.828705813,6/13/19,High pH,7.8,ambient,NA,1935.613876,11.1
+Juvenile,Tank,1,NA,NA,NA,0.520833333,6/13/19,29.6,7.632055373,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.1,7.828705813,6/13/19,High pH,7.8,ambient,NA,1935.613876,11.1
+Juvenile,Tank,2,NA,NA,NA,0.520833333,6/13/19,29.6,6.951246831,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.3,7.093595127,6/13/19,Low pH,7.2,ambient,NA,2151.793075,11.3
+Juvenile,Tank,2,NA,NA,NA,0.520833333,6/13/19,29.6,6.950303139,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.3,7.092613176,6/13/19,Low pH,7.2,ambient,NA,2152.207878,11.3
+Juvenile,Tank,3,NA,NA,NA,0.520833333,6/13/19,29.6,7.645089915,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,11.1,7.842600722,6/13/19,High pH,7.8,ambient,NA,1931.584082,11.1
+Juvenile,Tank,3,NA,NA,NA,0.520833333,6/13/19,29.6,7.633103639,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,11.1,7.829824235,6/13/19,High pH,7.8,ambient,NA,1935.291366,11.1
+Juvenile,Tank,4,NA,NA,NA,0.520833333,6/13/19,29.6,6.997397401,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.3,7.141769978,6/13/19,Low pH,7.2,ambient,NA,2132.30055,11.3
+Juvenile,Tank,4,NA,NA,NA,0.520833333,6/13/19,29.6,6.987923064,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.3,7.131854956,6/13/19,Low pH,7.2,ambient,NA,2136.180228,11.3
+Juvenile,Tank,5,NA,NA,NA,0.520833333,6/13/19,29.6,7.637098881,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.1,7.834085317,6/13/19,High pH,7.8,ambient,NA,1934.059692,11.1
+Juvenile,Tank,5,NA,NA,NA,0.520833333,6/13/19,29.6,7.656053007,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.1,7.854267294,6/13/19,High pH,7.8,ambient,NA,1928.160678,11.1
+Juvenile,Tank,6,NA,NA,NA,0.520833333,6/13/19,29.6,6.978618968,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,11.4,7.120974272,6/13/19,Low pH,7.2,ambient,NA,2140.049785,11.4
+Juvenile,Tank,6,NA,NA,NA,0.520833333,6/13/19,29.6,7.107248986,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,11.4,7.256552911,6/13/19,Low pH,7.2,ambient,NA,2091.213869,11.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,6/21/19,29.6,6.972941687,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,11.4,7.115048432,6/21/19,Low pH,7.2,ambient,NA,2142.440715,11.4
+Juvenile,Tank,6,NA,NA,NA,0.458333333,6/21/19,29.6,7.051556446,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,11.4,7.197532476,6/21/19,Low pH,7.2,ambient,NA,2111.210647,11.4
+Juvenile,Tank,5,NA,NA,NA,0.458333333,6/21/19,29.6,7.664433414,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.3,7.86019233,6/21/19,High pH,7.8,ambient,NA,1925.521896,11.3
+Juvenile,Tank,5,NA,NA,NA,0.458333333,6/21/19,29.6,7.664433414,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.3,7.86019233,6/21/19,High pH,7.8,ambient,NA,1925.521896,11.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,6/21/19,29.6,7.022293331,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.4,7.166719032,6/21/19,Low pH,7.2,ambient,NA,2122.384495,11.4
+Juvenile,Tank,4,NA,NA,NA,0.458333333,6/21/19,29.6,7.023549489,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.4,7.168038998,6/21/19,Low pH,7.2,ambient,NA,2121.89446,11.4
+Juvenile,Tank,3,NA,NA,NA,0.458333333,6/21/19,29.6,7.653706604,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,11.3,7.848799399,6/21/19,High pH,7.8,ambient,NA,1928.896071,11.3
+Juvenile,Tank,4,NA,NA,NA,0.458333333,6/21/19,29.6,7.630968569,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.4,7.823116352,6/21/19,Low pH,7.2,ambient,NA,1935.947957,11.4
+Juvenile,Tank,2,NA,NA,NA,0.458333333,6/21/19,29.6,7.015232817,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.5,7.15813893,6/21/19,Low pH,7.2,ambient,NA,2125.156883,11.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,6/21/19,29.6,7.015232817,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.5,7.15813893,6/21/19,Low pH,7.2,ambient,NA,2125.156883,11.5
+Juvenile,Tank,1,NA,NA,NA,0.458333333,6/21/19,29.6,7.658884901,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.3,7.854301422,6/21/19,High pH,7.8,ambient,NA,1927.271141,11.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,6/21/19,29.6,7.658317098,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.3,7.853698319,6/21/19,High pH,7.8,ambient,NA,1927.449671,11.3
+Juvenile,Tank,1,NA,NA,NA,0.458333333,7/3/19,29.6,7.600349641,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.6,7.787486853,7/3/19,High pH,7.8,ambient,NA,1945.246389,11.6
+Juvenile,Tank,1,NA,NA,NA,0.458333333,7/3/19,29.6,7.613722759,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_1,2012.718,11.6,7.801777752,7/3/19,High pH,7.8,ambient,NA,1941.211487,11.6
+Juvenile,Tank,2,NA,NA,NA,0.458333333,7/3/19,29.6,6.94333699,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.5,7.083074628,7/3/19,Low pH,7.2,ambient,NA,2155.291096,11.5
+Juvenile,Tank,2,NA,NA,NA,0.458333333,7/3/19,29.6,6.891037644,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_2,2012.718,11.5,7.028906578,7/3/19,Low pH,7.2,ambient,NA,2179.706598,11.5
+Juvenile,Tank,3,NA,NA,NA,0.458333333,7/3/19,29.6,7.617901928,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,11.6,7.806238337,7/3/19,High pH,7.8,ambient,NA,1939.94237,11.6
+Juvenile,Tank,3,NA,NA,NA,0.458333333,7/3/19,29.6,7.631652451,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_3,2012.718,11.6,7.820896557,7/3/19,High pH,7.8,ambient,NA,1935.737767,11.6
+Juvenile,Tank,4,NA,NA,NA,0.458333333,7/3/19,29.6,7.250853694,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.7,7.407150652,7/3/19,Low pH,7.2,ambient,NA,2045.398417,11.7
+Juvenile,Tank,4,NA,NA,NA,0.458333333,7/3/19,29.6,7.173190838,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_4,2012.718,11.7,7.323400416,7/3/19,Low pH,7.2,ambient,NA,2069.321096,11.7
+Juvenile,Tank,5,NA,NA,NA,0.458333333,7/3/19,29.6,7.62012766,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.6,7.808612891,7/3/19,High pH,7.8,ambient,NA,1939.264825,11.6
+Juvenile,Tank,5,NA,NA,NA,0.458333333,7/3/19,29.6,7.624196415,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_5,2012.718,11.6,7.812951809,7/3/19,High pH,7.8,ambient,NA,1938.023241,11.6
+Juvenile,Tank,6,NA,NA,NA,0.458333333,7/3/19,29.6,7.032897721,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_6,2012.718,11.6,7.175529422,7/3/19,Low pH,7.2,ambient,NA,2118.277529,11.6
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.588321303,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,1887.539075,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.58688363,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,1887.946498,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.057453286,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,2041.782419,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.051705078,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,2043.862008,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.567974202,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,1893.271932,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.565778734,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,1893.886409,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.11024014,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,2023.47209,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,8/23/18,28.27,7.115571712,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,8/23/18,NA,NA,NA,NA,2021.695744,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.600934136,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1945.070849,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.607568624,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1943.073175,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.607568624,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1943.073175,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.595385368,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1946.734398,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.616471692,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1940.37715,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.605873878,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1943.584379,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.611335462,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1941.934673,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.630297093,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1936.154222,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.634931965,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1934.728213,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.622076558,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1938.670604,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.617128668,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1940.177493,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,6/24/19,29.6,7.61512209,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,6/24/19,NA,NA,NA,NA,1940.786987,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,8/6/19,29.6,7.652142329,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,8/6/19,NA,NA,NA,NA,1929.385513,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,8/6/19,29.6,7.650442011,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,8/6/19,NA,NA,NA,NA,1929.916782,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,8/26/19,29.6,7.652142329,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,8/26/19,NA,NA,NA,NA,1929.385513,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,8/26/19,29.6,7.650442011,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,8/26/19,NA,NA,NA,NA,1929.916782,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,7/26/19,29.6,7.605873878,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,7/26/19,NA,NA,NA,NA,1943.584379,NA
+Juvenile,Tank,8,NA,NA,NA,0.458333333,7/26/19,29.6,7.607402192,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_8,2012.718,NA,NA,7/26/19,NA,NA,NA,NA,1943.123405,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/8/18,28.27,7.546436402,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/8/18,NA,NA,NA,NA,1899.268592,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/8/18,28.27,7.567560106,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/8/18,NA,NA,NA,NA,1893.387889,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/8/18,28.27,7.561355285,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/8/18,NA,NA,NA,NA,1895.122176,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/12/18,28.27,7.527432505,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/12/18,NA,NA,NA,NA,1904.506925,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/12/18,28.27,7.558329589,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/12/18,NA,NA,NA,NA,1895.965735,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/12/18,28.27,7.546964269,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/12/18,NA,NA,NA,NA,1899.12242,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/12/18,28.27,7.546980308,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/12/18,NA,NA,NA,NA,1899.117978,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/16/18,28.27,7.528242328,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/16/18,NA,NA,NA,NA,1904.284606,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/16/18,28.27,7.528915552,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/16/18,NA,NA,NA,NA,1904.099728,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/16/18,28.27,7.538340781,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/16/18,NA,NA,NA,NA,1901.505693,NA
+Juvenile,Tank,7,NA,NA,NA,0.458333333,1/16/18,28.27,7.538602145,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,1/16/18,NA,NA,NA,NA,1901.433603,NA
+C,Tank,7,NA,NA,NA,0.458333333,2/1/18,28.27,7.527693594,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,2/1/18,NA,NA,NA,NA,1904.435257,NA
+C,Tank,7,NA,NA,NA,0.458333333,2/1/18,28.27,7.529679841,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,2/1/18,NA,NA,NA,NA,1903.889779,NA
+A,Tank,7,NA,NA,NA,0.458333333,2/1/18,28.27,7.532479506,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,2/1/18,NA,NA,NA,NA,1903.120121,NA
+A,Tank,7,NA,NA,NA,0.458333333,2/1/18,28.27,7.53388554,2021.02.11_masterSPEC_salmonshed_chumhouse.xlsx,Tank_7,1945.75915,NA,NA,2/1/18,NA,NA,NA,NA,1902.733231,NA

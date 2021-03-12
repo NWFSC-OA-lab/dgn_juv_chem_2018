@@ -1,0 +1,153 @@
+---
+title: "Dissolve Oxygen Timeseries, Juvenile Exposure Study, HOBOlogger Data Import"
+output:
+ html_document:
+    df_print: paged
+    code_folding: hide
+    toc: TRUE
+    toc_depth: 4
+    toc_float: true
+    theme: cerulean
+    highlight: haddock
+    smart: false
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+Hello World
+
+Author: OA Lab, NWFSC
+Title: Salmon Shed Tanks - Dissolved Oxygen
+Date: 2018-2019 (R document March 2021)
+
+
+# Version Check
+```{r 0.1 Version Check , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+## Version Check
+#********************************* 
+R.version
+
+```
+
+
+
+# Libraries
+```{r 0.0 Libraries , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+##Libraries
+#********************************* 
+library(here)
+library(stringr)
+library(data.table)
+library(tidyverse)
+library(plyr)
+library(nlme)
+library(tidyr)
+library(dbplyr)
+library(dplyr)
+library(purrr)
+library(wql)
+library(lubridate)
+library(tibbletime)
+library(arsenal)
+library(compareDF)
+library(metacsv)
+#for graphing
+library(ggplot2)
+library(ggfortify)
+library(stringr)
+library(nlme)
+library(RColorBrewer)
+library(patchwork)
+#statistical analysis
+library(gdata)
+library(rsq)
+library(doBy)
+#Rnotebooks 
+library(gridExtra)
+library(kableExtra)
+
+```
+
+
+
+
+# 1.) Setting Working Directory
+```{r 1.) Setting Working Directory, echo=FALSE, results=FALSE, message=FALSE, warning=FALSE }
+#*********************************
+## 1.) Setting Working Directory
+#*********************************
+
+#set working directory to the correct folder
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
+
+```
+
+
+
+# 2.) Creating the Dataframe
+```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
+
+#*********************************
+## 2.) Creating the initial Dataframes
+#*********************************
+
+## Create a list of files 
+# All files to be joined have ext. "csv" can use that pattern to join 
+files <- list.files(pattern = ".csv")
+print(files)
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+## 2.2 Create a temporary place for files 
+temp <- lapply(files, fread, sep= ",")
+print(temp)
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+## 2.3 Create a new vector for Moats data logs 
+# DO logger list
+loggerDO_list <- rbindlist(temp)
+print(loggerDO_list)
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+#**************E*N*D*************# 
+#*********************************
+## END OF SCRIPT | END OF DOCUMENT 
+#*********************************
+```
+
+
+## END OF SCRIPT | END OF DOCUMENT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
