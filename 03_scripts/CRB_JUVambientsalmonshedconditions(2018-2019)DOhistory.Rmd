@@ -82,7 +82,11 @@ library(kableExtra)
 
 #set working directory to the correct folder
 # setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
-setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
+# want to use here but how do you change global settings for strings set to false?
+# 
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/02_processedData")
+
 
 ```
 
@@ -95,46 +99,14 @@ setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger
 ## 2.) Creating the initial Dataframes
 #*********************************
 
-setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
 
-## Create a list of files 
-# All files to be joined have ext. "csv" can use that pattern to join 
-files <- list.files(pattern = ".csv")
-print(files)
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-## 2.2 Create a temporary place for files 
-temp <- lapply(files, fread, sep= ",")
-print(temp)
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-## 2.3 Create a new vector for Moats data logs 
-# DO logger list
-loggerDO <- rbindlist(temp, fill=TRUE)
-print(loggerDO)
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+# loggerDOprobe <- read_csv(here("02_processedData", "CRB_JUV_AmbientConditions_2018_to_2019loggerDO.csv"))
 
-
-write.csv(loggerDO, file = "CRB_JUV_AmbientConditions_2018_to_2019loggerDO.csv", row.names = FALSE)
-
-loggerDO <- as.numeric(loggerDO$`DO Percent Sat, % (LGR S/N: 20454092)`)
-
-names(loggerDO)
-
-loggerDO[1, "#"] <- "sequence"
-rename.variable(loggerDO, "#, "sequence")
-
-
-loggerDO[2, "Date Time, GMT-07:00"] <- "dateTime"
-loggerDO[3, "DO conc, mg/L (LGR S/N: 20454092, SEN S/N: 20454092)"] <- "DOconcentration_mgL"
-loggerDO[4, "Temp, °C (LGR S/N: 20454092, SEN S/N: 20454092)"] <- "temp"
-loggerDO[5, "DO Adj Conc, mg/L (LGR S/N: 20454092)"] <- "DOadjConc"
-loggerDO[6, "DO Percent Sat, % (LGR S/N: 20454092)"] <- "DPpercentSat"
-
-
+loggerDOprobe <- read.csv( file = "CRB_JUV_AmbientConditions_2018_to_2019loggerDO.csv", stringsAsFactors = FALSE)
 
 
 
 ```
-
 
 
 
@@ -146,33 +118,32 @@ loggerDO[6, "DO Percent Sat, % (LGR S/N: 20454092)"] <- "DPpercentSat"
 #*********************************
 
 
-
-# logDOprobe$ObservationDate <- ""
-# logDOprobe$ObservationDate <- as.POSIXct(logDOprobe$dateTime, tz = "UTC", "%m/%d/%y %H:%M")
-
-
-
-loggerDO$ObservationDate <- ""
-
-loggerDO$`Date Time, GMT-07:00` <- as.Date(loggerDO$`Date Time, GMT-07:00`)
-
-loggerDO$ObservationDate <- as.POSIXct(loggerDO$Date Time, tz = "UTC", "%m/%d/%y %H:%M")
+loggerDOprobe$ObservationDate <- ""
+loggerDOprobe$ObservationDate <- as.POSIXct(loggerDOprobe$dateTime, tz = "UTC", "%m/%d/%y %H:%M")
 
 
 ```
+
+
 
 
 # 4.) DO probe timeseries
 ```{r DO probe timeseries}
 
-ggplot(loggerDO, aes(loggerDO$`Date Time, GMT-07:00`, (loggerDO$`DO conc, mg/L (LGR S/N: 20454092, SEN S/N: 20454092)`)) +
-  geom_point() +
-  # ylim(24,33) +
-  ggtitle("DO Concentration")
 
+
+ ggplot(loggerDOprobe, aes(ObservationDate, DOconcentration_mg.L)) +
+  geom_point() +
+  ylim(7,15) +
+  ggtitle("DO Concentration: HOBOlogger Probe(20454092), Salmon Shed Ambient Water")
 
 
 ```
+
+
+
+
+
 
 
 

@@ -20,8 +20,7 @@ Hello World
 
 Author: OA Lab, NWFSC
 Title: Salmon Shed Tanks
-Date: 2018-2019 (R document January-February 2021)
-
+Date: 2018-2019 (R document January-March 2021)
 
 
 
@@ -83,7 +82,7 @@ library(kableExtra)
 #*********************************
 
 #set working directory to the correct folder
-# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
 
 
 ```
@@ -112,32 +111,27 @@ dOrion <- read_csv(here("01_rawData","SpecData_2021.02.11_masterfile_salmonshed_
 # Meta Data 
 #*-*-*-*-*-*-*
 
-# write_meta_template(dOrion, here("01_rawData",
-#                                  "masterfile_salmonshed_chumhouse.csv"),
-#                             embedded = TRUE)
-# 
+write_meta_template(dOrion, here("01_rawData",
+                                 "masterfile_salmonshed_chumhouse(2021.03.10).csv"),
+                            embedded = TRUE)
+
 # meta_dOrion <- read_meta(here("01_rawData",
 #                              "masterfile_salmonshed_chumhouse_withMeta.csv"))
-# 
-# #Just the data
-# meta_dOrion2 <- read_meta(here("01_rawData",
-#                              "masterfile_salmonshed_chumhouse_withMeta.csv"))$data
 
-
-#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
+#|- - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
 
 # former "dUDAsalmon" and/or dfSalinity
 dFishCareUDA <- read_csv(here("01_rawData", "2021.02.18_FishCareLog_salinity.csv")) 
 dim(dFishCareUDA)
+dFishCareUDA$temp <- as.numeric(dFishCareUDA$temp)
+dFishCareUDA$salinity <- as.numeric(dFishCareUDA$salinity)
 
 #*-*-*-*-*-*-*
 # Meta Data 
 #*-*-*-*-*-*-*
-# meta_dFishCareUDA <- read_meta(here("01_rawData", "2021.02.18_FishCareLog_salinity.csv"))
-# 
-# write_meta_template(meta_dFishCareUDA, "META_2021.02.18_FishCareLog_salinity.csv",
-#                     embedded = TRUE)
 
+write_meta_template(dFishCareUDA, here("01_rawData",                                  "FishCareLog_salinity(2021.03.10).csv"),
+                            embedded = TRUE)
 
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
@@ -149,13 +143,14 @@ dim(dFishCareUDA)
 # Transformed File
 dShedUDA <- read_csv(here("01_rawData", "2021.02.18_pH_UDA.csv"))
 dim(dShedUDA)
+dShedUDA$pH <- as.numeric(dShedUDA$pH)
+dShedUDA$temp <- as.numeric(dShedUDA$temp)
+
 #*-*-*-*-*-*-*
 # Meta Data 
 #*-*-*-*-*-*-*
-# meta_dShedUDA <- read_meta(here("01_rawData", "2021.02.18_pH_UDA.csv"))
-# 
-# write_meta_template(meta_dShedUDA, "META_2021.02.18_pH_UDA.csv",
-#                     embedded = TRUE)
+write_meta_template(dShedUDA, here("01_rawData",                                  "UDA_pH_log(2021.03.10).csv"),
+                            embedded = TRUE)
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
@@ -164,10 +159,8 @@ dim(dHOBOppt)
 #*-*-*-*-*-*-*
 # Meta Data 
 #*-*-*-*-*-*-*
-# meta_dHOBOppt<- read_meta(here("01_rawData", "2021.02.18b_dHOBOlogCNDCT.csv"))
-# 
-# write_meta_template(meta_dHOBOppt, "META_2021.02.18b_dHOBOlogCNDCT.csv.csv",
-#                     embedded = TRUE)
+write_meta_template(dHOBOppt, here("01_rawData",                                  "dHOBOlogCNDCT(2021.03.10).csv"),
+                            embedded = TRUE)
 
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
@@ -177,11 +170,8 @@ dShedSalinity <- read_csv(here("01_rawData", "2019 SS UDA Log.csv"))
 #*-*-*-*-*-*-*
 # Meta Data 
 #*-*-*-*-*-*-*
-# meta_dShedSalinity<- read_meta(here("01_rawData", "2019 SS UDA Log.csv.csv"))
-# 
-# write_meta_template(meta_dShedSalinity, "META_2019 SS UDA Log.csv.csv.csv",
-#                     embedded = TRUE)
-
+write_meta_template(dShedSalinity, here("01_rawData",                                  "2019 SS UDA Log(2021.03.10).csv"),
+                            embedded = TRUE)
 
 
 ```
@@ -248,6 +238,9 @@ dOrion$location[dOrion$unit_number == "8"] <- "ambient_chumhouse"
 dOrion$sensortype <- ""
 dOrion$sensortype <- "OrionStarA112"
 
+min(dOrion_Salinity$ObservationDate)
+
+
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
 #Treatment is being created for the Salinity Timeseries 
@@ -257,8 +250,8 @@ dFishCareUDA$treatment[dFishCareUDA$location == "salmonShed" ] <- "ambient"
 dFishCareUDA$treatment[dFishCareUDA$location == "chumHouse" ] <- "ambient_chumhouse"
 
 dFishCareUDA$sensortype <- ""
-dFishCareUDA$sensortype[dFishCareUDA$location == "salmonShed" ] <- "wallUDA_salmonShed"
-dFishCareUDA$sensortype[dFishCareUDA$location == "chumHouse" ] <- "wallUDA_chumhouse"
+dFishCareUDA$sensortype[dFishCareUDA$location == "salmonShed" ] <- "SENSOREXtorodial"
+dFishCareUDA$sensortype[dFishCareUDA$location == "chumHouse" ] <- "OrionStarA112"
 
 #|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 
@@ -287,7 +280,7 @@ dShedSalinity$treatment<- "ambient"
 dShedSalinity$location <- ""
 dShedSalinity$location <- "salmonShed"
 dShedSalinity$sensortype <- ""
-dShedSalinity$sensortype <- "wallUDA_salmonShed"
+dShedSalinity$sensortype <- "SENSOREXtorodial"
 
 ```
 
@@ -324,6 +317,8 @@ dFishCareUDA_Salinity <- select(dFishCareUDA,
                           location,
                           sensortype)
 
+dFishCareUDA_Salinity$salinity <- as.numeric(dFishCareUDA_Salinity$salinity)
+# dFishCareUDA_Salinity$salinity <- na.omit(dFishCareUDA_Salinity)
 
 dFishCareUDA_temp <- select(dFishCareUDA,
                           temp,
@@ -348,8 +343,19 @@ dShedUDA_temp <- select(dShedUDA,
                           location,
                           sensortype)
 
+min(dShedUDA_temp$ObservationDate)
+
+
 
 names(dHOBOppt)
+
+
+dHOBOppt_temp <- select(dHOBOppt,
+                          temp,
+                          ObservationDate,
+                          treatment,
+                          location,
+                          sensortype)
 
 
 dHOBOppt_Salinity <- select(dHOBOppt,
@@ -366,6 +372,8 @@ dSalmonShed_Salinity <- select(dShedSalinity,
                           location,
                           sensortype)
 
+min(dSalmonShed_Salinity$ObservationDate)
+
 
 #*********************************
 ## 5.1) Creating a Master Dataframe - Salinity, pH, & temp
@@ -377,17 +385,32 @@ Master_Salinity <- merge(merge(merge(
   dHOBOppt_Salinity, all = TRUE),
   dSalmonShed_Salinity, all = TRUE)
 Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
+write.csv(Master_Salinity, "2021.03.10_Master_Salinity_log.csv")
 
-write.csv(Master_Salinity, "2021.03.04_Master_Salinity_log.csv")
+
+
+salinity_timeseries <- merge(merge(
+  dOrion_Salinity,
+  dFishCareUDA_Salinity, all = TRUE),
+  dSalmonShed_Salinity, all = TRUE)
+Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
+
+salinity_timeseries <- na.omit(salinity_timeseries)
+write.csv(salinity_timeseries, "2021.03.10_salinity_timeseries_log.csv")
+
+
 
 Master_pH <- merge(dOrion_pH, dShedUDA_pH, all = TRUE)
 Master_pH$pH <- as.numeric(Master_pH$pH )
+write.csv(Master_pH, "2021.03.10_Master_pH_log.csv")
 
-write.csv(Master_pH, "2021.03.04_Master_pH_log.csv")
 
-Master_temp <- merge(dFishCareUDA_temp, dShedUDA_temp, all = TRUE)
+Master_temp <- merge(merge(
+  dFishCareUDA_temp,
+  dShedUDA_temp, all = TRUE),
+  dHOBOppt_temp, all = TRUE)
 Master_temp$temp <- as.numeric(Master_temp$temp)
-write.csv(Master_temp, "2021.03.04_Master_temp_log.csv")
+write.csv(Master_temp, "2021.03.11_Master_temp_log.csv")
 
 
 ```
@@ -440,7 +463,7 @@ write.csv(Master_temp, "2021.03.04_Master_temp_log.csv")
  ggplot(dSalmonShed_Salinity, aes(ObservationDate, salinity)) +
   geom_point() +
   # ylim(24,33) +
-  ggtitle("Salinity Values from Wall Mounted (just) Salmon Shed")
+  ggtitle("Salinity Values from Salmon Shed (UDA Wallmounted Display)")
 
 
  # ggplot(dFishCareUDA, aes(Date, salinity)) + 
@@ -518,7 +541,7 @@ Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
   geom_point(aes(colour=sensortype, point=)) +
   # facet_wrap(location) +
   ylim(24,33) +
-  ggtitle("all Salinity Values from all Probes, all locations") 
+  ggtitle("All Salinity Values: all Probes, all locations") 
 
 
 ```
@@ -533,7 +556,7 @@ Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
  ggplot(Master_pH, aes(ObservationDate, pH)) +
   geom_point(aes(colour=treatment, point=)) +
   # facet_wrap(location) +
-  # ylim(24,33) +
+  ylim(6.5,8.5) +
   ggtitle("all pH Values from all Probes, all locations") 
 
 
@@ -546,8 +569,8 @@ Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
 
 
  ggplot(Master_pH, aes(ObservationDate, pH)) +
-  geom_point(aes(colour=treatment, point=)) +
-  # facet_wrap(location) +
+  geom_point(aes(colour=unit_number, point=)) +
+  facet_wrap(~treatment) +
   ylim(6,8.5) +
   ggtitle("all pH Values from all Probes, all locations") 
 
@@ -568,17 +591,17 @@ Master_Salinity$salinity <- as.numeric(Master_Salinity$salinity)
 ```
 
 
-#### 5.6) Master Dataframes - Exploring the pH history 
-```{r Master pH Dataframe Sensor Plot}
+#### 5.6) Master Dataframes - Exploring the temperature history 
+```{r Master temp Dataframe Sensor Plot}
 
 
 Master_temp$temp <- as.numeric(Master_temp$temp)
 
  ggplot(Master_temp, aes(ObservationDate, temp)) +
-  geom_point(aes(colour=location, point=)) +
+  geom_point(aes(colour=sensortype, point=)) +
   # facet_wrap(location) +
-  # ylim(6,8.5) +
-  ggtitle("all Temperature Values from all Probes, colored by sensor type") 
+  ylim(5,18) +
+  ggtitle("all Temperature Values from all Probes, All Locations") 
 
 
 ```
@@ -605,8 +628,37 @@ pHdtankUDA <- rbind(UDAtank06,
                     UDAtank01)
 
 #|- -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+pHdtankUDA$ObservationDate <- ""
+pHdtankUDA$ObservationDate <- as.POSIXct(pHdtankUDA$date, tz = "UTC", "%m/%d/%y")
+pHdtankUDA$pH <- as.numeric(pHdtankUDA$pH)
+pHdtankUDA$temp <- as.numeric(pHdtankUDA$temp)
+
+#|- -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+pHdtankUDA$unit_number <- as.character(pHdtankUDA$unit_number)
+pHdtankUDA$treatment <- ""
+pHdtankUDA$treatment[pHdtankUDA$unit_number == "2" | pHdtankUDA$unit_number== "4" | pHdtankUDA$unit_number== "6"] <- "highCO2_juvenileDGN"
+pHdtankUDA$treatment[pHdtankUDA$unit_number == "1" | pHdtankUDA$unit_number== "3" | pHdtankUDA$unit_number== "5"] <- "ambient_juvenileDGN"
+
+
 ```
 
+
+
+
+#### 6.2) pH history from UDA display 
+```{r Master pH Dataframe  Plot}
+
+
+ ggplot(pHdtankUDA, aes(ObservationDate, pH)) +
+  geom_point(aes(colour=unit_number, point=)) +
+  # facet_wrap(location) +
+  ylim(6,8.5) +
+  ggtitle("UDA Salmon Shed pH Values") 
+
+
+```
 
 
 # Executive Summary
