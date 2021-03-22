@@ -141,6 +141,48 @@ loggerDOprobe$ObservationDate <- as.POSIXct(loggerDOprobe$dateTime, tz = "UTC", 
 ```
 
 
+# 5.) Creating Dissolved Oxygen Percent
+
+```{r}
+
+loggerDOprobe$percentDOassumpt <- ""
+loggerDOprobe$assumedSatDOmg <- ""
+loggerDOprobe$percentDO <- ""
+loggerDOprobe$obseveredSatDOmg <- ""
+loggerDOprobe$actualDOmg <- ""
+
+loggerDOprobe$actualDOmg <- as.numeric(loggerDOprobe$DOconcentration_mg.L)
+loggerDOprobe$SalinityConstant <- 29.5
+
+loggerDOprobe$percentDOassumpt <- as.numeric(loggerDOprobe$percentDOassumpt)
+loggerDOprobe$assumedSatDOmg <- as.numeric(loggerDOprobe$assumedSatDOmg)
+loggerDOprobe$percentDO <- as.numeric(loggerDOprobe$percentDO)
+loggerDOprobe$obseveredSatDOmg <- as.numeric(loggerDOprobe$obseveredSatDOmg)
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+#Correct Temperature
+# is probe temperature
+
+#Salinity Constant
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+# Numeric Corrections to DO value
+loggerDOprobe$Value <- as.numeric(loggerDOprobe$Value)
+
+loggerDOprobe$assumedSatDOmg <- oxySol(loggerDOprobe$Temp, 
+                                  loggerDOprobe$SalinityConstant)
+
+loggerDOprobe$percentDOassumpt <- loggerDOprobe$Value / loggerDOprobe$assumedSatDOmg
+
+loggerDOprobe$obseveredSatDOmg <- oxySol(loggerDOprobe$Temp, loggerDOprobe$SalinityConstant)
+
+loggerDOprobe$percentDO <- loggerDOprobe$Value / loggerDOprobe$assumedSatDOmg
+
+loggerDOprobe$actualDOmg <- loggerDOprobe$percentDO * loggerDOprobe$obseveredSatDOmg
+
+```
 
 
 
