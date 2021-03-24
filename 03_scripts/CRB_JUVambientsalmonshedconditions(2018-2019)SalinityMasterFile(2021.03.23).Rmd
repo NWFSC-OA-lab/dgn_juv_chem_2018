@@ -89,7 +89,7 @@ library(kableExtra)
 ## 1.) Setting Working Directory
 #*********************************
 
-#SalinityMasterFile
+
 #set working directory to the correct folder
 setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
 
