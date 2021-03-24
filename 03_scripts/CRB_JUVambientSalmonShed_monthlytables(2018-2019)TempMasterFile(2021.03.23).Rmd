@@ -22,7 +22,7 @@ Author: OA Lab, NWFSC
 Title: Salmon Shed Tanks
 Date: 2018-2019 (R document January-March 2021)
 
-CRB_JUVambientsalmonshedconditions(2018-2019)TempMasterFile(2021.03.23)
+CRB_JUVambientSalmonShed_monthlytables(2018-2019)TempMasterFile(2021.03.23)
 
 
 # Version Check
@@ -83,43 +83,7 @@ library(kableExtra)
 #*********************************
 
 #set working directory to the correct folder
-# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
-
-
-```
-
-
-# 2.) Creating the Dataframe
-```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
-
-#*********************************
-## 2.) Creating the initial Dataframes
-#*********************************
-
-
-#set working directory to the correct folder
-temp_Log <- read_csv(here::here("02_processedData",
-                          "MasterTimeSeries","2021.03.23_Master_Temperature_log.csv"))
-
-temp_pH <- read_csv(here::here("02_processedData",
-                               "MasterTimeSeries","2021.03.23_pH_timeseries_log.csv"))
-
-temp_salinty <- read_csv(here::here("02_processedData",
-                                    "MasterTimeSeries","2021.03.23_salinity_timeseries_log.csv"))
-
-```
-
-
-#3.) Master Dataframe Salinity, pH & Temp
-```{r Master Dataframe Salinity, pH & Temp}
-#*********************************
-## 3.) Creating a Master Dataframe - Salinity, pH, & temp
-#********************************
-
-inputs_timeseries <- merge(merge(
-  temp_Log,
-  temp_pH, all = TRUE),
-  temp_salinty, all = TRUE)
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
 
 
 ```
@@ -154,4 +118,6 @@ inputs_timeseries <- merge(merge(
 
 
 ## END OF SCRIPT | END OF DOCUMENT
+
+
 

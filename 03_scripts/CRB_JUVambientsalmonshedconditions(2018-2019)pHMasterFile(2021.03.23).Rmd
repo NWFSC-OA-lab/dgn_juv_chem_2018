@@ -86,7 +86,8 @@ library(kableExtra)
 #*********************************
 
 #set working directory to the correct folder
-setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/HOBO Data/logger_DOprobe")
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
+
 
 
 ```

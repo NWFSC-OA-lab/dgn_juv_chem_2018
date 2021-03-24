@@ -97,6 +97,7 @@ setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
 ```
 
 
+
 # 2.) Creating the Dataframe
 ```{r 2.) Creating the Dataframe, echo=FALSE, message=FALSE, warning=FALSE}
 
