@@ -337,7 +337,7 @@ kable(SalmonShed_temp_summary, digits = 4)
 
 wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
 
-write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.03.31.csv")
+write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.04.08.csv")
 
 
 ```
@@ -345,24 +345,70 @@ write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.03.31.csv")
 
 
 
-### 5.b) Salmon Shed pH Summary Table Clean Up
+### 5.b) Salmon Shed pH, salinity Summary Table Clean Up
 ```{r}
-# SalmonShed_pH_summary
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+# SalmonShed_pH_summary
 SalmonShed_pH_summary <- na.omit(SalmonShed_pH_summary)
 kable(SalmonShed_pH_summary, digits = 4)
 
+names(SalmonShed_pH_summary)
+# [1] "ObservationMonth" "treatment"        "sensortype"       "sd"              
+# [5] "mean"             "n"                "se"               "ci"  
+names(pretty_wider_pH)
+# [1] "ObservationMonth"      "treatment"             "mean_OceanOptics1.6.7"
+# [4] "mean_UDA2182durfet"    "sd_OceanOptics1.6.7"   "sd_UDA2182durfet"     
+# [7] "se_OceanOptics1.6.7"   "se_UDA2182durfet"      "pHrange" 
 
 pretty_wider_pH <- SalmonShed_pH_summary %>% select(ObservationMonth, treatment, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se)) %>%
-  mutate(pretty = paste(round(mean_OceanOptics1.6.7,2), " (", round(se_OceanOptics1.6.7,2),")")) %>% mutate(pretty = paste(round(mean_OceanOptics1.6.7,2), " (", round(mean_OceanOptics1.6.7-1.96 *se_OceanOptics1.6.7, 2), "-", round(mean_OceanOptics1.6.7+1.96 *se_OceanOptics1.6.7, 2), ")"))
+  mutate(SPECpHrange = paste(round(mean_OceanOptics1.6.7,2), " (", round(se_OceanOptics1.6.7,2),")")) %>% mutate(SPECpHrange = paste(round(mean_OceanOptics1.6.7,2), " (", round(mean_OceanOptics1.6.7-1.96 *se_OceanOptics1.6.7, 2), "-", round(mean_OceanOptics1.6.7+1.96 *se_OceanOptics1.6.7, 2), ")"))  %>%
+  mutate(UDApHrange = paste(round(mean_UDA2182durfet,2), " (", round(se_UDA2182durfet,2),")")) %>% mutate(UDApHrange = paste(round(mean_UDA2182durfet,2), " (", round(mean_UDA2182durfet-1.96 *se_UDA2182durfet, 2), "-", round(mean_UDA2182durfet+1.96 *se_UDA2182durfet, 2), ")"))
 
 kable(pretty_wider_pH, digits = 4)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
          
 
-wider_pH <- SalmonShed_pH_summary %>% select(ObservationMonth, treatment, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se)) %>%
-  mutate(pretty = paste(round(mean_OceanOptics1.6.7,2), " (", round(se_OceanOptics1.6.7,2),")"))
+# SalmonShed_salinity_summary
+pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
 
-kable(wider_pH, digits = 4)
+names(pretty_wider_salinity)
+# [1] "ObservationMonth"       "OrionStarA112: mean"    "SENSOREXtorodial: mean"
+# [4] "OrionStarA112: sd"      "OrionStarA112: se"   "OrionStarA112: se"     
+# [7] "SENSOREXtorodial: se"  
+
+pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se)) %>%
+   mutate(salintyRange = paste(round(OrionStarA112: mean,2), " (", round(OrionStarA112: se,2),")")) %>% mutate(salinityRange = paste(round(OrionStarA112: mean,2), " (", round(OrionStarA112: mean-1.96 *OrionStarA112: se, 2), "-", round(mean+1.96 *OrionStarA112: se, 2), ")"))
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+
+
+# SalmonShed_salinity_summary
+
+names(SalmonShed_salinity_summary)
+# [1] "ObservationMonth" "sensortype"       "sd"               "mean"            
+# [5] "n"                "se"               "ci"    
+
+wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
+
+
+names(wider_temp)
+# [1] "ObservationMonth"    "UDA2182: mean"       "20449374: mean"      "OrionStarA112: mean"
+#  [5] "UDA2182: sd"         "20449374: sd"        "OrionStarA112: sd"   "UDA2182: se"        
+#  [9] "20449374: se"        "OrionStarA112: se"   
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+
+# Merge all dataframes by Observation Month
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+
+# Reorder Columns
+# col_order <- c("Species", "Petal.Width", "Sepal.Length",
+#                "Sepal.Width", "Petal.Length")
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 
 
 
