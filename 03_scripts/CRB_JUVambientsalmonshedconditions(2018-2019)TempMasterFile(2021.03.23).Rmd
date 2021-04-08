@@ -121,6 +121,73 @@ inputs_timeseries <- merge(merge(
   temp_pH, all = TRUE),
   temp_salinty, all = TRUE)
 
+```
+
+
+
+# 3.1) Master Dataframe Temperature Check (Plot)
+```{r Master Temperature Check Plot}
+
+ggplot(inputs_timeseries, aes(ObservationDate, temp)) +
+            geom_jitter(color = "grey") +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "blue") +
+            # facet_wrap(~TrialID) +
+            ggtitle("Temperature Timeseries (MasterFile)") +
+            theme_bw()
+
+```
+
+
+
+
+# 3.2) Master Dataframe Temperature Check (Plot)
+```{r Master Temperature Check Plot}
+
+ggplot(inputs_timeseries, aes(ObservationDate, pH)) +
+            geom_jitter(color = "grey") +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "blue") +
+            # facet_wrap(~TrialID) +
+            ggtitle("pH Timeseries (MasterFile)") +
+            theme_bw()
+
+```
+
+
+
+
+
+# 3.3) Master Dataframe Temperature Check (Plot)
+```{r Master Temperature Check Plot}
+
+ggplot(inputs_timeseries, aes(ObservationDate, salinity)) +
+            geom_jitter(color = "grey") +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "blue") +
+            # facet_wrap(~TrialID) +
+            ggtitle("Salinity Timeseries (MasterFile)") +
+            theme_bw()
+
+```
+
+
+
+# 3.4) Master Dataframe input filters
+```{r 3.4) Master Dataframe input filters}
+
+# filtering unreasonable observations
+inputs_timeseries <- filter(inputs_timeseries, (temp >= 5 & temp <= 30) | (pH >= 6 & pH <= 9))
+
+```
+
+
+# 3.5) Master Dataframe Temperature Check (Plot)
+```{r Master Temperature Check Plot}
+
+ggplot(inputs_timeseries, aes(ObservationDate, temp)) +
+            geom_jitter(color = "grey") +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "blue") +
+            # facet_wrap(~TrialID) +
+            ggtitle("Temperature Timeseries (MasterFile)") +
+            theme_bw()
 
 ```
 
@@ -130,14 +197,189 @@ inputs_timeseries <- merge(merge(
 
 
 
+#4.) Observation Month
+```{r Observation Month}
+
+#*********************************
+## 4.) Observation Month
+#********************************
+
+inputs_timeseries$ObservationMonth <- ""
+inputs_timeseries <- inputs_timeseries %>% group_by(ObservationDate)
+inputs_timeseries <- inputs_timeseries[order(inputs_timeseries$ObservationDate),]
+head(inputs_timeseries$ObservationDate)
+
+tail(inputs_timeseries$ObservationDate)
+
+inputs_timeseries$ObservationMonth <- format(inputs_timeseries$ObservationDate, "%Y-%m-%B")
+
+
+salinity_timeseries <- temp_salinty
+salinity_timeseries$ObservationMonth <- format(salinity_timeseries$ObservationDate, "%Y-%m-%B")
+
+```
+
+
+
+#5.) Summary Month Tables
+```{r Summary Months}
+#*********************************
+## 4.) Observation Month
+#********************************
+
+# Creating the Mega-Month Table
+# pivot_wider()
+
+# Creating a string of variables from the summary function output
+# # mean (sd) paste(mean, " (", sd, ")", sep = "")
+# round(mean, 2)
+
+# pivot_wider(names_from = sensortype, values_from = mean)
+# pivot_wider(names_from = sensortype, values_from = c(mean, sd))
+
+
+
+SalmonShed_temp_summary <- inputs_timeseries %>% group_by(ObservationMonth ,sensortype) %>%
+  dplyr::summarize(sd = sd(temp, na.rm = TRUE), 
+            mean = mean(temp, na.rm = TRUE), 
+            median = median(temp, na.rm = TRUE),
+            IQR = IQR(temp, na.rm = TRUE),
+            n = n()) %>%
+  mutate(se = sd/sqrt(n)) %>%
+  mutate(ci = se*1.96)
+SalmonShed_temp_summary
+
+kable(SalmonShed_temp_summary, digits = 4)
+
+write.csv(SalmonShed_temp_summary, "CRB_JUV_SalmonShed_sensortype_temp_summary_2021.03.23.csv")
 
 
 
 
 
+SalmonShed_pH_summary <- inputs_timeseries %>% group_by(ObservationMonth, treatment, sensortype) %>%
+  dplyr::summarize(sd = sd(pH, na.rm = TRUE), 
+            mean = mean(pH, na.rm = TRUE), 
+            median = median(pH, na.rm = TRUE),
+            IQR = IQR(pH, na.rm = TRUE),
+            n = n()) %>%
+  mutate(se = sd/sqrt(n)) %>%
+  mutate(ci = se*1.96)
+SalmonShed_pH_summary
+
+kable(SalmonShed_pH_summary, digits = 4)
+
+write.csv(SalmonShed_pH_summary, "CRB_JUV_SalmonShed_sensortype_pH_summary_2021.03.23.csv")
+
+
+SalmonShed_Salinity_summary <- salinity_timeseries %>% group_by(ObservationMonth, sensortype) %>% 
+  dplyr::summarize(sd = sd(salinity, na.rm = TRUE), 
+            mean = mean(salinity, na.rm = TRUE), 
+            median = median(salinity, na.rm = TRUE),
+            IQR = IQR(salinity, na.rm = TRUE),
+            n = n()) %>%
+  mutate(se = sd/sqrt(n)) %>%
+  mutate(ci = se*1.96)
+SalmonShed_Salinity_summary
+
+kable(SalmonShed_Salinity_summary, digits = 4)
+
+write.csv(SalmonShed_Salinity_summary, "CRB_JUV_SalmonShed_sensortype_salinity_summary_2021.03.23.csv")
+
+
+```
+
+
+# 6.) Summary Month & Plots
+
+```{r 6.) Summary Month & Plots}
+
+#*********************************
+## 6.) Summary Month & Plots - Temperature
+#*********************************
+
+sumMonth_boxplot <- ggplot(inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            # geom_jitter(color = "grey") +
+            geom_jitter(data = inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+            geom_point(data = SalmonShed_temp_summary, aes(x=sensortype, y=mean), size=5, color = "purple") +
+            geom_errorbar(data = SalmonShed_temp_summary,
+                          aes(x=sensortype, y=mean, ymin = mean-sd, ymax = mean+sd),
+                          color = "blue") +
+            geom_errorbar(data = SalmonShed_temp_summary,
+                          aes(x=sensortype, y=mean, ymin = mean-ci, ymax = mean+ci),
+                          colour = "red") +
+            # facet_wrap(~sensortype) +
+            xlab("ObservationMonth") +
+            ylab("Temperature") +
+            ggtitle("Temperatures Per Month") +
+            theme_bw() 
+
+sumMonth_boxplot
 
 
 
+```
+
+
+
+```{r}
+
+#*********************************
+## 7.) Summary Month & Plots - Salinity
+#*********************************
+
+sumMonth_boxplot <- ggplot(inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            # geom_jitter(color = "grey") +
+            geom_jitter(data = inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+            # geom_point(data = SalmonShed_temp_summary, aes(x=temp, y=mean), size=5, color = "purple") + 
+            # geom_errorbar(data = SalmonShed_temp_summary, 
+            #               aes(x=temp, y=mean, ymin = mean-sd, ymax = mean+sd), 
+            #               color = "blue") +
+            # geom_errorbar(data = SalmonShed_temp_summary,
+            #               aes(x=temp, y=mean, ymin = mean-ci, ymax = mean+ci),
+            #               colour = "red") +
+            # # facet_wrap(~sensortype) +
+            # xlab("ObservationMonth") +
+            # ylab("Temperature") +
+            ggtitle("Temperatures Per Month") +
+            theme_bw() 
+
+sumMonth_boxplot
+
+
+
+
+
+```
+
+
+
+```{r}
+#*********************************
+## 7.) Summary Month & Plots - pH
+#*********************************
+
+sumMonth_boxplot <- ggplot(inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            # geom_jitter(color = "grey") +
+            geom_jitter(data = inputs_timeseries, aes(ObservationMonth, sensortype)) +
+            geom_boxplot(notch = TRUE, outlier.shape = NA, colour = "green") +
+            # geom_point(data = SalmonShed_temp_summary, aes(x=temp, y=mean), size=5, color = "purple") + 
+            # geom_errorbar(data = SalmonShed_temp_summary, 
+            #               aes(x=temp, y=mean, ymin = mean-sd, ymax = mean+sd), 
+            #               color = "blue") +
+            # geom_errorbar(data = SalmonShed_temp_summary,
+            #               aes(x=temp, y=mean, ymin = mean-ci, ymax = mean+ci),
+            #               colour = "red") +
+            # # facet_wrap(~sensortype) +
+            # xlab("ObservationMonth") +
+            # ylab("Temperature") +
+            ggtitle("Temperatures Per Month") +
+            theme_bw() 
+
+sumMonth_boxplot
+```
 
 
 

@@ -228,13 +228,13 @@ names(dHOBOppt)
 
 dOrion$unit_number <- as.character(dOrion$unit_number)
 dOrion$treatment <- ""
-dOrion$treatment[dOrion$unit_number == "2" | dOrion$unit_number== "4" | dOrion$unit_number== "6"] <- "highCO2_juvenileDGN"
-dOrion$treatment[dOrion$unit_number == "1" | dOrion$unit_number== "3" | dOrion$unit_number== "5"] <- "ambient_juvenileDGN"
+dOrion$treatment[dOrion$unit_number == "2" | dOrion$unit_number== "4" | dOrion$unit_number== "6"] <- "highCO2"
+dOrion$treatment[dOrion$unit_number == "1" | dOrion$unit_number== "3" | dOrion$unit_number== "5"] <- "ambient"
 dOrion$treatment[dOrion$unit_number == "7"] <- "ambient"
 dOrion$treatment[dOrion$unit_number == "8"] <- "ambient_chumhouse"
 
 dOrion$location <- ""
-dOrion$location[dOrion$treatment == "highCO2_juvenileDGN" | dOrion$treatment == "ambient_juvenileDGN" | dOrion$treatment == "ambient"] <- "salmonShed"
+dOrion$location[dOrion$treatment == "highCO2" | dOrion$treatment == "ambient" | dOrion$treatment == "ambient"] <- "salmonShed"
 
 dOrion$location[dOrion$unit_number == "8"] <- "ambient_chumhouse"
 
@@ -261,8 +261,8 @@ dFishCareUDA$sensortype[dFishCareUDA$location == "chumHouse" ] <- "OrionStarA112
 # dShedUDA file uses same unit_number identifers as SPEC file
 dShedUDA$unit_number <- as.character(dShedUDA$unit_number)
 dShedUDA$treatment <- ""
-dShedUDA$treatment[dShedUDA$unit_number == "2" | dShedUDA$unit_number== "4" | dShedUDA$unit_number== "6"] <- "highCO2_juvenileDGN"
-dShedUDA$treatment[dShedUDA$unit_number == "1" | dShedUDA$unit_number== "3" | dShedUDA$unit_number== "5"] <- "ambient_juvenileDGN"
+dShedUDA$treatment[dShedUDA$unit_number == "2" | dShedUDA$unit_number== "4" | dShedUDA$unit_number== "6"] <- "highCO2"
+dShedUDA$treatment[dShedUDA$unit_number == "1" | dShedUDA$unit_number== "3" | dShedUDA$unit_number== "5"] <- "ambient"
 
 dShedUDA$sensortype <- ""
 dShedUDA$sensortype <- "wallUDA_salmonShed"
@@ -322,8 +322,8 @@ pHdtankUDA$temp <- as.numeric(pHdtankUDA$temp)
 
 pHdtankUDA$unit_number <- as.character(pHdtankUDA$unit_number)
 pHdtankUDA$treatment <- ""
-pHdtankUDA$treatment[pHdtankUDA$unit_number == "2" | pHdtankUDA$unit_number== "4" | pHdtankUDA$unit_number== "6"] <- "highCO2_juvenileDGN"
-pHdtankUDA$treatment[pHdtankUDA$unit_number == "1" | pHdtankUDA$unit_number== "3" | pHdtankUDA$unit_number== "5"] <- "ambient_juvenileDGN"
+pHdtankUDA$treatment[pHdtankUDA$unit_number == "2" | pHdtankUDA$unit_number== "4" | pHdtankUDA$unit_number== "6"] <- "highCO2"
+pHdtankUDA$treatment[pHdtankUDA$unit_number == "1" | pHdtankUDA$unit_number== "3" | pHdtankUDA$unit_number== "5"] <- "ambient"
 
 
 pHdtankUDA$sensortype <- ""
@@ -379,7 +379,7 @@ pH_timeseries <- merge(
   dtankUDA_pH, all = TRUE)
 
 pH_timeseries <- na.omit(pH_timeseries)
-write.csv(pH_timeseries, "2021.03.23_pH_timeseries_log.csv")
+write.csv(pH_timeseries, "2021.03.31_pH_timeseries_log.csv")
 
 
 ```
