@@ -1,0 +1,281 @@
+
+Hello World
+
+Author: OA Lab, NWFSC
+Title: Salmon Shed Tanks
+Date: 2018-2019 (R document January-April 2021)
+
+CRB_JUVambientsalmonshedconditions(2018-2019)TempMasterFile(2021.03.31)
+
+
+# Version Check
+```{r 0.1 Version Check , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+## Version Check
+#********************************* 
+R.version
+
+```
+
+
+
+# Libraries
+```{r 0.0 Libraries , echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+#*********************************
+##Libraries
+#********************************* 
+library(here)
+library(stringr)
+library(data.table)
+library(tidyverse)
+library(plyr)
+library(nlme)
+library(tidyr)
+library(dbplyr)
+library(dplyr)
+library(purrr)
+library(wql)
+library(lubridate)
+library(tibbletime)
+library(arsenal)
+library(compareDF)
+library(metacsv)
+#for graphing
+library(ggplot2)
+library(ggfortify)
+library(stringr)
+library(nlme)
+library(RColorBrewer)
+library(patchwork)
+#statistical analysis
+library(gdata)
+library(rsq)
+library(doBy)
+#Rnotebooks 
+library(gridExtra)
+library(kableExtra)
+
+```
+
+
+
+# 1.) Setting Working Directory
+```{r 1.) Setting Working Directory, echo=FALSE, results=FALSE, message=FALSE, warning=FALSE }
+#*********************************
+## 1.) Setting Working Directory
+#*********************************
+
+#set working directory to the correct folder
+setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks/01_rawData")
+
+
+
+```
+
+
+
+# 2.) Metadata Writing 
+```{r 2.) Metadata Writing }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|
+dShedUDA <- read_csv(here::here("01_rawData", "2021.02.18_pH_UDA.csv"))
+dim(dShedUDA)
+dShedUDA$pH <- as.numeric(dShedUDA$pH)
+dShedUDA$temp <- as.numeric(dShedUDA$temp)
+
+
+
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# former UDAconductivity
+# Raw file from UDA dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|
+
+write_meta_template(dShedUDA, here::here("01_rawData", 
+                                         "UDA_pH_log(2021.03.13_tutorial).csv"),
+                            embedded = TRUE)
+
+# the file was saved as UDA_pH_log(2021.03.13_tutorial)_withMeta.csv
+
+
+metaRED_UDA <- read_meta(here::here("01_rawData", 
+                                         "UDA_pH_log(2021.03.13_tutorial)_withMeta.csv",
+                                         package = "metacsv"))
+
+metaRED_UDA <- read_meta(dShedUDA("UDA_pH_log(2021.03.13_tutorial)_withMeta.csv", package = "metacsv"))
+
+
+read_meta(system.file("iris_withMeta.csv", package = "metacsv" ))
+
+
+attrib_UDA <- get_attributes(dShedUDA)
+
+
+
+```
+
+
+
+```{r 2.) Creating the Dataframe }
+
+#*********************************
+## 2.) Creating the initial Dataframes
+#*********************************
+
+
+#set working directory to the correct folder
+# setwd("/Users/katherinerovinski/GIT/NWFSC.MUK_DGNjuvenile.tanks")
+# here()
+# former "dtank"
+dOrion <- read_csv(here::here("01_rawData","SpecData_2021.02.11_masterfile_salmonshed_chumhouse.csv"))
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+
+write_meta_template(dOrion, here::here("01_rawData","masterfile_salmonshed_chumhouse(2021.03.10).csv"),
+                            embedded = TRUE)
+
+# meta_dOrion <- read_meta(here("01_rawData",
+#                              "masterfile_salmonshed_chumhouse_withMeta.csv"))
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
+
+# former "dUDAsalmon" and/or dfSalinity
+dFishCareUDA <- read_csv(here::here("01_rawData", "2021.02.18_FishCareLog_salinity.csv")) 
+dim(dFishCareUDA)
+dFishCareUDA$temp <- as.numeric(dFishCareUDA$temp)
+dFishCareUDA$salinity <- as.numeric(dFishCareUDA$salinity)
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+
+write_meta_template(dFishCareUDA, here::here("01_rawData",                                  "FishCareLog_salinity(2021.03.10).csv"),
+                            embedded = TRUE)
+
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dHOBOppt <- read_csv(here::here("01_rawData","2021.02.18b_dHOBOlogCNDCT.csv"))
+dim(dHOBOppt)
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+write_meta_template(dHOBOppt, here::here("01_rawData",                          "dHOBOlogCNDCT(2021.03.10).csv"),
+                            embedded = TRUE)
+
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dShedSalinity <- read_csv(here::here("01_rawData", "2019 SS UDA Log.csv"))
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+write_meta_template(dShedSalinity, here::here("01_rawData",                                  "2019 SS UDA Log(2021.03.10).csv"),
+                            embedded = TRUE)
+
+```
+
+
+
+```{r 2.) Creating the Dataframe }
+
+write_meta_template(dOrion, here::here("01_rawData","masterfile_salmonshed_chumhouse(2021.03.10).csv"),
+                            embedded = TRUE)
+
+# meta_dOrion <- read_meta(here("01_rawData",
+#                              "masterfile_salmonshed_chumhouse_withMeta.csv"))
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |
+
+# former "dUDAsalmon" and/or dfSalinity
+dFishCareUDA <- read_csv(here::here("01_rawData", "2021.02.18_FishCareLog_salinity.csv")) 
+dim(dFishCareUDA)
+dFishCareUDA$temp <- as.numeric(dFishCareUDA$temp)
+dFishCareUDA$salinity <- as.numeric(dFishCareUDA$salinity)
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+
+write_meta_template(dFishCareUDA, here::here("01_rawData",                                  "FishCareLog_salinity(2021.03.10).csv"),
+                            embedded = TRUE)
+
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+# former UDAconductivity
+# Raw file from UDA
+# dShedUDA <- read.csv(file = "2019 SS UDA Log.csv", stringsAsFactors = FALSE)
+# dim(dShedUDA)
+# Transformed File
+dShedUDA <- read_csv(here::here("01_rawData", "2021.02.18_pH_UDA.csv"))
+dim(dShedUDA)
+dShedUDA$pH <- as.numeric(dShedUDA$pH)
+dShedUDA$temp <- as.numeric(dShedUDA$temp)
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+write_meta_template(dShedUDA, here::here("01_rawData",                                  "UDA_pH_log(2021.03.10).csv"),
+                            embedded = TRUE)
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dHOBOppt <- read_csv(here::here("01_rawData","2021.02.18b_dHOBOlogCNDCT.csv"))
+dim(dHOBOppt)
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+write_meta_template(dHOBOppt, here::here("01_rawData",                          "dHOBOlogCNDCT(2021.03.10).csv"),
+                            embedded = TRUE)
+
+
+#|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+dShedSalinity <- read_csv(here::here("01_rawData", "2019 SS UDA Log.csv"))
+
+#*-*-*-*-*-*-*
+# Meta Data 
+#*-*-*-*-*-*-*
+write_meta_template(dShedSalinity, here::here("01_rawData",                                  "2019 SS UDA Log(2021.03.10).csv"),
+                            embedded = TRUE)
+```
+
+
+
+
+
+
+```{r}
+#**************E*N*D*************# 
+#*********************************
+## END OF SCRIPT | END OF DOCUMENT 
+#*********************************
+```
+
+
+## END OF SCRIPT | END OF DOCUMENT
+
+
+
+
+
+
+
+
+
+
+

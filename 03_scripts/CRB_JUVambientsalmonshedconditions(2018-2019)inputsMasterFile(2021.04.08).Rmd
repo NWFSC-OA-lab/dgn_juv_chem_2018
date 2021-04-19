@@ -353,60 +353,121 @@ write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.04.08.csv")
 SalmonShed_pH_summary <- na.omit(SalmonShed_pH_summary)
 kable(SalmonShed_pH_summary, digits = 4)
 
-names(SalmonShed_pH_summary)
-# [1] "ObservationMonth" "treatment"        "sensortype"       "sd"              
-# [5] "mean"             "n"                "se"               "ci"  
-names(pretty_wider_pH)
-# [1] "ObservationMonth"      "treatment"             "mean_OceanOptics1.6.7"
-# [4] "mean_UDA2182durfet"    "sd_OceanOptics1.6.7"   "sd_UDA2182durfet"     
-# [7] "se_OceanOptics1.6.7"   "se_UDA2182durfet"      "pHrange" 
+pretty_wider_pH <- SalmonShed_pH_summary %>% select(ObservationMonth, treatment, sensortype, mean, sd, se) %>% 
+  
+  mutate(mean_ci = paste(round(mean,2), 
+                         " (", round(mean-se*1.96, 2), "-", 
+                         round(mean+se*1.96, 2), ")", sep = "")) %>%
+  
+   select(ObservationMonth, treatment, sensortype, mean_ci) %>% 
+  
+  pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
 
-pretty_wider_pH <- SalmonShed_pH_summary %>% select(ObservationMonth, treatment, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se)) %>%
-  mutate(SPECpHrange = paste(round(mean_OceanOptics1.6.7,2), " (", round(se_OceanOptics1.6.7,2),")")) %>% mutate(SPECpHrange = paste(round(mean_OceanOptics1.6.7,2), " (", round(mean_OceanOptics1.6.7-1.96 *se_OceanOptics1.6.7, 2), "-", round(mean_OceanOptics1.6.7+1.96 *se_OceanOptics1.6.7, 2), ")"))  %>%
-  mutate(UDApHrange = paste(round(mean_UDA2182durfet,2), " (", round(se_UDA2182durfet,2),")")) %>% mutate(UDApHrange = paste(round(mean_UDA2182durfet,2), " (", round(mean_UDA2182durfet-1.96 *se_UDA2182durfet, 2), "-", round(mean_UDA2182durfet+1.96 *se_UDA2182durfet, 2), ")"))
+write.csv(pretty_wider_pH, "CRB_JUV_SalmonShed_pH_FINALsummaryWIDE_2021.04.15.csv")
 
-kable(pretty_wider_pH, digits = 4)
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
          
 
 # SalmonShed_salinity_summary
-pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
 
-names(pretty_wider_salinity)
-# [1] "ObservationMonth"       "OrionStarA112: mean"    "SENSOREXtorodial: mean"
-# [4] "OrionStarA112: sd"      "OrionStarA112: se"   "OrionStarA112: se"     
-# [7] "SENSOREXtorodial: se"  
+# Shortern expression to get smaller table
+pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% 
+  
+  mutate(mean_ci = paste(round(mean,2), 
+                         " (", round(mean-se*1.96, 2), "-", 
+                         round(mean+se*1.96, 2), ")", sep = "")) %>%
+  
+   select(ObservationMonth, sensortype, mean_ci) %>% 
+  
+  pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
 
-pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se)) %>%
-   mutate(salintyRange = paste(round(OrionStarA112: mean,2), " (", round(OrionStarA112: se,2),")")) %>% mutate(salinityRange = paste(round(OrionStarA112: mean,2), " (", round(OrionStarA112: mean-1.96 *OrionStarA112: se, 2), "-", round(mean+1.96 *OrionStarA112: se, 2), ")"))
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
-
-
-# SalmonShed_salinity_summary
-
-names(SalmonShed_salinity_summary)
-# [1] "ObservationMonth" "sensortype"       "sd"               "mean"            
-# [5] "n"                "se"               "ci"    
-
-wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
-
-
-names(wider_temp)
-# [1] "ObservationMonth"    "UDA2182: mean"       "20449374: mean"      "OrionStarA112: mean"
-#  [5] "UDA2182: sd"         "20449374: sd"        "OrionStarA112: sd"   "UDA2182: se"        
-#  [9] "20449374: se"        "OrionStarA112: se"   
+write.csv(pretty_wider_salinity, "CRB_JUV_SalmonShed_salinity_FINALsummaryWIDE_2021.04.15.csv")
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 
-# Merge all dataframes by Observation Month
+
+pretty_wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% 
+  
+  mutate(mean_ci = paste(round(mean,2), 
+                         " (", round(mean-se*1.96, 2), "-", 
+                         round(mean+se*1.96, 2), ")", sep = "")) %>%
+  
+   select(ObservationMonth, sensortype, mean_ci) %>% 
+  
+  pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
+
+write.csv(pretty_wider_temp, "CRB_JUV_SalmonShed_temp_FINALsummaryWIDE_2021.04.15.csv")
+
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 
+## Merge all dataframes by Observation Month
+# pretty_wider_pH
+# pretty_wider_salinity
+# pretty_wider_temp
+
+All_inputs_byMonthseries <- merge(merge(
+  pretty_wider_pH,
+  pretty_wider_salinity, all = TRUE),
+  pretty_wider_temp, all = TRUE)
+
+
+b <- left_join(
+  pretty_wider_pH,
+  pretty_wider_salinity,
+  by = "ObservationMonth"
+) %>%
+  left_join(
+    pretty_wider_temp,
+     by = "ObservationMonth"
+) %>%
+# new name then, old name
+
+   rename(b,
+          
+    OrionStarA112_salinity.range = OrionStarA112,
+    SPEC_pH.range = OceanOptics1.6.7,
+    UDA2182durfet_pH.range = UDA2182durfet,
+    ATI.Q46CT.toroidal_salinity_range = SENSOREXtorodial,
+    UDA_temp.range = UDA2182
+    # HOBOlogger_temp.range = "20449374",
+    )
+
+write_csv(b, "CRB_JUV_SalmonShed_allvariables_summaryWIDE_2021.04.15.csv")
+
+names(All_inputs_byMonthseries)
+# [1] "ObservationMonth" "OrionStarA112"    "treatment"        "OceanOptics1.6.7"
+# [5] "UDA2182durfet"    "SENSOREXtorodial" "UDA2182"          "20449374"
+
+rename(All_inputs_byMonthseries, All_inputs_byMonthseries$20449374 = HOBOlogger_temp.range)
+
+names(All_inputs_byMonthseries)
+
+All_inputs_byMonthseries %>% 
+  rename(
+    OrionStarA112 = OrionStarA112_salinity.range,
+    OceanOptics1.6.7 = SPEC_pH.range,
+    UDA2182durfet = UDA2182durfet_pH.range,
+    SENSOREXtorodial = Torodial_salinity.range,
+    UDA2182 = UDA_temp.range,
+    All_inputs_byMonthseries$20449374 = HOBOlogger_temp.range
+    )
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 # Reorder Columns
 # col_order <- c("Species", "Petal.Width", "Sepal.Length",
 #                "Sepal.Width", "Petal.Length")
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
+
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 
@@ -428,8 +489,12 @@ write.csv(wider_pH, "CRB_JUV_SalmonShed_pH_summaryWIDE_2021.03.31.csv")
 
 
 
-### 5.c) Salmon Shed Salinity Summary Table Clean Up
+### 5.c) Old timey clean up 
 ```{r}
+
+
+
+
 # SalmonShed_salinity_summary
 
 SalmonShed_pH_summary <- na.omit(SalmonShed_pH_summary)
