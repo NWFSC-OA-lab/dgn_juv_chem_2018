@@ -272,7 +272,7 @@ SalmonShed_temp_summary
 
 SalmonShed_temp_summary <- na.omit(SalmonShed_temp_summary)
 kable(SalmonShed_temp_summary, digits = 4)
-write.csv(SalmonShed_temp_summary, "CRB_JUV_SalmonShed_sensortype_temp_summary_2021.03.31.csv")
+# write.csv(SalmonShed_temp_summary, "CRB_JUV_SalmonShed_sensortype_temp_summary_2021.04.22.csv")
 
 
 
@@ -288,7 +288,7 @@ SalmonShed_pH_summary
 
 SalmonShed_pH_summary <- na.omit(SalmonShed_pH_summary)
 kable(SalmonShed_pH_summary, digits = 4)
-write.csv(SalmonShed_pH_summary, "CRB_JUV_SalmonShed_sensortype_pH_summary_2021.03.31.csv")
+# write.csv(SalmonShed_pH_summary, "CRB_JUV_SalmonShed_sensortype_pH_summary_2021.04.22.csv")
 
 
 
@@ -305,7 +305,7 @@ SalmonShed_salinity_summary
 
 SalmonShed_salinity_summary <- na.omit(SalmonShed_salinity_summary)
 kable(SalmonShed_salinity_summary, digits = 4)
-write.csv(SalmonShed_salinity_summary, "CRB_JUV_SalmonShed_sensortype_salinity_summary_2021.03.31.csv")
+# write.csv(SalmonShed_salinity_summary, "CRB_JUV_SalmonShed_sensortype_salinity_summary_2021.04.22.csv")
 
 
 
@@ -336,8 +336,8 @@ kable(SalmonShed_temp_summary, digits = 4)
 
 
 wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensortype, mean, sd, se) %>% pivot_wider(names_from = c(sensortype), values_from = c(mean, sd, se), names_glue = "{sensortype}: {.value}")
-
-write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.04.08.csv")
+# 
+# write.csv(wider_temp, "CRB_JUV_SalmonShed_temp_summaryWIDE_2021.04.22.csv")
 
 
 ```
@@ -363,7 +363,7 @@ pretty_wider_pH <- SalmonShed_pH_summary %>% select(ObservationMonth, treatment,
   
   pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
 
-write.csv(pretty_wider_pH, "CRB_JUV_SalmonShed_pH_FINALsummaryWIDE_2021.04.15.csv")
+# write.csv(pretty_wider_pH, "CRB_JUV_SalmonShed_pH_FINALsummaryWIDE_2021.04.22.csv")
 
 
 
@@ -383,7 +383,7 @@ pretty_wider_salinity <- SalmonShed_salinity_summary %>% select(ObservationMonth
   
   pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
 
-write.csv(pretty_wider_salinity, "CRB_JUV_SalmonShed_salinity_FINALsummaryWIDE_2021.04.15.csv")
+# write.csv(pretty_wider_salinity, "CRB_JUV_SalmonShed_salinity_FINALsummaryWIDE_2021.04.22.csv")
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - | 
 
@@ -398,7 +398,7 @@ pretty_wider_temp <- SalmonShed_temp_summary %>% select(ObservationMonth, sensor
   
   pivot_wider(names_from = c(sensortype), values_from = c(mean_ci))
 
-write.csv(pretty_wider_temp, "CRB_JUV_SalmonShed_temp_FINALsummaryWIDE_2021.04.15.csv")
+# write.csv(pretty_wider_temp, "CRB_JUV_SalmonShed_temp_FINALsummaryWIDE_2021.04.22.csv")
 
 
 
@@ -414,6 +414,7 @@ All_inputs_byMonthseries <- merge(merge(
   pretty_wider_salinity, all = TRUE),
   pretty_wider_temp, all = TRUE)
 
+write_csv(All_inputs_byMonthseries, "CRB_JUV_SalmonShed_allvariables_summaryWIDE_2021.04.122.csv")
 
 b <- left_join(
   pretty_wider_pH,
@@ -433,7 +434,6 @@ b <- left_join(
     UDA2182durfet_pH.range = UDA2182durfet,
     ATI.Q46CT.toroidal_salinity_range = SENSOREXtorodial,
     UDA_temp.range = UDA2182
-    # HOBOlogger_temp.range = "20449374",
     )
 
 write_csv(b, "CRB_JUV_SalmonShed_allvariables_summaryWIDE_2021.04.15.csv")
